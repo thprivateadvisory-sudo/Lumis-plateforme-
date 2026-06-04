@@ -36,6 +36,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* ─── BODY ───────────────────────────────────────────────────────────────── */
@@ -47,6 +48,13 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   cursor: none;
+  width: 100%;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ─── SCROLLBAR ──────────────────────────────────────────────────────────── */
@@ -254,7 +262,8 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
-  padding: 0 32px;
+  justify-content: space-between;
+  padding: 0 24px;
   gap: 0;
   transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
   border-bottom: 1px solid transparent;
@@ -332,9 +341,10 @@ body {
   gap: 5px;
   background: none;
   border: none;
-  cursor: none;
-  padding: 6px;
+  cursor: pointer;
+  padding: 8px;
   border-radius: 6px;
+  flex-shrink: 0;
 }
 .hamburger span {
   display: block;
@@ -1317,16 +1327,21 @@ body {
   .w,
   .wm,
   .ws {
-    padding: 0 20px;
+    padding: 0 18px;
   }
   .sec {
-    padding: 72px 0;
+    padding: 64px 0;
   }
   .secm {
     padding: 48px 0;
   }
   .hh1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
+  }
+  h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   .nav-r .btn {
     display: none;
