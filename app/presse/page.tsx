@@ -40,7 +40,7 @@ export default function PressePage() {
         <div className="w">
           <div className="tag">Chiffres clés</div>
           <h2 className="h2" style={{ fontSize: 'clamp(28px,4vw,48px)', marginBottom: 40 }}>LUMIS <em>en chiffres</em></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
+          <div className="g4" style={{ gap: 16 }}>
             {STATS.map(s => (
               <div key={s.label} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 18, padding: '28px 24px', textAlign: 'center' }}>
                 <div style={{ fontFamily: 'var(--fh)', fontSize: 40, fontWeight: 800, letterSpacing: '-.04em', color: 'var(--y)' }}>{s.value}</div>
@@ -57,7 +57,7 @@ export default function PressePage() {
         <div className="w">
           <div className="tag">Revue de presse</div>
           <h2 className="h2" style={{ fontSize: 'clamp(28px,4vw,48px)', marginBottom: 40 }}>Ils parlent<br /><em>de nous.</em></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+          <div className="g2" style={{ gap: 18 }}>
             {COVERAGE.map(item => (
               <div key={item.media} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: 28 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
@@ -80,7 +80,7 @@ export default function PressePage() {
         <div className="w" style={{ maxWidth: 800 }}>
           <div className="tag">Kit presse</div>
           <h2 className="h2" style={{ fontSize: 'clamp(28px,4vw,48px)', marginBottom: 40 }}>Ressources pour<br /><em>les journalistes.</em></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 40 }}>
+          <div className="g2" style={{ gap: 16, marginBottom: 40 }}>
             {[
               { icon: '📁', title: 'Dossier de presse', desc: 'Présentation complète, faits & chiffres, biographies équipe', action: 'Télécharger' },
               { icon: '🖼️', title: 'Logos & Visuels', desc: 'Logos HD, captures produit, photos équipe haute résolution', action: 'Télécharger' },

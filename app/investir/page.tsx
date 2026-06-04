@@ -150,9 +150,8 @@ function PortfolioWidget() {
       </svg>
 
       <div
+        className="g3"
         style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
           gap: '1px',
           background: 'rgba(255,255,255,0.07)',
           borderRadius: '10px',
@@ -233,9 +232,8 @@ function StatsSection() {
   return (
     <div
       ref={ref}
+      className="g4"
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
         gap: '1px',
         background: 'rgba(255,255,255,0.07)',
         border: '1px solid rgba(255,255,255,0.07)',
@@ -384,9 +382,8 @@ export default function InvestirPage() {
           </div>
 
           <div
+            className="g3"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
               gap: '20px',
               alignItems: 'start',
             }}

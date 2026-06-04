@@ -199,9 +199,8 @@ export default function AcademiePage() {
           </div>
 
           <div
+            className="g3"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
               gap: '20px',
             }}
           >
@@ -299,9 +298,8 @@ export default function AcademiePage() {
 
                 {/* Meta */}
                 <div
+                  className="g2"
                   style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
                     gap: '8px',
                     marginBottom: '20px',
                     paddingTop: '16px',
@@ -369,9 +367,8 @@ export default function AcademiePage() {
           </div>
 
           <div
+            className="g3"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
               gap: '20px',
               marginBottom: '48px',
             }}
@@ -616,9 +613,8 @@ export default function AcademiePage() {
             des contextes réels. Chaque cours est mis à jour tous les 3 mois.
           </p>
           <div
+            className="g4"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
               gap: '16px',
             }}
           >

@@ -37,7 +37,7 @@ export default function EntreprisesPage() {
 
       <section className="secm">
         <div className="w">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, marginBottom: 68 }}>
+          <div className="g3" style={{ gap: 16, marginBottom: 68 }}>
             {SOLUTIONS.map(s => (
               <div key={s.title} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: 30, transition: 'all .3s', cursor: 'pointer' }}>
                 <div style={{ width: 50, height: 50, borderRadius: 14, background: 'var(--yd)', border: '1px solid rgba(212,255,0,.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, marginBottom: 18 }}>
@@ -54,7 +54,7 @@ export default function EntreprisesPage() {
 
           <div className="tag">Résultats concrets</div>
           <h2 className="h2" style={{ fontSize: 'clamp(28px,4vw,48px)', marginBottom: 40 }}>Ce que nos clients<br /><em>ont accompli.</em></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+          <div className="g2" style={{ gap: 18 }}>
             {CASES.map(c => (
               <div key={c.sector} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: 30 }}>
                 <div style={{ width: 46, height: 46, borderRadius: 12, background: 'var(--raise)', border: '1px solid var(--w2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 14 }}>

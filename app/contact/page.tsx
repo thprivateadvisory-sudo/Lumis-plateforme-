@@ -38,7 +38,7 @@ export default function ContactPage() {
           <div className="tag">Contact</div>
           <h1 className="h2">Parlons de votre<br /><em>projet IA.</em></h1>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 52, paddingTop: 48, alignItems: 'start' }}>
+          <div className="g2" style={{ gap: 52, paddingTop: 48, alignItems: 'start' }}>
             {/* Form */}
             <div style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 22, padding: 36 }}>
               {status === 'success' ? (
@@ -57,7 +57,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit}>
                   <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 22 }}>Envoyez-nous un message</h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 18 }}>
+                  <div className="g2" style={{ gap: 14, marginBottom: 18 }}>
                     <div>
                       <label style={{ fontSize: 13, fontWeight: 600, display: 'block', marginBottom: 8 }}>Prénom</label>
                       <input className="fi" type="text" placeholder="Thomas" required value={form.firstName}

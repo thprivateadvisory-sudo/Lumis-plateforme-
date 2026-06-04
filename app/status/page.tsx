@@ -83,9 +83,8 @@ export default function StatusPage() {
       <section className="secm">
         <div className="w">
           <div
+            className="g3"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3,1fr)',
               gap: 16,
               marginBottom: 48,
             }}

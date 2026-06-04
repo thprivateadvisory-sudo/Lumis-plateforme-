@@ -211,9 +211,7 @@ export default function ROIPage() {
       {/* ── CALCULATOR ── */}
       <section style={{ padding: '0 0 120px' }}>
         <div className="w">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+          <div className="g2" style={{
             gap: '32px',
             alignItems: 'start',
           }}>
@@ -350,7 +348,7 @@ export default function ROIPage() {
               </div>
 
               {/* KPI grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="g2" style={{ gap: '12px' }}>
                 {[
                   { label: 'Heures libérées/an', value: animatedHours.toLocaleString('fr'), unit: 'h', color: '#4da6ff', icon: '⏱' },
                   { label: 'Coût LUMIS/mois', value: animatedCost.toLocaleString('fr'), unit: '€', color: '#f59e0b', icon: '💳' },
@@ -462,8 +460,7 @@ export default function ROIPage() {
             <br />
             <em>calculons le ROI</em>
           </h2>
-          <div style={{
-            display: 'grid', gridTemplateColumns: '1fr 1fr',
+          <div className="g2" style={{
             gap: '20px', marginTop: '40px',
           }}>
             {[

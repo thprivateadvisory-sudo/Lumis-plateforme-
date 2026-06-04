@@ -1454,3 +1454,25 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ─── RESPONSIVE GRID UTILITIES ──────────────────────────────────────────── */
+/* Use these classes instead of inline gridTemplateColumns for responsiveness */
+
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.g2-asym { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start; }
+
+@media (max-width: 900px) {
+  .g3 { grid-template-columns: 1fr 1fr; }
+  .g4 { grid-template-columns: 1fr 1fr; }
+  .g2-asym { grid-template-columns: 1fr; gap: 24px; }
+  .cglayout { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 640px) {
+  .g2 { grid-template-columns: 1fr; }
+  .g3 { grid-template-columns: 1fr; }
+  .g4 { grid-template-columns: 1fr 1fr; }
+  .tgrid { grid-template-columns: 1fr; }
+}

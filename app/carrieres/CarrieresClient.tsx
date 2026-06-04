@@ -64,7 +64,7 @@ export default function CarrieresClient() {
         <div className="w">
           <div className="tag">Pourquoi LUMIS ?</div>
           <h2 className="h2" style={{ fontSize: 'clamp(28px,4vw,48px)', marginBottom: 40 }}>Ce que vous<br /><em>trouvez ici.</em></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
+          <div className="g3" style={{ gap: 16 }}>
             {PERKS.map(p => (
               <div key={p.label} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 18, padding: 24 }}>
                 <div style={{ fontSize: 32, marginBottom: 14 }}>{p.icon}</div>

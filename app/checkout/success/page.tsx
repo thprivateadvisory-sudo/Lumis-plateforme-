@@ -70,9 +70,8 @@ export default function CheckoutSuccessPage() {
 
         {/* Next steps */}
         <div
+          className="g3"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3,1fr)',
             gap: 16,
             marginBottom: 48,
           }}
