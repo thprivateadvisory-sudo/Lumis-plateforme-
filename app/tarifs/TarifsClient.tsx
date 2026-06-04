@@ -299,14 +299,13 @@ export default function TarifsClient() {
             {FAQ_ITEMS.map((item, i) => (
               <div
                 key={i}
-                className={`fqi${openFaq === i ? ' op' : ''}`}
+                className={`fqi${openFaq === i ? ' open' : ''}`}
               >
                 <div
                   className="fqq"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
                   {item.q}
-                  <span className="fqico">+</span>
                 </div>
                 {openFaq === i && (
                   <div className="fqa">{item.a}</div>

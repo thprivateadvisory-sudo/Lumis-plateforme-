@@ -415,7 +415,7 @@ export default function HomePage() {
             Ils ont mesuré le résultat.
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }} className="tgrid">
+          <div className="g3">
             {TESTIMONIALS.map((t) => (
               <div key={t.name} style={{ background: 'var(--panel)', border: '1px solid var(--w1)', borderRadius: 16, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 700, color: 'var(--y)', letterSpacing: '-.03em', lineHeight: 1 }}>
