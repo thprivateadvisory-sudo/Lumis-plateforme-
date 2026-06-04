@@ -1367,3 +1367,94 @@ body {
     display: none;
   }
 }
+
+/* ─── HOMEPAGE REDESIGN LAYOUTS ──────────────────────────────────────── */
+
+/* Hero split: copy left, terminal right */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 44px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Stats bar below hero: 4 equal columns */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 44px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Why section: sticky title left, numbered list right */
+.why-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Secondary testimonials: 2 equal columns */
+.testi-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* CTA: copy left, decorative number right */
+.cta-split {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 32px;
+  }
+  .hero-terminal {
+    display: none;
+  }
+  .hero-stats {
+    padding: 0 32px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .why-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .why-layout > div:first-child {
+    position: static !important;
+  }
+  .cta-split {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .cta-num {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-split,
+  .hero-stats {
+    padding: 0 20px;
+  }
+  .testi-2 {
+    grid-template-columns: 1fr;
+  }
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
