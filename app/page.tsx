@@ -4,11 +4,11 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'LUMIS.AI — La Plateforme IA Souveraine Française',
   description:
-    'LUMIS combine assistants génératifs, agents autonomes, API souveraine et infrastructure enterprise. Données hébergées en France, RGPD natif, résultats en 48h.',
+    'LUMIS combine assistants génératifs, agents autonomes et API souveraine pour les grandes organisations françaises. Certifiée ISO 27001, HDS, SOC 2. Infrastructure 100% hébergée en France.',
   openGraph: {
     title: 'LUMIS.AI — La Plateforme IA Souveraine Française',
     description:
-      'Productivité ×3 dès la première semaine. 312K utilisateurs. 100% hébergé France.',
+      'Infrastructure IA certifiée ISO 27001 · HDS · SOC 2. 312K utilisateurs. 100% hébergé en France.',
     url: 'https://lumis.ai',
     siteName: 'LUMIS.AI',
     locale: 'fr_FR',
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "LUMIS.AI — L’IA Souveraine Française",
-    description: '4B+ tokens/jour · 312K users · 18M€ ARR · 99.9% uptime',
+    title: "LUMIS.AI — L'IA Souveraine Française",
+    description: '4B+ tokens/jour · 312K utilisateurs · 18M€ ARR · SLA 99.99%',
   },
 }
 
@@ -28,7 +28,7 @@ const jsonLd = {
   url: 'https://lumis.ai',
   logo: 'https://lumis.ai/logo.png',
   description:
-    'Plateforme IA souveraine française. Assistants génératifs, agents autonomes, API certifiée ISO 27001.',
+    'Plateforme IA souveraine française. Assistants génératifs, agents autonomes, API certifiée ISO 27001, HDS, SOC 2.',
   foundingDate: '2022',
   address: {
     '@type': 'PostalAddress',
@@ -126,30 +126,26 @@ const LOGOS = [
 const WHY_ITEMS = [
   {
     n: '01',
-    icon: '🇫🇷',
-    title: '100% Souverain & RGPD',
-    desc: 'Infrastructure GPU en Île-de-France, certifiée HDS et ISO 27001. Aucune donnée hors UE. Aucune dépendance aux Big Tech. La souveraineté numérique n\'est pas un argument marketing — c\'est notre architecture fondamentale.',
+    title: 'Souveraineté & conformité totale',
+    desc: 'Infrastructure GPU en Île-de-France, certifiée HDS, ISO 27001 et SOC 2. Aucune donnée hors UE, aucune dépendance aux hyperscalers américains. Nos SLA contractuels garantissent votre conformité RGPD de manière native — pas comme un module ajouté après coup.',
     delay: '',
   },
   {
     n: '02',
-    icon: '⚡',
-    title: 'Résultats en 48 heures',
-    desc: 'Déployez votre premier agent en 10 minutes. Gain moyen de productivité de 340% dès la première semaine. Des économies mesurées en euros, un ROI démontrable — pas des promesses floues.',
+    title: 'Déploiement en 48 heures, ROI en 30 jours',
+    desc: 'Premier agent opérationnel en une journée. Gain moyen de productivité mesuré à 340% dès la première semaine. Nos équipes Customer Success assurent l\'intégration à vos systèmes existants (SAP, Salesforce, SharePoint) sans rupture opérationnelle.',
     delay: 'd1',
   },
   {
     n: '03',
-    icon: '🧠',
-    title: 'Modèles de niveau mondial',
-    desc: 'LUMIS Ultra surpasse GPT-4o sur les benchmarks français et tâches métier. 512K tokens de contexte, multimodal natif, raisonnement avancé. Entraîné sur les meilleurs corpus francophones de haute qualité.',
+    title: 'Modèles de niveau mondial, en français',
+    desc: 'LUMIS Ultra surpasse GPT-4o sur les benchmarks français et tâches métier critiques. 512K tokens de contexte natif, multimodal, raisonnement avancé. Entraîné sur les meilleurs corpus francophones — conçu pour comprendre le droit français, la finance européenne, le secteur industriel.',
     delay: '',
   },
   {
     n: '04',
-    icon: '🏗️',
-    title: 'Infrastructure enterprise',
-    desc: 'SLA 99.99%, latence 38ms P95, auto-scaling sans plafond. On-premise ou cloud dédié. 14 brevets déposés. Construite pour scaler de 1 à 10 millions d\'utilisateurs sans interruption.',
+    title: 'Infrastructure conçue pour les grandes organisations',
+    desc: 'SLA 99.99%, latence 38ms P95, auto-scaling sans plafond. Déploiement on-premise sur votre datacenter ou cloud dédié isolé. 14 brevets déposés. Construite pour scaler de 100 à 10 millions d\'utilisateurs sans interruption de service ni renégociation tarifaire.',
     delay: 'd1',
   },
 ]
@@ -158,8 +154,8 @@ const TESTIMONIALS = [
   {
     stars: '★★★★★',
     quote:
-      '"En 3 mois, nos agents LUMIS ont généré 2,4M€ de nouveau pipeline. C\'est notre meilleur investissement technologique de l\'année, sans aucune exception."',
-    avatar: '👨‍💼',
+      '"En 3 mois, nos agents LUMIS ont généré 2,4M€ de nouveau pipeline commercial. C\'est notre investissement technologique le plus rentable de l\'année, sans aucune exception."',
+    initials: 'MD',
     name: 'Maxime Durand',
     role: 'CEO — ScaleX · SaaS B2B 50 salariés',
     delay: '',
@@ -168,7 +164,7 @@ const TESTIMONIALS = [
     stars: '★★★★★',
     quote:
       '"Léa Finance analyse nos 50 000 transactions mensuelles en 2 minutes. Avant : 2 jours, 3 personnes. LUMIS nous a rendu l\'équivalent de 6 ETP par mois."',
-    avatar: '👩‍💼',
+    initials: 'CM',
     name: 'Claire Monet',
     role: 'CFO — Groupe Mercure · PME 80M€ CA',
     delay: 'd1',
@@ -176,8 +172,8 @@ const TESTIMONIALS = [
   {
     stars: '★★★★★',
     quote:
-      '"Hébergement 100% français, certifications HDS — pour un CHU c\'est non-négociable. LUMIS est la seule plateforme IA qui répond à nos exigences de sécurité."',
-    avatar: '👨‍⚕️',
+      '"Hébergement 100% français, certifications HDS — pour un CHU c\'est non-négociable. LUMIS est la seule plateforme IA qui répond à nos exigences de sécurité et de souveraineté."',
+    initials: 'FL',
     name: 'Dr. François Lemaire',
     role: 'CISO — CHU de Lyon · Données HDS',
     delay: 'd2',
@@ -250,7 +246,6 @@ function TerminalPreview() {
 
         {/* LUMIS response */}
         <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-          {/* Avatar */}
           <div style={{ flexShrink: 0 }}>
             <svg width="27" height="27" viewBox="0 0 27 27" fill="none">
               <rect width="27" height="27" rx="7" fill="#d4ff00" />
@@ -279,14 +274,7 @@ function TerminalPreview() {
         </div>
 
         {/* Metric chips */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3,1fr)',
-            gap: 8,
-            marginTop: 4,
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginTop: 4 }}>
           {[
             { val: '50K', lbl: 'transactions' },
             { val: '1m48s', lbl: 'durée' },
@@ -348,6 +336,31 @@ function TerminalPreview() {
   )
 }
 
+function InitialsAvatar({ initials }: { initials: string }) {
+  return (
+    <div
+      style={{
+        width: 36,
+        height: 36,
+        borderRadius: '50%',
+        background: 'var(--raise)',
+        border: '1px solid var(--w2)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 13,
+        fontWeight: 700,
+        color: 'var(--y)',
+        flexShrink: 0,
+        fontFamily: 'var(--fh)',
+        letterSpacing: '-.01em',
+      }}
+    >
+      {initials}
+    </div>
+  )
+}
+
 export default function HomePage() {
   return (
     <>
@@ -357,7 +370,7 @@ export default function HomePage() {
       />
 
       {/* ── HERO ── */}
-      <section id="hero" style={{ textAlign: 'left', paddingLeft: 0, paddingRight: 0 }}>
+      <section id="hero" style={{ paddingLeft: 0, paddingRight: 0 }}>
         <div className="hbg">
           <svg
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.4 }}
@@ -418,58 +431,57 @@ export default function HomePage() {
 
               <h1
                 style={{
-                  fontSize: 'clamp(3rem,5.5vw,5.25rem)',
+                  fontSize: 'clamp(2.75rem,5vw,4.75rem)',
                   fontWeight: 700,
                   lineHeight: 1.05,
-                  letterSpacing: '-.02em',
+                  letterSpacing: '-.025em',
                   color: 'var(--snow)',
                   margin: 0,
                 }}
               >
-                L&apos;IA qui
+                L&apos;IA souveraine
                 <br />
-                <em style={{ fontStyle: 'italic', color: '#d4ff00' }}>travaille</em>
+                <em style={{ fontStyle: 'italic', color: '#d4ff00', fontFamily: 'var(--fi)', fontWeight: 400 }}>
+                  pour les grandes
+                </em>
                 <br />
-                vraiment.
+                organisations.
               </h1>
 
               <p
                 style={{
                   marginTop: 24,
-                  maxWidth: 400,
+                  maxWidth: 420,
                   fontSize: 16,
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                   color: 'var(--fog)',
                 }}
               >
-                LUMIS combine <strong>assistants génératifs</strong>,{' '}
-                <strong>agents autonomes</strong> et <strong>API souveraine</strong>. Vos données
-                restent en France. Vos résultats, eux, s&apos;envolent.
+                LUMIS déploie des <strong style={{ color: 'var(--snow)' }}>agents IA autonomes</strong> dans vos
+                systèmes métier. Infrastructure certifiée, données hébergées en France, contrats
+                adaptés aux exigences des grands comptes.
               </p>
 
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 36 }}>
-                <Link href="/tarifs" className="btn by">
-                  ⚡ Essayer gratuitement
+                <Link href="/contact" className="btn by">
+                  Demander une démonstration
                 </Link>
-                <Link href="/agents" className="btn bg">
-                  Voir les agents →
+                <Link href="/entreprises" className="btn bg">
+                  Explorer nos solutions →
                 </Link>
               </div>
 
               <p
                 style={{
-                  marginTop: 20,
+                  marginTop: 24,
                   fontFamily: 'var(--fm)',
-                  fontSize: 12,
-                  color: 'var(--fog)',
-                  display: 'flex',
-                  gap: 16,
-                  flexWrap: 'wrap',
+                  fontSize: 11,
+                  color: 'var(--mist)',
+                  letterSpacing: '.06em',
+                  textTransform: 'uppercase',
                 }}
               >
-                <span>🔒 RGPD natif</span>
-                <span>🇫🇷 Hébergé en France</span>
-                <span>14 jours gratuits</span>
+                ISO 27001 · HDS · SOC 2 · RGPD natif · SLA 99.99%
               </p>
             </div>
 
@@ -494,7 +506,7 @@ export default function HomePage() {
             { val: '4B+', lbl: 'Tokens / jour' },
             { val: '312K', lbl: 'Utilisateurs actifs' },
             { val: '18M€', lbl: 'ARR · +420% YoY' },
-            { val: '99.9%', lbl: 'Uptime SLA' },
+            { val: '99.99%', lbl: 'Uptime SLA garanti' },
           ].map((stat) => (
             <div
               key={stat.lbl}
@@ -513,7 +525,7 @@ export default function HomePage() {
               <div
                 style={{
                   marginTop: 4,
-                  fontSize: 12,
+                  fontSize: 11,
                   fontFamily: 'var(--fm)',
                   color: 'var(--mist)',
                   letterSpacing: '.06em',
@@ -566,11 +578,11 @@ export default function HomePage() {
               </h2>
               <p className="txt" style={{ marginTop: 20, lineHeight: 1.75 }}>
                 Les autres vendent des chatbots. Nous livrons des résultats mesurables dès la
-                première semaine.
+                première semaine — contractuels, auditables, garantis.
               </p>
               <div style={{ marginTop: 32 }}>
-                <Link href="/demo" className="btn by bsm">
-                  Essayer gratuitement →
+                <Link href="/contact" className="btn by bsm">
+                  Planifier un appel →
                 </Link>
               </div>
             </div>
@@ -611,9 +623,9 @@ export default function HomePage() {
                         marginBottom: 10,
                       }}
                     >
-                      {item.icon}&nbsp; {item.title}
+                      {item.title}
                     </div>
-                    <div style={{ fontSize: 14, color: 'var(--fog)', lineHeight: 1.75 }}>
+                    <div style={{ fontSize: 14, color: 'var(--fog)', lineHeight: 1.8 }}>
                       {item.desc}
                     </div>
                   </div>
@@ -639,14 +651,14 @@ export default function HomePage() {
             }}
           >
             <div>
-              <div className="tag">Témoignages</div>
+              <div className="tag">Témoignages clients</div>
               <blockquote
                 style={{
                   fontFamily: "'Instrument Serif', Georgia, serif",
                   fontStyle: 'italic',
-                  fontSize: 'clamp(1.25rem,2.5vw,1.65rem)',
+                  fontSize: 'clamp(1.15rem,2.5vw,1.55rem)',
                   color: 'var(--snow)',
-                  lineHeight: 1.5,
+                  lineHeight: 1.55,
                   margin: '20px 0 24px',
                   padding: 0,
                   border: 'none',
@@ -663,7 +675,7 @@ export default function HomePage() {
                   color: 'var(--fog)',
                 }}
               >
-                <span style={{ fontSize: 22 }}>{TESTIMONIALS[0].avatar}</span>
+                <InitialsAvatar initials={TESTIMONIALS[0].initials} />
                 <div>
                   <div style={{ fontWeight: 600, color: 'var(--snow)' }}>{TESTIMONIALS[0].name}</div>
                   <div style={{ marginTop: 2 }}>{TESTIMONIALS[0].role}</div>
@@ -685,7 +697,7 @@ export default function HomePage() {
               <div
                 style={{
                   marginTop: 8,
-                  fontSize: 12,
+                  fontSize: 11,
                   fontFamily: 'var(--fm)',
                   color: 'var(--mist)',
                   letterSpacing: '.06em',
@@ -727,7 +739,7 @@ export default function HomePage() {
                     style={{
                       fontSize: 14,
                       color: 'var(--fog)',
-                      lineHeight: 1.7,
+                      lineHeight: 1.75,
                       margin: 0,
                       flex: 1,
                     }}
@@ -757,7 +769,7 @@ export default function HomePage() {
                     paddingTop: 16,
                   }}
                 >
-                  <span style={{ fontSize: 18 }}>{t.avatar}</span>
+                  <InitialsAvatar initials={t.initials} />
                   <div>
                     <div style={{ fontWeight: 600, color: 'var(--snow)', fontSize: 13 }}>
                       {t.name}
@@ -777,14 +789,14 @@ export default function HomePage() {
           <div className="cta-split">
             {/* Left — copy */}
             <div>
-              <div className="tag">Prêt à commencer ?</div>
+              <div className="tag">Passer à l&apos;action</div>
               <h2
                 className="h2"
                 style={{ fontSize: 'clamp(2rem,4vw,3rem)', marginTop: 16 }}
               >
-                Elles ont déjà
+                Planifiez votre
                 <br />
-                <em>sauté le pas.</em>
+                <em>démonstration.</em>
               </h2>
               <p
                 style={{
@@ -792,34 +804,37 @@ export default function HomePage() {
                   marginBottom: 32,
                   fontSize: 15,
                   color: 'var(--fog)',
-                  lineHeight: 1.7,
-                  maxWidth: 380,
+                  lineHeight: 1.75,
+                  maxWidth: 400,
                 }}
               >
-                10 minutes pour déployer votre premier agent et mesurer la différence.
+                Un expert LUMIS vous présente la plateforme adaptée à votre contexte, vos
+                contraintes de sécurité et vos cas d&apos;usage métier. Sans engagement.
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <Link href="/tarifs" className="btn by">
-                  Démarrer gratuitement →
+                <Link href="/contact" className="btn by">
+                  Planifier une démonstration →
                 </Link>
-                <Link href="/contact" className="btn bg">
-                  Parler à un expert
+                <Link href="/entreprises" className="btn bg">
+                  Nos solutions entreprise
                 </Link>
               </div>
               <p
                 style={{
-                  marginTop: 14,
+                  marginTop: 16,
                   fontSize: 12,
                   color: 'var(--mist)',
                   fontFamily: 'var(--fm)',
+                  letterSpacing: '.04em',
                 }}
               >
-                Sans engagement · Annulation en 1 clic
+                Réponse sous 24h · Sans engagement · NDA disponible
               </p>
             </div>
 
             {/* Right — decorative number */}
             <div
+              className="cta-num"
               style={{
                 fontFamily: 'var(--fm)',
                 fontSize: 'clamp(5rem,10vw,9rem)',

@@ -135,10 +135,11 @@ export default function Footer() {
             </p>
 
             <div className="fbrand-badges">
-              <span className="fbrand-badge">🇫🇷 Souverain</span>
-              <span className="fbrand-badge">🔒 RGPD</span>
+              <span className="fbrand-badge">Souverain FR</span>
+              <span className="fbrand-badge">RGPD</span>
               <span className="fbrand-badge">ISO 27001</span>
               <span className="fbrand-badge">SOC 2</span>
+              <span className="fbrand-badge">HDS</span>
             </div>
 
             <nav className="fsoc" aria-label="Réseaux sociaux LUMIS">
@@ -178,7 +179,7 @@ export default function Footer() {
         <div className="fbot">
           <p className="fcopy">
             © 2025 LUMIS SAS — SIRET 123&nbsp;456&nbsp;789&nbsp;00012 · 42 av.
-            des Champs-Élysées, 75008 Paris 🇫🇷
+            des Champs-Élysées, 75008 Paris
           </p>
 
           <nav className="flegal" aria-label="Liens légaux">
