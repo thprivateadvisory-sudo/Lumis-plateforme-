@@ -258,7 +258,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* ── HERO ── */}
-      <section id="hero" style={{ paddingLeft: 0, paddingRight: 0 }}>
+      <section id="hero">
         <div className="hbg">
           <div className="hglow" />
           <div className="hgrad" />
@@ -277,7 +277,7 @@ export default function HomePage() {
           </svg>
         </div>
 
-        <div className="w" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="w hero-inner">
           <div className="hero-split">
             {/* Left — copy */}
             <div>
