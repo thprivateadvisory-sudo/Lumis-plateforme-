@@ -1068,7 +1068,7 @@ video {
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--snow);
-  cursor: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -7,6 +7,7 @@ import {
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import ChatWidget from '@/components/ChatWidget'
 import Link from 'next/link'
 
 /* ─── FONTS ─────────────────────────────────────────────────────────────── */
@@ -143,6 +144,9 @@ export default function RootLayout({
             Plus tard
           </button>
         </div>
+
+        {/* Floating chat widget */}
+        <ChatWidget />
 
         {/* Client-side scripts */}
         <script
