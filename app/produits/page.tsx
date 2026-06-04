@@ -227,9 +227,8 @@ export default function ProduitsPage() {
       <section className="sec" style={{ paddingTop: '56px' }}>
         <div className="w">
           <div
+            className="wgrid"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
               gap: '16px',
             }}
           >
@@ -427,13 +426,7 @@ export default function ProduitsPage() {
                 Conçu pour les exigences françaises
               </h2>
             </div>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '24px',
-              }}
-            >
+            <div className="wgrid" style={{ gap: '24px' }}>
               {[
                 { icon: '🇫🇷', title: 'Souveraineté totale', desc: 'Données hébergées en Île-de-France. Certifié HDS et ISO 27001. Zéro transfert hors UE.' },
                 { icon: '⚡', title: 'Performance mondiale', desc: 'Latence 38ms P95. 4B+ tokens/jour. Modèles qui surpassent GPT-4o sur les benchmarks français.' },

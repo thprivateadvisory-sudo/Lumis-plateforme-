@@ -262,8 +262,8 @@ export default function DemoPage() {
               question ou choisissez une suggestion.
             </p>
             <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: 8, maxWidth: 500,
+              display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+              gap: 8, width: '100%', maxWidth: 480,
             }}>
               {SUGGESTED_PROMPTS.map((p) => (
                 <button

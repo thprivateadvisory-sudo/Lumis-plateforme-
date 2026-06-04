@@ -631,7 +631,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   text-align: left;
   padding: calc(var(--nav) + 60px) 0 80px;
@@ -1325,7 +1325,7 @@ body {
   .hh1 {
     font-size: 2.4rem;
   }
-  .nav-r .btn:not(.by) {
+  .nav-r .btn {
     display: none;
   }
   .pgrid {
