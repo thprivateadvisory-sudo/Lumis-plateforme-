@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LUMIS.AI — L’IA Souveraine Française',
+    title: "LUMIS.AI — L’IA Souveraine Française",
     description: '4B+ tokens/jour · 312K users · 18M€ ARR · 99.9% uptime',
   },
 }
@@ -48,14 +48,6 @@ const jsonLd = {
     'https://linkedin.com/company/lumisai',
   ],
 }
-
-const Logo = () => (
-  <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-    <rect width="34" height="34" rx="9" fill="#d4ff00" />
-    <path d="M9 25V9h4v13h8v3H9z" fill="#000" />
-    <circle cx="25" cy="11" r="3" fill="#000" />
-  </svg>
-)
 
 const LOGOS = [
   {
@@ -192,6 +184,170 @@ const TESTIMONIALS = [
   },
 ]
 
+function TerminalPreview() {
+  return (
+    <div
+      style={{
+        background: '#0d0d0d',
+        border: '1px solid rgba(255,255,255,.1)',
+        borderRadius: 14,
+        overflow: 'hidden',
+        fontFamily: 'var(--fm)',
+        fontSize: 13,
+        boxShadow: '0 32px 80px rgba(0,0,0,.6)',
+      }}
+    >
+      {/* Title bar */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '12px 16px',
+          borderBottom: '1px solid rgba(255,255,255,.07)',
+          background: '#111',
+          position: 'relative',
+        }}
+      >
+        <div style={{ display: 'flex', gap: 7, flexShrink: 0 }}>
+          <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f57', display: 'inline-block' }} />
+          <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#febc2e', display: 'inline-block' }} />
+          <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840', display: 'inline-block' }} />
+        </div>
+        <span
+          style={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            fontSize: 11,
+            color: 'rgba(255,255,255,.4)',
+            letterSpacing: '.05em',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          LUMIS · Finance Analyst
+        </span>
+      </div>
+
+      {/* Chat body */}
+      <div style={{ padding: '24px 20px 0', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        {/* User message */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div
+            style={{
+              background: 'rgba(212,255,0,.12)',
+              border: '1px solid rgba(212,255,0,.2)',
+              borderRadius: '12px 12px 2px 12px',
+              padding: '10px 14px',
+              fontSize: 13,
+              color: 'rgba(255,255,255,.85)',
+              maxWidth: '82%',
+              lineHeight: 1.6,
+            }}
+          >
+            Analyse nos 50 000 transactions de mars et identifie les anomalies
+          </div>
+        </div>
+
+        {/* LUMIS response */}
+        <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+          {/* Avatar */}
+          <div style={{ flexShrink: 0 }}>
+            <svg width="27" height="27" viewBox="0 0 27 27" fill="none">
+              <rect width="27" height="27" rx="7" fill="#d4ff00" />
+              <path d="M7 20V7h3v10h6v3H7z" fill="#000" />
+              <circle cx="20" cy="9" r="2.5" fill="#000" />
+            </svg>
+          </div>
+          <div
+            style={{
+              background: 'rgba(255,255,255,.05)',
+              border: '1px solid rgba(255,255,255,.08)',
+              borderRadius: '2px 12px 12px 12px',
+              padding: '10px 14px',
+              fontSize: 13,
+              color: 'rgba(255,255,255,.8)',
+              lineHeight: 1.7,
+              flex: 1,
+            }}
+          >
+            Analyse terminée en{' '}
+            <strong style={{ color: '#fff' }}>1m 48s</strong>.{' '}
+            <strong style={{ color: '#fff' }}>3 anomalies détectées</strong>, dont une fraude
+            potentielle de{' '}
+            <strong style={{ color: '#d4ff00' }}>12 400€</strong> sur le compte #FR-4829.
+          </div>
+        </div>
+
+        {/* Metric chips */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3,1fr)',
+            gap: 8,
+            marginTop: 4,
+          }}
+        >
+          {[
+            { val: '50K', lbl: 'transactions' },
+            { val: '1m48s', lbl: 'durée' },
+            { val: '3', lbl: 'anomalies' },
+          ].map((chip) => (
+            <div
+              key={chip.lbl}
+              style={{
+                background: 'rgba(255,255,255,.04)',
+                border: '1px solid rgba(255,255,255,.08)',
+                borderRadius: 8,
+                padding: '8px 10px',
+                textAlign: 'center',
+              }}
+            >
+              <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>{chip.val}</div>
+              <div style={{ fontSize: 10, color: 'rgba(255,255,255,.4)', marginTop: 2, letterSpacing: '.04em' }}>
+                {chip.lbl}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Input bar */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          margin: '20px 16px 16px',
+          background: 'rgba(255,255,255,.05)',
+          border: '1px solid rgba(255,255,255,.1)',
+          borderRadius: 10,
+          padding: '10px 12px',
+        }}
+      >
+        <span style={{ flex: 1, fontSize: 12, color: 'rgba(255,255,255,.3)' }}>
+          Posez une question à votre agent…
+        </span>
+        <div
+          style={{
+            width: 28,
+            height: 28,
+            borderRadius: 7,
+            background: '#d4ff00',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M6 10V2M2 6l4-4 4 4" stroke="#000" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function HomePage() {
   return (
     <>
@@ -201,7 +357,7 @@ export default function HomePage() {
       />
 
       {/* ── HERO ── */}
-      <section id="hero">
+      <section id="hero" style={{ textAlign: 'left', paddingLeft: 0, paddingRight: 0 }}>
         <div className="hbg">
           <svg
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.4 }}
@@ -231,76 +387,161 @@ export default function HomePage() {
           <div className="hgrad" />
         </div>
 
-        <div className="hbadge">
-          <div className="bdot" />
-          #1 Plateforme IA Souveraine de France · Série B · 40M€
-        </div>
+        <div className="w">
+          <div className="hero-split">
+            {/* Left column — copy */}
+            <div>
+              <p
+                style={{
+                  fontFamily: 'var(--fm)',
+                  fontSize: 11,
+                  letterSpacing: '.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fog)',
+                  marginBottom: 28,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                }}
+              >
+                <span
+                  style={{
+                    display: 'inline-block',
+                    width: 24,
+                    height: 1,
+                    background: '#d4ff00',
+                    flexShrink: 0,
+                  }}
+                />
+                IA Souveraine Française · Série B · 40M€
+              </p>
 
-        <h1 className="hh1">
-          <span className="plain">L&apos;IA qui</span>
-          <span className="outline">travaille</span>
-          <span className="spark">vraiment.</span>
-        </h1>
+              <h1
+                style={{
+                  fontSize: 'clamp(3rem,5.5vw,5.25rem)',
+                  fontWeight: 700,
+                  lineHeight: 1.05,
+                  letterSpacing: '-.02em',
+                  color: 'var(--snow)',
+                  margin: 0,
+                }}
+              >
+                L&apos;IA qui
+                <br />
+                <em style={{ fontStyle: 'italic', color: '#d4ff00' }}>travaille</em>
+                <br />
+                vraiment.
+              </h1>
 
-        <p className="hdesc">
-          LUMIS combine <strong>assistants génératifs</strong>,{' '}
-          <strong>agents autonomes</strong>, <strong>API souveraine</strong> et{' '}
-          <strong>robots humanoïdes</strong>. Vos données restent en France. Vos
-          résultats, eux, s&apos;envolent.
-        </p>
+              <p
+                style={{
+                  marginTop: 24,
+                  maxWidth: 400,
+                  fontSize: 16,
+                  lineHeight: 1.7,
+                  color: 'var(--fog)',
+                }}
+              >
+                LUMIS combine <strong>assistants génératifs</strong>,{' '}
+                <strong>agents autonomes</strong> et <strong>API souveraine</strong>. Vos données
+                restent en France. Vos résultats, eux, s&apos;envolent.
+              </p>
 
-        <div className="hctas">
-          <Link href="/tarifs" className="btn by blg">
-            ⚡ Essayer gratuitement
-          </Link>
-          <Link href="/agents" className="btn bg blg">
-            Voir les agents IA →
-          </Link>
-        </div>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 36 }}>
+                <Link href="/tarifs" className="btn by">
+                  ⚡ Essayer gratuitement
+                </Link>
+                <Link href="/agents" className="btn bg">
+                  Voir les agents →
+                </Link>
+              </div>
 
-        <div className="htrust">
-          <span>🔒 RGPD natif</span>
-          <div className="tsep" />
-          <span>🇫🇷 Hébergé en France</span>
-          <div className="tsep" />
-          <strong>14 jours gratuits</strong>
-          <div className="tsep" />
-          <span>Sans carte bancaire</span>
-        </div>
+              <p
+                style={{
+                  marginTop: 20,
+                  fontFamily: 'var(--fm)',
+                  fontSize: 12,
+                  color: 'var(--fog)',
+                  display: 'flex',
+                  gap: 16,
+                  flexWrap: 'wrap',
+                }}
+              >
+                <span>🔒 RGPD natif</span>
+                <span>🇫🇷 Hébergé en France</span>
+                <span>14 jours gratuits</span>
+              </p>
+            </div>
 
-        <div className="hstats w">
-          <div className="hs">
-            <span className="hsv">
-              4<span className="y">B+</span>
-            </span>
-            <span className="hsl">Tokens / jour</span>
-          </div>
-          <div className="hs">
-            <span className="hsv">
-              312<span className="y">K</span>
-            </span>
-            <span className="hsl">Utilisateurs actifs</span>
-          </div>
-          <div className="hs">
-            <span className="hsv">
-              18<span className="y">M€</span>
-            </span>
-            <span className="hsl">ARR · +420% YoY</span>
-          </div>
-          <div className="hs">
-            <span className="hsv">
-              99<span className="y">.9%</span>
-            </span>
-            <span className="hsl">Uptime SLA</span>
+            {/* Right column — terminal */}
+            <div className="hero-terminal">
+              <TerminalPreview />
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ── STATS BAR ── */}
+      <div
+        style={{
+          borderTop: '1px solid var(--w1)',
+          borderBottom: '1px solid var(--w1)',
+          background: 'var(--panel)',
+        }}
+      >
+        <div className="hero-stats w">
+          {[
+            { val: '4B+', lbl: 'Tokens / jour' },
+            { val: '312K', lbl: 'Utilisateurs actifs' },
+            { val: '18M€', lbl: 'ARR · +420% YoY' },
+            { val: '99.9%', lbl: 'Uptime SLA' },
+          ].map((stat) => (
+            <div
+              key={stat.lbl}
+              style={{ padding: '28px 0', textAlign: 'center' }}
+            >
+              <div
+                style={{
+                  fontSize: 'clamp(1.5rem,2.5vw,2rem)',
+                  fontWeight: 700,
+                  color: 'var(--snow)',
+                  letterSpacing: '-.02em',
+                }}
+              >
+                {stat.val}
+              </div>
+              <div
+                style={{
+                  marginTop: 4,
+                  fontSize: 12,
+                  fontFamily: 'var(--fm)',
+                  color: 'var(--mist)',
+                  letterSpacing: '.06em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {stat.lbl}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ── LOGOS MARQUEE ── */}
       <div className="logos">
-        <p className="llbl">Ils font confiance à LUMIS</p>
-        <div className="lfl" />
-        <div className="lfr" />
+        <p
+          style={{
+            textAlign: 'center',
+            fontSize: 11,
+            fontFamily: 'var(--fm)',
+            letterSpacing: '.1em',
+            textTransform: 'uppercase',
+            color: 'var(--mist)',
+            marginBottom: 20,
+          }}
+        >
+          Ils font confiance à LUMIS
+        </p>
         <div className="mq">
           {[...LOGOS, ...LOGOS].map((logo, i) => (
             <span key={i} className="li">
@@ -314,51 +555,214 @@ export default function HomePage() {
       {/* ── POURQUOI LUMIS ── */}
       <section className="sec" style={{ background: 'var(--deep)' }}>
         <div className="w">
-          <div className="tag">Pourquoi LUMIS</div>
-          <h2 className="h2">
-            Vous méritez une IA
-            <br />
-            <em>qui performe vraiment.</em>
-          </h2>
-          <p className="lead">
-            Les autres vendent des chatbots. Nous livrons des résultats mesurables dès la
-            première semaine.
-          </p>
-          <div className="wgrid">
-            {WHY_ITEMS.map((item) => (
-              <div
-                key={item.n}
-                className={`wcell rv sh ${item.delay}`}
-                data-n={item.n}
-              >
-                <div className="wic">{item.icon}</div>
-                <div className="wt">{item.title}</div>
-                <div className="wd">{item.desc}</div>
+          <div className="why-layout">
+            {/* Left — sticky */}
+            <div style={{ position: 'sticky', top: 'calc(var(--nav) + 32px)' }}>
+              <div className="tag">Pourquoi LUMIS</div>
+              <h2 className="h2" style={{ fontSize: 'clamp(1.6rem,3vw,2.25rem)' }}>
+                L&apos;IA qui
+                <br />
+                <em>performe vraiment.</em>
+              </h2>
+              <p className="txt" style={{ marginTop: 20, lineHeight: 1.75 }}>
+                Les autres vendent des chatbots. Nous livrons des résultats mesurables dès la
+                première semaine.
+              </p>
+              <div style={{ marginTop: 32 }}>
+                <Link href="/demo" className="btn by bsm">
+                  Essayer gratuitement →
+                </Link>
               </div>
-            ))}
+            </div>
+
+            {/* Right — numbered list */}
+            <div>
+              {WHY_ITEMS.map((item, i) => (
+                <div
+                  key={item.n}
+                  className={`rv ${item.delay}`}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '52px 1fr',
+                    gap: 28,
+                    padding: '36px 0',
+                    borderBottom:
+                      i < WHY_ITEMS.length - 1 ? '1px solid var(--w1)' : 'none',
+                    alignItems: 'start',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: 'var(--fm)',
+                      fontSize: 11,
+                      color: 'var(--mist)',
+                      letterSpacing: '.08em',
+                      paddingTop: 4,
+                    }}
+                  >
+                    {item.n}
+                  </span>
+                  <div>
+                    <div
+                      style={{
+                        fontSize: 17,
+                        fontWeight: 700,
+                        color: 'var(--snow)',
+                        marginBottom: 10,
+                      }}
+                    >
+                      {item.icon}&nbsp; {item.title}
+                    </div>
+                    <div style={{ fontSize: 14, color: 'var(--fog)', lineHeight: 1.75 }}>
+                      {item.desc}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
+      {/* ── TÉMOIGNAGES ── */}
       <section className="sec">
         <div className="w">
-          <div className="tag">Témoignages</div>
-          <h2 className="h2">
-            Ils ont choisi LUMIS.
-            <br />
-            <em>Voici leurs résultats.</em>
-          </h2>
-          <div className="tgrid" style={{ marginTop: '48px' }}>
-            {TESTIMONIALS.map((t) => (
-              <div key={t.name} className={`tc rv sh ${t.delay}`}>
-                <div className="tst">{t.stars}</div>
-                <div className="tq">{t.quote}</div>
-                <div className="tp">
-                  <div className="tav">{t.avatar}</div>
+          {/* Featured testimonial */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 180px',
+              alignItems: 'end',
+              borderBottom: '1px solid var(--w1)',
+              paddingBottom: 48,
+              gap: 40,
+            }}
+          >
+            <div>
+              <div className="tag">Témoignages</div>
+              <blockquote
+                style={{
+                  fontFamily: "'Instrument Serif', Georgia, serif",
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(1.25rem,2.5vw,1.65rem)',
+                  color: 'var(--snow)',
+                  lineHeight: 1.5,
+                  margin: '20px 0 24px',
+                  padding: 0,
+                  border: 'none',
+                }}
+              >
+                {TESTIMONIALS[0].quote}
+              </blockquote>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  fontSize: 13,
+                  color: 'var(--fog)',
+                }}
+              >
+                <span style={{ fontSize: 22 }}>{TESTIMONIALS[0].avatar}</span>
+                <div>
+                  <div style={{ fontWeight: 600, color: 'var(--snow)' }}>{TESTIMONIALS[0].name}</div>
+                  <div style={{ marginTop: 2 }}>{TESTIMONIALS[0].role}</div>
+                </div>
+              </div>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <div
+                style={{
+                  fontSize: 'clamp(2.5rem,5vw,3.75rem)',
+                  fontWeight: 700,
+                  color: '#d4ff00',
+                  lineHeight: 1,
+                  letterSpacing: '-.03em',
+                }}
+              >
+                2,4M€
+              </div>
+              <div
+                style={{
+                  marginTop: 8,
+                  fontSize: 12,
+                  fontFamily: 'var(--fm)',
+                  color: 'var(--mist)',
+                  letterSpacing: '.06em',
+                  textTransform: 'uppercase',
+                  lineHeight: 1.6,
+                }}
+              >
+                nouveau pipeline
+                <br />
+                en 3 mois
+              </div>
+            </div>
+          </div>
+
+          {/* Secondary testimonials */}
+          <div className="testi-2" style={{ marginTop: 40 }}>
+            {TESTIMONIALS.slice(1).map((t) => (
+              <div
+                key={t.name}
+                style={{
+                  background: 'var(--panel)',
+                  border: '1px solid var(--w1)',
+                  borderRadius: 14,
+                  padding: '28px 28px 24px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 20,
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    gap: 16,
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: 14,
+                      color: 'var(--fog)',
+                      lineHeight: 1.7,
+                      margin: 0,
+                      flex: 1,
+                    }}
+                  >
+                    {t.quote}
+                  </p>
+                  <div
+                    style={{
+                      fontSize: 'clamp(1.1rem,2vw,1.4rem)',
+                      fontWeight: 700,
+                      color: '#d4ff00',
+                      flexShrink: 0,
+                      letterSpacing: '-.02em',
+                    }}
+                  >
+                    {t.name === 'Claire Monet' ? '6 ETP' : 'HDS'}
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    fontSize: 12,
+                    color: 'var(--mist)',
+                    borderTop: '1px solid var(--w1)',
+                    paddingTop: 16,
+                  }}
+                >
+                  <span style={{ fontSize: 18 }}>{t.avatar}</span>
                   <div>
-                    <div className="tn">{t.name}</div>
-                    <div className="tt">{t.role}</div>
+                    <div style={{ fontWeight: 600, color: 'var(--snow)', fontSize: 13 }}>
+                      {t.name}
+                    </div>
+                    <div style={{ marginTop: 1 }}>{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -368,30 +772,71 @@ export default function HomePage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="sec" style={{ background: 'var(--deep)', textAlign: 'center' }}>
-        <div className="ws">
-          <div className="tag" style={{ justifyContent: 'center' }}>
-            Prêt à commencer ?
+      <section className="sec" style={{ background: 'var(--deep)' }}>
+        <div className="w">
+          <div className="cta-split">
+            {/* Left — copy */}
+            <div>
+              <div className="tag">Prêt à commencer ?</div>
+              <h2
+                className="h2"
+                style={{ fontSize: 'clamp(2rem,4vw,3rem)', marginTop: 16 }}
+              >
+                Elles ont déjà
+                <br />
+                <em>sauté le pas.</em>
+              </h2>
+              <p
+                style={{
+                  marginTop: 16,
+                  marginBottom: 32,
+                  fontSize: 15,
+                  color: 'var(--fog)',
+                  lineHeight: 1.7,
+                  maxWidth: 380,
+                }}
+              >
+                10 minutes pour déployer votre premier agent et mesurer la différence.
+              </p>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <Link href="/tarifs" className="btn by">
+                  Démarrer gratuitement →
+                </Link>
+                <Link href="/contact" className="btn bg">
+                  Parler à un expert
+                </Link>
+              </div>
+              <p
+                style={{
+                  marginTop: 14,
+                  fontSize: 12,
+                  color: 'var(--mist)',
+                  fontFamily: 'var(--fm)',
+                }}
+              >
+                Sans engagement · Annulation en 1 clic
+              </p>
+            </div>
+
+            {/* Right — decorative number */}
+            <div
+              style={{
+                fontFamily: 'var(--fm)',
+                fontSize: 'clamp(5rem,10vw,9rem)',
+                fontWeight: 700,
+                lineHeight: 0.9,
+                letterSpacing: '-.04em',
+                WebkitTextStroke: '1px rgba(255,255,255,.1)',
+                color: 'transparent',
+                userSelect: 'none',
+                textAlign: 'right',
+              }}
+            >
+              312
+              <br />
+              000
+            </div>
           </div>
-          <h2 className="h2" style={{ fontSize: 'clamp(36px,6vw,72px)' }}>
-            312 000 équipes
-            <br />
-            <em>ont déjà sauté le pas.</em>
-          </h2>
-          <p className="lead" style={{ margin: '0 auto 40px', textAlign: 'center' }}>
-            10 minutes pour déployer votre premier agent et mesurer la différence.
-          </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/tarifs" className="btn by blg">
-              Démarrer gratuitement →
-            </Link>
-            <Link href="/contact" className="btn bg blg">
-              Parler à un expert
-            </Link>
-          </div>
-          <p style={{ marginTop: '16px', fontSize: '12px', color: 'var(--mist)' }}>
-            Sans engagement · Sans carte bancaire · Annulation en 1 clic
-          </p>
         </div>
       </section>
     </>
