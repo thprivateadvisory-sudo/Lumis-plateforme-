@@ -34,23 +34,33 @@ const jetbrainsMono = JetBrains_Mono({
 
 /* ─── METADATA ───────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "LUMIS.AI — L'IA Française du Futur",
+  title: {
+    default: 'LUMIS.AI — Plateforme IA Souveraine Française | ISO 27001 · HDS · SOC 2',
+    template: '%s | LUMIS.AI',
+  },
   description:
-    "LUMIS.AI est la plateforme d'intelligence artificielle souveraine française — agents autonomes, LLM propriétaires et infrastructure 100% hébergée en France. RGPD natif, sécurité militaire.",
+    "LUMIS est la plateforme d'intelligence artificielle souveraine française pour les grandes organisations. Agents IA autonomes, certifiée ISO 27001, HDS, SOC 2. Infrastructure 100% hébergée en France.",
   keywords: [
     'IA souveraine France',
     'intelligence artificielle française',
-    'agents IA',
+    'agents IA autonomes',
     'LLM souverain',
+    'ISO 27001',
+    'HDS',
+    'SOC 2',
     'RGPD',
+    'grands comptes',
+    'CAC40',
     'LUMIS',
-    'plateforme IA',
+    'plateforme IA entreprise',
   ],
-  authors: [{ name: 'LUMIS SAS' }],
+  authors: [{ name: 'LUMIS SAS', url: 'https://lumis.ai' }],
+  creator: 'LUMIS SAS',
+  publisher: 'LUMIS SAS',
   openGraph: {
-    title: "LUMIS.AI — L'IA Française du Futur",
+    title: 'LUMIS.AI — Plateforme IA Souveraine Française',
     description:
-      "Plateforme d'IA souveraine française. Agents autonomes, LLM propriétaires, infrastructure 100% France.",
+      "Agents IA autonomes pour les grandes organisations. Certifiée ISO 27001, HDS, SOC 2. 100% hébergé en France. SLA 99.99%.",
     url: 'https://lumis.ai',
     siteName: 'LUMIS.AI',
     images: [
@@ -58,7 +68,7 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: "LUMIS.AI — L'IA Française du Futur",
+        alt: 'LUMIS.AI — Plateforme IA Souveraine Française',
       },
     ],
     type: 'website',
@@ -66,17 +76,26 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "LUMIS.AI — L'IA Française du Futur",
+    title: "LUMIS.AI — L'IA Souveraine Française",
     description:
-      "Plateforme d'IA souveraine française. Agents autonomes, LLM propriétaires, infrastructure 100% France.",
+      "Agents IA autonomes · ISO 27001 · HDS · SOC 2 · 100% hébergé en France.",
     images: ['/og.png'],
     creator: '@LumisAI',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   metadataBase: new URL('https://lumis.ai'),
+  verification: {
+    google: 'à-renseigner',
+  },
 }
 
 /* ─── ROOT LAYOUT ────────────────────────────────────────────────────────── */
