@@ -96,7 +96,7 @@ export default function Nav() {
             role="menuitem"
             className={`nl demo${isActive('/demo') ? ' active' : ''}`}
           >
-            ⚡ Démo Live
+            Démo Live
           </Link>
         </div>
 
@@ -109,8 +109,8 @@ export default function Nav() {
           >
             Contact
           </Link>
-          <Link href="/tarifs" className="btn by bsm">
-            Démarrer →
+          <Link href="/contact" className="btn by bsm">
+            Demander une démo
           </Link>
 
           {/* Hamburger — visible below 900px via CSS */}
@@ -152,7 +152,7 @@ export default function Nav() {
           className={`nl demo${isActive('/demo') ? ' active' : ''}`}
           onClick={() => setMenuOpen(false)}
         >
-          ⚡ Démo Live
+          Démo Live
         </Link>
 
         <div className="nav-r" style={{ marginTop: '16px' }}>
@@ -165,12 +165,12 @@ export default function Nav() {
             Contact
           </Link>
           <Link
-            href="/tarifs"
+            href="/contact"
             className="btn by"
             style={{ width: '100%', justifyContent: 'center' }}
             onClick={() => setMenuOpen(false)}
           >
-            Démarrer →
+            Demander une démo
           </Link>
         </div>
       </div>
