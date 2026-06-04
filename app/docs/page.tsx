@@ -283,9 +283,7 @@ export default function DocsPage() {
               Intégrez LUMIS Ultra dans votre application en moins de 5 minutes. Notre API REST est compatible avec le standard OpenAI — migration depuis GPT-4 possible en 10 minutes.
             </p>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+            <div className="g3" style={{
               gap: '12px',
               marginBottom: '40px',
             }}>
@@ -792,7 +790,7 @@ async def handle_webhook(request: Request):
               <SectionTitle tag="05 — SDKs" title="SDKs officiels" id="sdks-title" />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '32px' }}>
+            <div className="g2" style={{ gap: '16px', marginBottom: '32px' }}>
               {[
                 { lang: 'Python', id: 'sdk-python', pkg: 'lumis-ai', install: 'pip install lumis-ai', v: '1.4.2', status: 'Stable' },
                 { lang: 'JavaScript / TypeScript', id: 'sdk-js', pkg: '@lumis/sdk', install: 'npm i @lumis/sdk', v: '1.4.1', status: 'Stable' },

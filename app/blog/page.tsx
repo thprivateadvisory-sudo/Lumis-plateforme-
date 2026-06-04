@@ -173,13 +173,11 @@ export default function BlogPage() {
 
         {/* Featured article */}
         <div style={{ marginBottom: '64px' }}>
-          <div style={{
+          <div className="g2" style={{
             background: 'var(--card)',
             border: '1px solid rgba(255,255,255,.08)',
             borderRadius: '20px',
             overflow: 'hidden',
-            display: 'grid',
-            gridTemplateColumns: '1fr 420px',
           }}>
             {/* Content */}
             <div style={{ padding: '48px' }}>
@@ -305,7 +303,7 @@ export default function BlogPage() {
           <h2 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '24px', color: 'var(--snow)' }}>
             Articles récents
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+          <div className="g3" style={{ gap: '20px' }}>
             {rest.map((article) => (
               <article
                 key={article.slug}
@@ -420,13 +418,11 @@ export default function BlogPage() {
         </div>
 
         {/* Newsletter */}
-        <div style={{
+        <div className="g2-asym" style={{
           background: 'linear-gradient(135deg, var(--card), rgba(212,255,0,.04))',
           border: '1px solid rgba(212,255,0,.15)',
           borderRadius: '20px',
           padding: '48px',
-          display: 'grid',
-          gridTemplateColumns: '1fr auto',
           gap: '32px',
           alignItems: 'center',
           marginTop: '48px',
