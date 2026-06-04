@@ -628,14 +628,17 @@ body {
 /* ─── HERO ───────────────────────────────────────────────────────────────── */
 #hero {
   position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  text-align: left;
-  padding: calc(var(--nav) + 60px) 0 80px;
-  overflow: hidden;
+  align-items: center;
+  padding-top: calc(var(--nav) + 60px);
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 1;
 }
 
 .hbg {
