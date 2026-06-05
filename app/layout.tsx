@@ -55,9 +55,9 @@ export const metadata: Metadata = {
     'Cohesif',
     'plateforme IA entreprise',
   ],
-  authors: [{ name: 'Cohesif SAS', url: 'https://cohesif.ai' }],
-  creator: 'Cohesif SAS',
-  publisher: 'Cohesif SAS',
+  authors: [{ name: 'Groupe Cohesif', url: 'https://cohesif.ai' }],
+  creator: 'Groupe Cohesif',
+  publisher: 'Groupe Cohesif',
   openGraph: {
     title: 'Cohesif IA — Plateforme IA Souveraine Française',
     description:
@@ -94,9 +94,10 @@ export const metadata: Metadata = {
     },
   },
   metadataBase: new URL('https://cohesif.ai'),
-  verification: {
-    google: 'à-renseigner',
-  },
+  // Google Search Console verification: add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
 }
 
 /* ─── ROOT LAYOUT ────────────────────────────────────────────────────────── */

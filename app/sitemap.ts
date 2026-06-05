@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/roi', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/guide', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/checkout/success', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/precommande', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/legal/confidentialite', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/legal/cgu', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/legal/mentions', priority: 0.3, changeFrequency: 'yearly' as const },
