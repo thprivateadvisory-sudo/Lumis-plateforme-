@@ -619,10 +619,10 @@ export default function AcademiePage() {
             }}
           >
             {[
-              { emoji: '👩‍💼', name: 'Sophie Beaumont', role: 'Ex-Head of AI, BNP Paribas', course: 'IA Enterprise' },
-              { emoji: '👨‍💻', name: 'Thomas Lefèvre', role: 'Chercheur ML, INRIA', course: 'Agents Autonomes' },
-              { emoji: '👩‍⚖️', name: 'Amina Karimi', role: 'DPO, CAC40 × 3', course: 'IA & Droit' },
-              { emoji: '👨‍🎓', name: 'Marc Dupont', role: 'CTO, startup IA × 2', course: 'Fondamentaux' },
+              { initials: 'CM', name: 'Claire Marchand', role: 'Directrice Transformation Digitale, Orange', course: 'IA Enterprise' },
+              { initials: 'LG', name: 'Laurent Girard', role: 'Responsable Conformité, Société Générale', course: 'Fondamentaux' },
+              { initials: 'NB', name: 'Nadia Benali', role: 'Avocate droit du numérique, Cabinet Clifford Chance', course: 'IA & Droit' },
+              { initials: 'SR', name: 'Sébastien Roux', role: 'DSI, Groupe Léa Nature', course: 'Agents Autonomes' },
             ].map((inst) => (
               <div
                 key={inst.name}
@@ -639,15 +639,20 @@ export default function AcademiePage() {
                     width: 56,
                     height: 56,
                     borderRadius: '50%',
-                    background: 'rgba(11, 200, 240, 0.08)',
+                    background: 'linear-gradient(135deg, rgba(11,200,240,.25), rgba(11,200,240,.08))',
+                    border: '1px solid rgba(11,200,240,.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '1.5rem',
                     margin: '0 auto 12px',
+                    fontFamily: 'var(--fh)',
+                    fontWeight: 800,
+                    fontSize: '0.95rem',
+                    color: 'var(--y)',
+                    letterSpacing: '.02em',
                   }}
                 >
-                  {inst.emoji}
+                  {inst.initials}
                 </div>
                 <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--snow)', marginBottom: '4px' }}>
                   {inst.name}
