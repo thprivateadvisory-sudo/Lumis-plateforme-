@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/checkout/'],
       },
     ],
-    sitemap: 'https://cohesif.ai/sitemap.xml',
+    sitemap: 'https://cohesif-ia.fr/sitemap.xml',
   }
 }

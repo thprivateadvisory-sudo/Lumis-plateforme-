@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Cohesif IA — Plateforme IA Souveraine Française',
     description:
       'Agents IA autonomes pour les grandes organisations. Certifiée ISO 27001 · HDS · SOC 2. 100% hébergé en France. SLA 99.99%.',
-    url: 'https://cohesif.ai',
+    url: 'https://cohesif-ia.fr',
     siteName: 'Cohesif IA',
     locale: 'fr_FR',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Agents IA autonomes · ISO 27001 · HDS · 312K utilisateurs · SLA 99.99%',
   },
   alternates: {
-    canonical: 'https://cohesif.ai',
+    canonical: 'https://cohesif-ia.fr',
   },
 }
 
@@ -29,8 +29,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Cohesif IA',
-  url: 'https://cohesif.ai',
-  logo: 'https://cohesif.ai/logo.png',
+  url: 'https://cohesif-ia.fr',
+  logo: 'https://cohesif-ia.fr/logo.png',
   description:
     'Plateforme IA souveraine française. Agents autonomes, LLM propriétaires, certifiée ISO 27001, HDS, SOC 2.',
   foundingDate: '2022',

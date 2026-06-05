@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Académie Cohesif — Certifications IA pour professionnels',
     description: '6 parcours certifiants. 12 400+ diplômés. Maîtrisez l\'IA en 3 mois.',
-    url: 'https://cohesif.ai/academie',
+    url: 'https://cohesif-ia.fr/academie',
   },
 }
 

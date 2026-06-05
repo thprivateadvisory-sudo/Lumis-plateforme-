@@ -38,7 +38,7 @@ const GUIDE_CONTENT = `Cohesif IA — Guide Gratuit
     Gain : 6h/semaine | Outil : Cohesif Ultra + Pennylane | −78% administratif
 
 =========================================
-Pour aller plus loin : cohesif.ai | contact@cohesif.ai
+Pour aller plus loin : cohesif-ia.fr | contact@cohesif-ia.fr
 © 2025 Cohesif SAS — Paris, France`
 
 export default function GuidePage() {

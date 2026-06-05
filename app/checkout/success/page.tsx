@@ -133,8 +133,8 @@ export default function CheckoutSuccessPage() {
 
         <p style={{ marginTop: 20, fontSize: 13, color: 'var(--mist)' }}>
           Des questions ? Contactez-nous à{' '}
-          <a href="mailto:support@cohesif.ai" style={{ color: 'var(--fog)' }}>
-            support@cohesif.ai
+          <a href="mailto:support@cohesif-ia.fr" style={{ color: 'var(--fog)' }}>
+            support@cohesif-ia.fr
           </a>{' '}
           — réponse sous 4h ouvrées.
         </p>

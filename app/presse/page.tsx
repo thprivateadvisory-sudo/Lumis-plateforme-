@@ -29,8 +29,8 @@ export default function PressePage() {
           <p className="lead" style={{ margin: '0 auto 32px' }}>
             Revue de presse, kit presse et contacts pour les journalistes et partenaires médias.
           </p>
-          <a href="mailto:presse@cohesif.ai" className="btn by blg">
-            Contact presse : presse@cohesif.ai →
+          <a href="mailto:presse@cohesif-ia.fr" className="btn by blg">
+            Contact presse : presse@cohesif-ia.fr →
           </a>
         </div>
       </section>
@@ -91,7 +91,7 @@ export default function PressePage() {
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', marginBottom: 14 }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
                 <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 6 }}>{r.title}</div>
                 <div style={{ fontSize: 13, color: 'var(--fog)', lineHeight: 1.6, flex: 1, marginBottom: 16 }}>{r.desc}</div>
-                <a href="mailto:presse@cohesif.ai" style={{ fontSize: 13, fontWeight: 700, color: 'var(--y)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
+                <a href="mailto:presse@cohesif-ia.fr" style={{ fontSize: 13, fontWeight: 700, color: 'var(--y)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
                   {r.action} →
                 </a>
               </div>
@@ -103,7 +103,7 @@ export default function PressePage() {
             <p style={{ color: 'var(--fog)', marginBottom: 20 }}>
               Notre équipe relations presse répond sous 2h ouvrées.
             </p>
-            <a href="mailto:presse@cohesif.ai" className="btn by">presse@cohesif.ai →</a>
+            <a href="mailto:presse@cohesif-ia.fr" className="btn by">presse@cohesif-ia.fr →</a>
           </div>
         </div>
       </section>

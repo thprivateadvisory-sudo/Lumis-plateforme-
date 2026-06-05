@@ -227,7 +227,7 @@ export default function StatusPage() {
               </div>
             </div>
             <a
-              href="mailto:status@cohesif.ai?subject=Abonnement%20status%20Cohesif"
+              href="mailto:status@cohesif-ia.fr?subject=Abonnement%20status%20Cohesif"
               className="btn by"
               style={{ flexShrink: 0 }}
             >

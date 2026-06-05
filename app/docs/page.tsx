@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Documentation Cohesif IA',
     description: 'Intégrez Cohesif Ultra en 5 minutes. Guides, référence API, SDKs.',
-    url: 'https://cohesif.ai/docs',
+    url: 'https://cohesif-ia.fr/docs',
   },
 }
 
@@ -185,7 +185,7 @@ export default function DocsPage() {
             <div style={{ fontSize: '12px', color: 'var(--fog)', lineHeight: 1.6 }}>
               Besoin d'aide ?
               <br />
-              <a href="mailto:api@cohesif.ai" style={{ color: 'var(--y)', textDecoration: 'none' }}>api@cohesif.ai</a>
+              <a href="mailto:api@cohesif-ia.fr" style={{ color: 'var(--y)', textDecoration: 'none' }}>api@cohesif-ia.fr</a>
             </div>
           </div>
         </aside>
@@ -355,7 +355,7 @@ for await (const chunk of stream) {
             </div>
 
             <p className="lead" style={{ marginBottom: '32px' }}>
-              L'API Cohesif suit la convention REST. Toutes les requêtes utilisent HTTPS. Base URL : <code style={{ fontFamily: 'var(--fm)', color: 'var(--y)', fontSize: '14px' }}>https://api.cohesif.ai/v1</code>
+              L'API Cohesif suit la convention REST. Toutes les requêtes utilisent HTTPS. Base URL : <code style={{ fontFamily: 'var(--fm)', color: 'var(--y)', fontSize: '14px' }}>https://api.cohesif-ia.fr/v1</code>
             </p>
 
             {/* Endpoints table */}
@@ -767,7 +767,7 @@ async def handle_webhook(request: Request):
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/demo" className="btn by blg">Créer mon compte →</Link>
-              <a href="mailto:api@cohesif.ai" className="btn bg">Parler à un ingénieur</a>
+              <a href="mailto:api@cohesif-ia.fr" className="btn bg">Parler à un ingénieur</a>
             </div>
           </div>
 

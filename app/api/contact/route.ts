@@ -137,7 +137,7 @@ function buildNotificationEmail(data: ContactRequest): string {
 function buildConfirmationEmail(data: ContactRequest): string {
   const { firstName, email } = data
   const displayName = firstName ? firstName : 'là'
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cohesif.ai'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cohesif-ia.fr'
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -215,7 +215,7 @@ function buildConfirmationEmail(data: ContactRequest): string {
 
                 <p style="margin:0;font-size:14px;color:#555555;line-height:1.6;">
                   Pour toute question supplémentaire, utilisez le formulaire<br />
-                  sur notre site <a href="${siteUrl}/contact" style="color:#0BC8F0;text-decoration:none;">cohesif.ai/contact</a>
+                  sur notre site <a href="${siteUrl}/contact" style="color:#0BC8F0;text-decoration:none;">cohesif-ia.fr/contact</a>
                 </p>
 
               </div>

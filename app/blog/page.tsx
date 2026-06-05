@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog Cohesif IA',
     description: 'IA en entreprise : guides pratiques, benchmarks et analyses réglementaires.',
-    url: 'https://cohesif.ai/blog',
+    url: 'https://cohesif-ia.fr/blog',
   },
 }
 

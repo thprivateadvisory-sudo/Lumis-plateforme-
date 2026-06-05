@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Produits Cohesif IA — Toute la puissance de l\'IA souveraine',
     description: 'De l\'assistant premium à l\'API enterprise, découvrez tous les produits Cohesif.',
-    url: 'https://cohesif.ai/produits',
+    url: 'https://cohesif-ia.fr/produits',
   },
 }
 

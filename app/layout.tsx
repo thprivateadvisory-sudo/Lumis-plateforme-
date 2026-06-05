@@ -55,14 +55,14 @@ export const metadata: Metadata = {
     'Cohesif',
     'plateforme IA entreprise',
   ],
-  authors: [{ name: 'Groupe Cohesif', url: 'https://cohesif.ai' }],
+  authors: [{ name: 'Groupe Cohesif', url: 'https://cohesif-ia.fr' }],
   creator: 'Groupe Cohesif',
   publisher: 'Groupe Cohesif',
   openGraph: {
     title: 'Cohesif IA — Plateforme IA Souveraine Française',
     description:
       "Agents IA autonomes pour les grandes organisations. Certifiée ISO 27001, HDS, SOC 2. 100% hébergé en France. SLA 99.99%.",
-    url: 'https://cohesif.ai',
+    url: 'https://cohesif-ia.fr',
     siteName: 'Cohesif IA',
     images: [
       {
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  metadataBase: new URL('https://cohesif.ai'),
+  metadataBase: new URL('https://cohesif-ia.fr'),
   // Google Search Console verification: add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }

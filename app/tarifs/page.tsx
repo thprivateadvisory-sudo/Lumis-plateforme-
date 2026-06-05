@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Tarifs Cohesif IA',
     description: 'Commencez gratuitement. Scalez sans limites. ROI moyen ×8 en 3 mois.',
-    url: 'https://cohesif.ai/tarifs',
+    url: 'https://cohesif-ia.fr/tarifs',
   },
 }
 

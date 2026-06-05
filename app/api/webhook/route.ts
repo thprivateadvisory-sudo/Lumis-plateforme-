@@ -27,7 +27,7 @@ function getBillingLabel(billing: string): string {
 function buildWelcomeEmail(customerEmail: string, plan: string, billing: string): string {
   const planLabel = getPlanLabel(plan)
   const billingLabel = getBillingLabel(billing)
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cohesif.ai'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cohesif-ia.fr'
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -117,7 +117,7 @@ function buildWelcomeEmail(customerEmail: string, plan: string, billing: string)
                 <!-- Support note -->
                 <p style="margin:0;font-size:14px;color:#666666;text-align:center;line-height:1.6;">
                   Une question&nbsp;? Notre équipe répond en moins de 4h.<br />
-                  <a href="mailto:contact@cohesif.ai" style="color:#0BC8F0;text-decoration:none;">contact@cohesif.ai</a>
+                  <a href="mailto:contact@cohesif-ia.fr" style="color:#0BC8F0;text-decoration:none;">contact@cohesif-ia.fr</a>
                 </p>
 
               </div>
@@ -193,7 +193,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         // Send welcome email
         if (customerEmail) {
           const { error: emailError } = await getResend().emails.send({
-            from: 'Cohesif IA <noreply@cohesif.ai>',
+            from: 'Cohesif IA <noreply@cohesif-ia.fr>',
             to: customerEmail,
             subject: 'Bienvenue dans Cohesif IA ! 🚀',
             html: buildWelcomeEmail(customerEmail, plan, billing),

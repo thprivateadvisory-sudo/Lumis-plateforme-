@@ -112,7 +112,7 @@ export default function ChangelogPage() {
               <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 4 }}>Abonnez-vous aux releases</div>
               <div style={{ fontSize: 13, color: 'var(--fog)' }}>Recevez un email à chaque nouvelle version de Cohesif.</div>
             </div>
-            <a href="mailto:changelog@cohesif.ai?subject=Abonnement%20changelog" className="btn by">
+            <a href="mailto:changelog@cohesif-ia.fr?subject=Abonnement%20changelog" className="btn by">
               S&apos;abonner →
             </a>
           </div>

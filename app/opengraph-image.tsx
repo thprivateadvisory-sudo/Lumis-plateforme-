@@ -84,7 +84,7 @@ export default function OGImage() {
           color: '#333333',
           display: 'flex',
         }}>
-          cohesif.ai
+          cohesif-ia.fr
         </div>
       </div>
     ),

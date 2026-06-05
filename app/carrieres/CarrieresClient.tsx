@@ -89,7 +89,7 @@ export default function CarrieresClient() {
               <div style={{ border: '1px solid var(--w1)', borderRadius: 16, overflow: 'hidden' }}>
                 {dept.jobs.map((job, i) => (
                   <a key={job.title}
-                    href={`mailto:jobs@cohesif.ai?subject=Candidature — ${job.title}`}
+                    href={`mailto:jobs@cohesif-ia.fr?subject=Candidature — ${job.title}`}
                     className="job-row"
                     style={{ display: 'flex', alignItems: 'center', padding: '18px 24px', borderBottom: i < dept.jobs.length - 1 ? '1px solid var(--w1)' : 'none', background: 'var(--card)', textDecoration: 'none', gap: 16, transition: 'background .2s' }}
                     onMouseEnter={e => (e.currentTarget.style.background = 'var(--raise)')}
@@ -107,7 +107,7 @@ export default function CarrieresClient() {
 
           <div style={{ textAlign: 'center', marginTop: 32 }}>
             <p style={{ fontSize: 15, color: 'var(--fog)', marginBottom: 16 }}>Vous ne trouvez pas votre bonheur ?</p>
-            <a href="mailto:jobs@cohesif.ai?subject=Candidature spontanée" className="btn bg blg">
+            <a href="mailto:jobs@cohesif-ia.fr?subject=Candidature spontanée" className="btn bg blg">
               Candidature spontanée →
             </a>
           </div>
