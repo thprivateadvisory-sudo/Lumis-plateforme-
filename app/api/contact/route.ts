@@ -300,16 +300,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const resendKey = process.env.RESEND_API_KEY
     if (resendKey) {
       try {
+        const notifTo = process.env.CONTACT_NOTIFICATION_EMAIL ?? 'thprivateadvisory@gmail.com'
         const emailPromises: Promise<unknown>[] = [
           getResend().emails.send({
-            from: 'Cohesif IA Contact <noreply@cohesif.ai>',
-            to: 'contact@cohesif.ai',
+            from: 'Cohesif IA <onboarding@resend.dev>',
+            to: notifTo,
             replyTo: sanitised.email,
             subject: `[Contact] ${sanitised.subject}`,
             html: buildNotificationEmail(sanitised),
           }),
           getResend().emails.send({
-            from: 'Cohesif IA <noreply@cohesif.ai>',
+            from: 'Cohesif IA <onboarding@resend.dev>',
             to: sanitised.email,
             subject: 'Votre message a bien été reçu ✅',
             html: buildConfirmationEmail(sanitised),
