@@ -43,7 +43,7 @@ const PLANS = [
     featured: false,
     ctaLabel: 'Démarrer l\'essai gratuit',
     ctaStyle: 'pghost',
-    href: null,
+    href: '/contact',
     features: [
       { label: 'Messages illimités', on: true },
       { label: 'Cohesif Ultra (GPT-4o level)', on: true },
@@ -67,7 +67,7 @@ const PLANS = [
     featured: true,
     ctaLabel: 'Démarrer l\'essai gratuit',
     ctaStyle: 'pyel',
-    href: null,
+    href: '/contact',
     features: [
       { label: 'Tout le plan Pro', on: true },
       { label: 'Agents illimités', on: true },
