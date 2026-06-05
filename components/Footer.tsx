@@ -36,12 +36,12 @@ const COLUMNS = [
   {
     title: 'Produits',
     links: [
-      { label: 'Cohesif Ultra',  href: '/produits' },
-      { label: 'Agents IA',   href: '/agents' },
-      { label: 'Marketplace', href: '/produits' },
-      { label: 'API Cohesif',   href: '/docs' },
-      { label: 'Cohesif One',   href: '/produits' },
-      { label: 'Enterprise',  href: '/entreprises' },
+      { label: 'Cohesif Ultra',      href: '/produits' },
+      { label: 'Agents IA',          href: '/agents' },
+      { label: 'Marketplace',        href: '/produits' },
+      { label: 'API Cohesif',        href: '/docs' },
+      { label: 'Robot Cohesif One',  href: '/precommande', yellow: true },
+      { label: 'Enterprise',         href: '/entreprises' },
     ],
   },
   {
@@ -163,8 +163,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="fbot">
           <p className="fcopy">
-            © 2025 Cohesif SAS — SIRET 123&nbsp;456&nbsp;789&nbsp;00012 · 42 av.
-            des Champs-Élysées, 75008 Paris
+            © 2025 Groupe Cohesif — SIRET 889&nbsp;287&nbsp;462&nbsp;00036 · 200 rue de la Croix Nivert, Paris
           </p>
 
           <nav className="flegal" aria-label="Liens légaux">

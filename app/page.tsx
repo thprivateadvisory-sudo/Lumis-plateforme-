@@ -36,9 +36,8 @@ const jsonLd = {
   foundingDate: '2022',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '42 avenue des Champs-Élysées',
+    streetAddress: '200 rue de la Croix Nivert',
     addressLocality: 'Paris',
-    postalCode: '75008',
     addressCountry: 'FR',
   },
   sameAs: [

@@ -18,16 +18,11 @@ export default function MentionsPage() {
             {
               title: 'Éditeur du site',
               items: [
-                ['Raison sociale', 'Cohesif SAS'],
-                ['Forme juridique', 'Société par Actions Simplifiée (SAS)'],
-                ['Capital social', '500 000 €'],
-                ['SIRET', '123 456 789 00012'],
-                ['RCS', 'Paris B 123 456 789'],
+                ['Raison sociale', 'Groupe Cohesif'],
+                ['Forme juridique', 'Entreprise individuelle (transition SASU en cours)'],
+                ['SIRET', '889 287 462 00036'],
                 ['Code APE', '6201Z — Programmation informatique'],
-                ['Siège social', '42 avenue des Champs-Élysées, 75008 Paris, France'],
-                ['Téléphone', '+33 1 23 45 67 89'],
-                ['Email', 'contact@cohesif.ai'],
-                ['Directeur de publication', 'Alexandre Martin, Président'],
+                ['Siège social', '200 rue de la Croix Nivert, Paris, France'],
               ]
             },
             {
@@ -50,7 +45,7 @@ export default function MentionsPage() {
             {
               title: 'Données personnelles',
               items: [
-                ['DPO', 'dpo@cohesif.ai'],
+                ['Contact RGPD', 'Via le formulaire de contact du site'],
                 ['Autorité compétente', 'Commission Nationale de l\'Informatique et des Libertés (CNIL)'],
                 ['Déclaration CNIL', 'Conformité RGPD — aucune déclaration préalable requise'],
               ]

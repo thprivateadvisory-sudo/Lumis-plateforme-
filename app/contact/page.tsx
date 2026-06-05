@@ -117,10 +117,9 @@ export default function ContactPage() {
             {/* Info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
               {[
-                { icon: '📍', title: 'Siège social', content: '42 avenue des Champs-Élysées\n75008 Paris, France' },
-                { icon: '✉️', title: 'Email', content: 'contact@cohesif.ai\ninvest@cohesif.ai' },
-                { icon: '📞', title: 'Téléphone', content: '+33 1 23 45 67 89\nLun–Ven, 9h–18h' },
-                { icon: '⚡', title: 'Réponse immédiate', content: 'Notre agent Sofia répond 24/7 via le chat. Réponse humaine : 4h ouvrées.' },
+                { icon: '📍', title: 'Siège social', content: '200 rue de la Croix Nivert\nParis, France' },
+                { icon: '⚡', title: 'Réponse rapide', content: 'Réponse garantie sous 4 heures ouvrées (lun–ven).' },
+                { icon: '🤝', title: 'Accompagnement', content: 'Audit, déploiement et suivi par notre équipe. Disponible du lundi au vendredi.' },
               ].map(card => (
                 <div key={card.title} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 16, padding: 22, display: 'flex', gap: 15 }}>
                   <div style={{ width: 42, height: 42, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.15)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 19 }}>

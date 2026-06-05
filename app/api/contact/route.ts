@@ -214,8 +214,8 @@ function buildConfirmationEmail(data: ContactRequest): string {
                 <div style="height:1px;background:#2a2a2a;margin:36px 0;"></div>
 
                 <p style="margin:0;font-size:14px;color:#555555;line-height:1.6;">
-                  Vous pouvez également nous joindre directement à<br />
-                  <a href="mailto:contact@cohesif.ai" style="color:#0BC8F0;text-decoration:none;">contact@cohesif.ai</a>
+                  Pour toute question supplémentaire, utilisez le formulaire<br />
+                  sur notre site <a href="${siteUrl}/contact" style="color:#0BC8F0;text-decoration:none;">cohesif.ai/contact</a>
                 </p>
 
               </div>
@@ -278,57 +278,53 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       message: message.trim(),
     }
 
-    // Persist lead to Supabase
-    const { error: dbError } = await getSupabaseAdmin().from('leads').insert({
-      first_name: sanitised.firstName ?? null,
-      last_name: sanitised.lastName ?? null,
-      email: sanitised.email,
-      company: sanitised.company ?? null,
-      subject: sanitised.subject,
-      message: sanitised.message,
-      created_at: new Date().toISOString(),
-    })
-
-    if (dbError) {
-      console.error('[contact/route] Supabase insert error:', dbError)
-      // Continue — still send emails
+    // Persist lead to Supabase (optional — continue if not configured)
+    try {
+      const { error: dbError } = await getSupabaseAdmin().from('leads').insert({
+        first_name: sanitised.firstName ?? null,
+        last_name: sanitised.lastName ?? null,
+        email: sanitised.email,
+        company: sanitised.company ?? null,
+        subject: sanitised.subject,
+        message: sanitised.message,
+        created_at: new Date().toISOString(),
+      })
+      if (dbError) {
+        console.error('[contact/route] Supabase insert error:', dbError)
+      }
+    } catch (dbErr) {
+      console.error('[contact/route] Supabase unavailable:', dbErr)
     }
 
-    const emailPromises: Promise<unknown>[] = []
-
-    // Internal notification email to Cohesif team
-    emailPromises.push(
-      getResend().emails.send({
-        from: 'Cohesif IA Contact <noreply@cohesif.ai>',
-        to: 'contact@cohesif.ai',
-        replyTo: sanitised.email,
-        subject: `[Contact] ${sanitised.subject}`,
-        html: buildNotificationEmail(sanitised),
-      })
-    )
-
-    // Confirmation email to the user
-    emailPromises.push(
-      getResend().emails.send({
-        from: 'Cohesif IA <noreply@cohesif.ai>',
-        to: sanitised.email,
-        subject: 'Votre message a bien été reçu ✅',
-        html: buildConfirmationEmail(sanitised),
-      })
-    )
-
-    const results = await Promise.allSettled(emailPromises)
-
-    results.forEach((result, index) => {
-      if (result.status === 'rejected') {
-        console.error(`[contact/route] Email ${index} send failed:`, result.reason)
-      } else if (result.status === 'fulfilled') {
-        const value = result.value as { error?: unknown }
-        if (value?.error) {
-          console.error(`[contact/route] Email ${index} Resend error:`, value.error)
-        }
+    // Send emails via Resend (optional — skip if not configured)
+    const resendKey = process.env.RESEND_API_KEY
+    if (resendKey) {
+      try {
+        const emailPromises: Promise<unknown>[] = [
+          getResend().emails.send({
+            from: 'Cohesif IA Contact <noreply@cohesif.ai>',
+            to: 'contact@cohesif.ai',
+            replyTo: sanitised.email,
+            subject: `[Contact] ${sanitised.subject}`,
+            html: buildNotificationEmail(sanitised),
+          }),
+          getResend().emails.send({
+            from: 'Cohesif IA <noreply@cohesif.ai>',
+            to: sanitised.email,
+            subject: 'Votre message a bien été reçu ✅',
+            html: buildConfirmationEmail(sanitised),
+          }),
+        ]
+        const results = await Promise.allSettled(emailPromises)
+        results.forEach((result, index) => {
+          if (result.status === 'rejected') {
+            console.error(`[contact/route] Email ${index} send failed:`, result.reason)
+          }
+        })
+      } catch (emailErr) {
+        console.error('[contact/route] Email service error:', emailErr)
       }
-    })
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
