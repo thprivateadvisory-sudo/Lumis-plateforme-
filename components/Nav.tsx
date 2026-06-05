@@ -66,8 +66,8 @@ export default function Nav() {
           <Image
             src="/cohesif-icon.png"
             alt=""
-            width={56}
-            height={30}
+            width={38}
+            height={38}
             style={{ objectFit: 'contain', display: 'block' }}
             priority
           />

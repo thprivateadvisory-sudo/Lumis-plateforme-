@@ -103,17 +103,14 @@ export default function Footer() {
         <div className="fgrid">
           {/* Brand column */}
           <div className="fbrand">
-            <Link href="/" aria-label="Cohesif IA — Accueil" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+            <Link href="/" aria-label="Cohesif IA — Accueil" style={{ textDecoration: 'none', display: 'inline-flex' }}>
               <Image
-                src="/cohesif-icon.png"
-                alt=""
-                width={64}
-                height={34}
+                src="/cohesif-logo.png"
+                alt="Cohesif IA"
+                width={140}
+                height={106}
                 style={{ objectFit: 'contain', display: 'block' }}
               />
-              <span style={{ fontFamily: 'var(--fh)', fontSize: '1.125rem', fontWeight: 800, color: 'var(--snow)', letterSpacing: '-0.02em' }}>
-                Cohesif<span style={{ color: 'var(--y)' }}> IA</span>
-              </span>
             </Link>
 
             <p className="fbrand-desc">
