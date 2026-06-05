@@ -1494,3 +1494,333 @@ video {
   .g4 { grid-template-columns: 1fr 1fr; }
   .tgrid { grid-template-columns: 1fr; }
 }
+
+/* ─── PRODUITS BENTO GRID ───────────────────────────────────────────────── */
+.prd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.prd-card-wide {
+  grid-column: 1 / 3;
+  flex-direction: row !important;
+  align-items: center !important;
+  padding: 44px 48px !important;
+}
+.prd-card {
+  cursor: default;
+}
+@media (max-width: 900px) {
+  .prd-grid { grid-template-columns: 1fr 1fr; }
+  .prd-card-wide { padding: 32px 28px !important; }
+}
+@media (max-width: 640px) {
+  .prd-grid { grid-template-columns: 1fr; }
+  .prd-card-wide {
+    grid-column: auto;
+    flex-direction: column !important;
+    padding: 28px 24px !important;
+    gap: 20px !important;
+  }
+}
+
+/* ─── TARIFS — MISSING CLASSES ───────────────────────────────────────────── */
+.pbox.pf {
+  border-color: rgba(212, 255, 0, 0.3);
+  background: linear-gradient(135deg, rgba(212, 255, 0, 0.04) 0%, var(--panel) 60%);
+}
+.pbadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--y);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  font-family: var(--fm);
+}
+.pamt {
+  font-family: var(--fh);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--snow);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-top: 8px;
+}
+.pamt sup {
+  font-size: 1.25rem;
+  font-weight: 600;
+  vertical-align: super;
+  margin-right: 2px;
+}
+.pamt sub {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--fog);
+  vertical-align: baseline;
+}
+.ppitch {
+  font-size: 0.875rem;
+  color: var(--fog);
+  line-height: 1.6;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+.psep {
+  height: 1px;
+  background: var(--w1);
+  margin: 24px 0;
+}
+.plist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 28px;
+  padding: 0;
+}
+.plist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--fog);
+  line-height: 1.5;
+}
+.plist li.on {
+  color: var(--snow);
+}
+.ci {
+  color: var(--y);
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+}
+.cx {
+  color: var(--mist);
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+}
+.pbtn {
+  width: 100%;
+  padding: 13px 24px;
+  border-radius: 10px;
+  border: none;
+  font-family: var(--fh);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pbtn.by {
+  background: var(--y);
+  color: #000;
+}
+.pbtn.by:hover { opacity: 0.9; }
+.pbtn.pghost {
+  background: transparent;
+  color: var(--snow);
+  border: 1px solid var(--w2);
+}
+.pbtn.pghost:hover { background: var(--raise); }
+.pbtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.apill {
+  display: inline-block;
+  background: rgba(212, 255, 0, 0.15);
+  color: var(--y);
+  border-radius: 100px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--fm);
+  letter-spacing: .04em;
+}
+
+/* ─── AGENTS MARKETPLACE ─────────────────────────────────────────────────── */
+.afc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.afb {
+  font-family: var(--fh);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--fog);
+  background: var(--card);
+  border: 1px solid var(--w1);
+  border-radius: 100px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.afb:hover { color: var(--snow); border-color: var(--w2); }
+.afb.on {
+  color: #000;
+  background: var(--y);
+  border-color: var(--y);
+}
+.afgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.agc {
+  background: var(--card);
+  border: 1px solid var(--w1);
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s;
+}
+.agc:hover { border-color: var(--w2); }
+.agh {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.agav {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--raise);
+  border: 1px solid var(--w2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.agn {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--snow);
+  line-height: 1.2;
+}
+.agr {
+  font-family: var(--fm);
+  font-size: 11px;
+  color: var(--fog);
+  margin-top: 2px;
+  letter-spacing: .04em;
+}
+.aglv {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #28c840;
+  box-shadow: 0 0 6px rgba(40,200,64,.6);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.agd {
+  font-size: 13px;
+  color: var(--fog);
+  line-height: 1.7;
+  flex: 1;
+  margin: 0;
+}
+.agf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+.agp {
+  font-family: var(--fh);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--snow);
+  letter-spacing: -.03em;
+}
+.agp sub {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--fog);
+  vertical-align: baseline;
+}
+.agbt {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  background: var(--y);
+  border-radius: 8px;
+  padding: 9px 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.agbt:hover { opacity: 0.85; }
+.ags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid var(--w1);
+}
+.agst {
+  font-size: 12px;
+  color: var(--fog);
+}
+
+/* ─── DOCS LAYOUT ────────────────────────────────────────────────────────── */
+.docs-wrap {
+  padding-top: var(--nav);
+  background: var(--void);
+  min-height: 100vh;
+}
+.docs-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+  min-height: calc(100vh - var(--nav));
+}
+.docs-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(255,255,255,.06);
+  padding-top: 32px;
+  padding-right: 24px;
+  padding-bottom: 48px;
+  position: sticky;
+  top: var(--nav);
+  max-height: calc(100vh - var(--nav));
+  overflow-y: auto;
+}
+.docs-main {
+  flex: 1;
+  padding: 48px 0 96px 48px;
+  max-width: 860px;
+  overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+  .afgrid { grid-template-columns: 1fr 1fr; }
+  .docs-sidebar { display: none; }
+  .docs-main { padding-left: 0; max-width: 100%; }
+}
+@media (max-width: 640px) {
+  .afgrid { grid-template-columns: 1fr; }
+  .afb { padding: 7px 14px; font-size: 0.8125rem; }
+  .docs-main { padding: 32px 0 64px; }
+  .pgrid { grid-template-columns: 1fr; }
+}

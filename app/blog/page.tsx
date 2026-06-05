@@ -85,35 +85,10 @@ export default function BlogPage() {
   const [featured, ...rest] = ARTICLES
 
   return (
-    <div style={{ background: 'var(--void)', minHeight: '100vh', color: 'var(--snow)' }}>
-
-      {/* Header */}
-      <header style={{
-        background: 'rgba(5,6,10,.9)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(255,255,255,.06)',
-      }}>
-        <div className="w" style={{ height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-            <svg width="28" height="28" viewBox="0 0 34 34" fill="none">
-              <rect width="34" height="34" rx="9" fill="#d4ff00" />
-              <path d="M9 25V9h4v13h8v3H9z" fill="#000" />
-              <circle cx="25" cy="11" r="3" fill="#000" />
-            </svg>
-            <span style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: '16px', color: 'var(--snow)' }}>
-              LUMIS<span style={{ color: 'var(--y)' }}>.</span>AI
-            </span>
-          </Link>
-          <nav style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <Link href="/docs" style={{ fontSize: '14px', color: 'var(--fog)', textDecoration: 'none' }}>Docs</Link>
-            <Link href="/tarifs" style={{ fontSize: '14px', color: 'var(--fog)', textDecoration: 'none' }}>Tarifs</Link>
-            <Link href="/demo" className="btn by" style={{ fontSize: '13px', padding: '8px 18px' }}>Essayer gratuitement</Link>
-          </nav>
-        </div>
-      </header>
+    <div>
 
       {/* Hero */}
-      <section className="secm" style={{ textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,.06)' }}>
+      <section className="sec" style={{ textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,.06)', paddingBottom: 64 }}>
         <div className="ws">
           <div className="tag" style={{ justifyContent: 'center' }}>Blog LUMIS.AI</div>
           <h1 className="h2" style={{ textAlign: 'center' }}>

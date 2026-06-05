@@ -226,32 +226,26 @@ export default function ProduitsPage() {
       {/* ── BENTO GRID ── */}
       <section className="sec" style={{ paddingTop: '56px' }}>
         <div className="w">
-          <div
-            className="wgrid"
-            style={{
-              gap: '16px',
-            }}
-          >
+          <div className="prd-grid">
             {products.map((p) => (
               <article
                 key={p.id}
                 style={{
-                  gridColumn: p.wide ? '1 / 3' : 'auto',
                   background: 'var(--panel)',
                   border: p.id === 'ultra'
                     ? '1px solid rgba(212,255,0,0.25)'
                     : '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '18px',
-                  padding: p.wide ? '44px 48px' : '36px 32px',
+                  padding: p.wide ? undefined : '36px 32px',
                   display: 'flex',
-                  flexDirection: p.wide ? 'row' : 'column',
+                  flexDirection: p.wide ? undefined : 'column',
                   gap: p.wide ? '48px' : '20px',
-                  alignItems: p.wide ? 'center' : 'flex-start',
-                  transition: 'border-color 0.2s, transform 0.2s',
+                  alignItems: p.wide ? undefined : 'flex-start',
+                  transition: 'border-color 0.2s',
                   position: 'relative',
                   overflow: 'hidden',
                 }}
-                className="prd-card"
+                className={`prd-card${p.wide ? ' prd-card-wide' : ''}`}
               >
                 {/* Background glow for flagship */}
                 {p.id === 'ultra' && (

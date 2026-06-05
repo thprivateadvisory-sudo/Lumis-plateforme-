@@ -66,7 +66,7 @@ export default function StatusPage() {
                 animation: 'ping 2s infinite',
               }}
             />
-            {allOperational ? 'Tous les systèmes opérationnels ✅' : 'Incidents en cours ⚠️'}
+            {allOperational ? 'Tous les systèmes opérationnels' : 'Incidents en cours'}
           </div>
           <h1 className="h2">
             Status
@@ -146,7 +146,7 @@ export default function StatusPage() {
                   background: 'var(--card)',
                 }}
               >
-                <span style={{ fontSize: 22, flexShrink: 0 }}>{service.icon}</span>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'var(--raise)', border: '1px solid var(--w2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fog)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 600, fontSize: 15 }}>{service.name}</div>
                   <div style={{ fontSize: 12, color: 'var(--fog)', marginTop: 2 }}>

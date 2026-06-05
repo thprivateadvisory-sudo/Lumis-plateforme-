@@ -67,7 +67,7 @@ export default function CarrieresClient() {
           <div className="g3" style={{ gap: 16 }}>
             {PERKS.map(p => (
               <div key={p.label} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 18, padding: 24 }}>
-                <div style={{ fontSize: 32, marginBottom: 14 }}>{p.icon}</div>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(212,255,0,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', marginBottom: 14 }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                 <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 6 }}>{p.label}</div>
                 <div style={{ fontSize: 13, color: 'var(--fog)', lineHeight: 1.6 }}>{p.desc}</div>
               </div>
@@ -96,7 +96,7 @@ export default function CarrieresClient() {
                     onMouseLeave={e => (e.currentTarget.style.background = 'var(--card)')}>
                     <div style={{ flex: 1 }}>
                       <div style={{ fontWeight: 600, fontSize: 15, color: 'var(--snow)', marginBottom: 4 }}>{job.title}</div>
-                      <div style={{ fontSize: 13, color: 'var(--fog)' }}>📍 {job.location} · {job.contract} · {job.level}</div>
+                      <div style={{ fontSize: 13, color: 'var(--fog)' }}>{job.location} · {job.contract} · {job.level}</div>
                     </div>
                     <span style={{ color: 'var(--y)', fontSize: 13, fontWeight: 700, flexShrink: 0 }}>Postuler →</span>
                   </a>

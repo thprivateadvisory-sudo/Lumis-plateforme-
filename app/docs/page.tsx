@@ -12,13 +12,6 @@ export const metadata: Metadata = {
   },
 }
 
-const Logo = () => (
-  <svg width="28" height="28" viewBox="0 0 34 34" fill="none">
-    <rect width="34" height="34" rx="9" fill="#d4ff00" />
-    <path d="M9 25V9h4v13h8v3H9z" fill="#000" />
-    <circle cx="25" cy="11" r="3" fill="#000" />
-  </svg>
-)
 
 const NAV_SECTIONS = [
   {
@@ -137,82 +130,12 @@ const SectionTitle = ({ tag, title, id }: { tag: string; title: string; id: stri
 
 export default function DocsPage() {
   return (
-    <div style={{ background: 'var(--void)', minHeight: '100vh', color: 'var(--snow)' }}>
+    <div className="docs-wrap">
 
-      {/* Top bar */}
-      <header style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        background: 'rgba(5,6,10,.9)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(255,255,255,.06)',
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 24px',
-          height: '60px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '24px',
-        }}>
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-            <Logo />
-            <span style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: '16px', color: 'var(--snow)' }}>
-              LUMIS<span style={{ color: 'var(--y)' }}>.</span>AI
-            </span>
-          </Link>
-          <span style={{ color: 'rgba(255,255,255,.15)', fontSize: '20px' }}>/</span>
-          <span style={{ fontFamily: 'var(--fm)', fontSize: '14px', color: 'var(--fog)' }}>docs</span>
-
-          <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '12px' }}>
-            {/* Search */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: 'var(--panel)',
-              border: '1px solid rgba(255,255,255,.08)',
-              borderRadius: '8px',
-              padding: '8px 14px',
-              width: '220px',
-            }}>
-              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}>
-                <circle cx="9" cy="9" r="7" stroke="#8892aa" strokeWidth="2" />
-                <path d="m14 14 4 4" stroke="#8892aa" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-              <span style={{ fontFamily: 'var(--fm)', fontSize: '12px', color: 'var(--fog)' }}>Rechercher...</span>
-              <span style={{ marginLeft: 'auto', fontFamily: 'var(--fm)', fontSize: '11px', color: 'var(--mist)', background: 'rgba(255,255,255,.05)', padding: '2px 6px', borderRadius: '4px' }}>⌘K</span>
-            </div>
-            <Link href="/demo" className="btn by" style={{ fontSize: '13px', padding: '8px 18px' }}>
-              Essayer l'API
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 24px',
-        display: 'flex',
-        gap: '0',
-        minHeight: 'calc(100vh - 60px)',
-      }}>
+      <div className="docs-layout">
 
         {/* Sidebar */}
-        <aside style={{
-          width: '250px',
-          flexShrink: 0,
-          borderRight: '1px solid rgba(255,255,255,.06)',
-          paddingTop: '32px',
-          paddingRight: '24px',
-          position: 'sticky',
-          top: '60px',
-          maxHeight: 'calc(100vh - 60px)',
-          overflowY: 'auto',
-        }}>
+        <aside className="docs-sidebar">
           {NAV_SECTIONS.map((section) => (
             <div key={section.id} style={{ marginBottom: '28px' }}>
               <div style={{
@@ -268,13 +191,7 @@ export default function DocsPage() {
         </aside>
 
         {/* Main content */}
-        <main style={{
-          flex: 1,
-          paddingLeft: '48px',
-          paddingTop: '48px',
-          paddingBottom: '96px',
-          maxWidth: '860px',
-        }}>
+        <main className="docs-main">
 
           {/* ── DÉMARRAGE RAPIDE ── */}
           <section id="quickstart" style={{ marginBottom: '72px' }}>
