@@ -2,30 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-
-/* ─── LOGO ───────────────────────────────────────────────────────────────── */
-function CohesifLogo() {
-  return (
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-label="Cohesif IA logo">
-      <g stroke="#5bbcd4" strokeWidth="1.3" strokeLinecap="round" opacity="0.75">
-        <line x1="17" y1="5" x2="29" y2="13"/>
-        <line x1="29" y1="13" x2="25" y2="27"/>
-        <line x1="25" y1="27" x2="9" y2="27"/>
-        <line x1="9" y1="27" x2="5" y2="13"/>
-        <line x1="5" y1="13" x2="17" y2="5"/>
-        <line x1="17" y1="5" x2="25" y2="27" opacity="0.5"/>
-        <line x1="5" y1="13" x2="29" y2="13" opacity="0.5"/>
-        <line x1="9" y1="27" x2="29" y2="13" opacity="0.5"/>
-      </g>
-      <circle cx="17" cy="5" r="2.3" fill="#7ec8da"/>
-      <circle cx="5" cy="13" r="2.3" fill="#7ec8da"/>
-      <circle cx="9" cy="27" r="2.3" fill="#7ec8da"/>
-      <circle cx="25" cy="27" r="2.3" fill="#7ec8da"/>
-      <circle cx="29" cy="13" r="3.2" fill="#0BC8F0"/>
-    </svg>
-  )
-}
 
 /* ─── NAV LINK DATA ──────────────────────────────────────────────────────── */
 const NAV_LINKS = [
@@ -85,10 +63,16 @@ export default function Nav() {
       >
         {/* Logo */}
         <Link href="/" className="logo" aria-label="Cohesif IA — Accueil">
-          <CohesifLogo />
-          <span className="logo-name">
-            Cohesif<span> IA</span>
-          </span>
+          <div style={{ background: '#fff', borderRadius: 10, padding: '4px 10px', display: 'flex', alignItems: 'center' }}>
+            <Image
+              src="/cohesif-logo.png"
+              alt="Cohesif IA"
+              width={110}
+              height={38}
+              style={{ objectFit: 'contain', display: 'block' }}
+              priority
+            />
+          </div>
         </Link>
 
         {/* Centre — desktop links */}
