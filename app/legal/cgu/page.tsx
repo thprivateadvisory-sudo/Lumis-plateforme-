@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Conditions Générales d\'Utilisation — LUMIS.AI',
-  description: 'CGU de la plateforme LUMIS.AI. Conditions d\'accès et d\'utilisation du service.',
+  title: 'Conditions Générales d\'Utilisation — Cohesif IA',
+  description: 'CGU de la plateforme Cohesif IA. Conditions d\'accès et d\'utilisation du service.',
 }
 
 export default function CguPage() {
@@ -16,24 +16,24 @@ export default function CguPage() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
           {[
-            { title: '1. Objet', content: `Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de la plateforme LUMIS.AI, éditée par LUMIS SAS. Toute utilisation du service implique l'acceptation pleine et entière des présentes CGU.` },
-            { title: '2. Accès au service', content: `L'accès à LUMIS.AI est réservé aux personnes physiques majeures et aux personnes morales. L'inscription nécessite une adresse email valide et la création d'un compte sécurisé. LUMIS se réserve le droit de refuser l'accès à toute personne ne respectant pas les présentes conditions.` },
-            { title: '3. Compte utilisateur', content: `Vous êtes responsable de la confidentialité de vos identifiants de connexion. Tout accès effectué depuis votre compte est réputé effectué par vous. En cas de compromission de votre compte, vous devez notifier LUMIS immédiatement à support@lumis.ai.` },
+            { title: '1. Objet', content: `Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de la plateforme Cohesif IA, éditée par Cohesif SAS. Toute utilisation du service implique l'acceptation pleine et entière des présentes CGU.` },
+            { title: '2. Accès au service', content: `L'accès à Cohesif IA est réservé aux personnes physiques majeures et aux personnes morales. L'inscription nécessite une adresse email valide et la création d'un compte sécurisé. Cohesif se réserve le droit de refuser l'accès à toute personne ne respectant pas les présentes conditions.` },
+            { title: '3. Compte utilisateur', content: `Vous êtes responsable de la confidentialité de vos identifiants de connexion. Tout accès effectué depuis votre compte est réputé effectué par vous. En cas de compromission de votre compte, vous devez notifier Cohesif immédiatement à support@cohesif.ai.` },
             { title: '4. Plans et facturation', content: `Le plan Free est gratuit et sans limitation de durée. Les plans payants (Pro, Business) sont facturés mensuellement ou annuellement selon votre choix. Les prix sont indiqués HT. La TVA applicable est celle en vigueur au moment de la facturation.
 
 Annulation : vous pouvez résilier votre abonnement à tout moment depuis votre espace client. L'accès reste actif jusqu'à la fin de la période payée. Aucun remboursement proratisé n'est applicable sauf obligation légale.` },
-            { title: '5. Utilisation acceptable', content: `Il est interdit d'utiliser LUMIS.AI pour :
+            { title: '5. Utilisation acceptable', content: `Il est interdit d'utiliser Cohesif IA pour :
 
 • Générer du contenu illégal, diffamatoire, discriminatoire ou portant atteinte aux droits de tiers
 • Tenter de contourner les mesures de sécurité ou d'accéder à des données non autorisées
 • Utiliser le service pour de la désinformation ou de la manipulation à grande échelle
-• Entraîner des modèles concurrents avec les outputs de LUMIS
+• Entraîner des modèles concurrents avec les outputs de Cohesif
 • Utiliser le service en violation des lois françaises et européennes applicables
 
-LUMIS se réserve le droit de suspendre immédiatement tout compte en cas de violation.` },
-            { title: '6. Propriété intellectuelle', content: `La plateforme LUMIS.AI, ses interfaces, ses modèles et sa technologie sont la propriété exclusive de LUMIS SAS, protégés par le droit de la propriété intellectuelle. Les contenus que vous créez restent votre propriété. Vous accordez à LUMIS une licence limitée, non-exclusive, pour traiter vos contenus dans le seul but de fournir le service.` },
-            { title: '7. Disponibilité et SLA', content: `LUMIS s'engage à maintenir une disponibilité minimale de 99.9% sur les plans payants (mesuré mensuellement, hors maintenance planifiée). Les maintenances planifiées sont annoncées avec un préavis de 48h minimum.` },
-            { title: '8. Limitation de responsabilité', content: `LUMIS ne saurait être tenu responsable des dommages indirects, pertes de revenus ou dommages consécutifs résultant de l'utilisation du service. La responsabilité totale de LUMIS est limitée au montant des sommes versées au cours des 12 derniers mois.
+Cohesif se réserve le droit de suspendre immédiatement tout compte en cas de violation.` },
+            { title: '6. Propriété intellectuelle', content: `La plateforme Cohesif IA, ses interfaces, ses modèles et sa technologie sont la propriété exclusive de Cohesif SAS, protégés par le droit de la propriété intellectuelle. Les contenus que vous créez restent votre propriété. Vous accordez à Cohesif une licence limitée, non-exclusive, pour traiter vos contenus dans le seul but de fournir le service.` },
+            { title: '7. Disponibilité et SLA', content: `Cohesif s'engage à maintenir une disponibilité minimale de 99.9% sur les plans payants (mesuré mensuellement, hors maintenance planifiée). Les maintenances planifiées sont annoncées avec un préavis de 48h minimum.` },
+            { title: '8. Limitation de responsabilité', content: `Cohesif ne saurait être tenu responsable des dommages indirects, pertes de revenus ou dommages consécutifs résultant de l'utilisation du service. La responsabilité totale de Cohesif est limitée au montant des sommes versées au cours des 12 derniers mois.
 
 Les outputs de l'IA sont fournis à titre informatif et ne constituent pas des conseils juridiques, médicaux ou financiers. L'utilisateur est seul responsable de l'utilisation des outputs.` },
             { title: '9. Droit applicable', content: `Les présentes CGU sont soumises au droit français. Tout litige relatif à leur interprétation ou exécution sera soumis à la compétence exclusive des tribunaux de Paris, sauf disposition légale contraire.

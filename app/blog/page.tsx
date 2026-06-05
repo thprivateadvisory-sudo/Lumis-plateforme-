@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Blog LUMIS.AI — IA, Business & Souveraineté Numérique',
+  title: 'Blog Cohesif IA — IA, Business & Souveraineté Numérique',
   description:
-    "Conseils pratiques, analyses techniques et retours d'expérience sur l'IA en entreprise. Automatisation, RGPD, ROI, benchmarks — par les experts LUMIS.",
+    "Conseils pratiques, analyses techniques et retours d'expérience sur l'IA en entreprise. Automatisation, RGPD, ROI, benchmarks — par les experts Cohesif.",
   openGraph: {
-    title: 'Blog LUMIS.AI',
+    title: 'Blog Cohesif IA',
     description: 'IA en entreprise : guides pratiques, benchmarks et analyses réglementaires.',
-    url: 'https://lumis.ai/blog',
+    url: 'https://cohesif.ai/blog',
   },
 }
 
@@ -24,7 +24,7 @@ const ARTICLES = [
     readTime: '8 min',
     date: '28 janvier 2025',
     author: 'Thomas Renard',
-    role: 'Head of Growth, LUMIS.AI',
+    role: 'Head of Growth, Cohesif IA',
     initials: 'TR',
     avatarColor: '#4da6ff',
     featured: true,
@@ -32,17 +32,17 @@ const ARTICLES = [
   {
     slug: 'lumis-vs-gpt4o-benchmark-francais',
     category: 'Technique',
-    categoryColor: '#d4ff00',
-    categoryBg: 'rgba(212,255,0,.12)',
-    title: 'LUMIS vs GPT-4o : Benchmark complet sur le français',
+    categoryColor: '#0BC8F0',
+    categoryBg: 'rgba(11,200,240,.12)',
+    title: 'Cohesif vs GPT-4o : Benchmark complet sur le français',
     excerpt:
-      'Nous avons soumis LUMIS Ultra et GPT-4o à 847 tâches représentatives du monde professionnel français : rédaction juridique, analyse financière, code Python, compréhension de textes techniques. Les résultats sont sans appel sur 6 des 8 catégories testées.',
+      'Nous avons soumis Cohesif Ultra et GPT-4o à 847 tâches représentatives du monde professionnel français : rédaction juridique, analyse financière, code Python, compréhension de textes techniques. Les résultats sont sans appel sur 6 des 8 catégories testées.',
     readTime: '12 min',
     date: '21 janvier 2025',
     author: 'Dr. Sophie Lambert',
-    role: 'Head of Research, LUMIS.AI',
+    role: 'Head of Research, Cohesif IA',
     initials: 'SL',
-    avatarColor: '#d4ff00',
+    avatarColor: '#0BC8F0',
     featured: false,
   },
   {
@@ -56,7 +56,7 @@ const ARTICLES = [
     readTime: '6 min',
     date: '15 janvier 2025',
     author: 'Maître Clara Petit',
-    role: 'DPO & Juriste, LUMIS.AI',
+    role: 'DPO & Juriste, Cohesif IA',
     initials: 'CP',
     avatarColor: '#ff8899',
     featured: false,
@@ -72,7 +72,7 @@ const ARTICLES = [
     readTime: '10 min',
     date: '8 janvier 2025',
     author: 'Marc Dubois',
-    role: 'CFO & Co-founder, LUMIS.AI',
+    role: 'CFO & Co-founder, Cohesif IA',
     initials: 'MD',
     avatarColor: '#a78bfa',
     featured: false,
@@ -90,12 +90,12 @@ export default function BlogPage() {
       {/* Hero */}
       <section className="sec" style={{ textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,.06)', paddingBottom: 64 }}>
         <div className="ws">
-          <div className="tag" style={{ justifyContent: 'center' }}>Blog LUMIS.AI</div>
+          <div className="tag" style={{ justifyContent: 'center' }}>Blog Cohesif IA</div>
           <h1 className="h2" style={{ textAlign: 'center' }}>
             IA, Business &<br /><em>Souveraineté</em>
           </h1>
           <p className="lead" style={{ margin: '0 auto 32px', textAlign: 'center' }}>
-            Conseils pratiques, benchmarks techniques et analyses réglementaires par les experts LUMIS. Publié chaque semaine.
+            Conseils pratiques, benchmarks techniques et analyses réglementaires par les experts Cohesif. Publié chaque semaine.
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <div style={{
@@ -172,9 +172,9 @@ export default function BlogPage() {
                   fontWeight: 700,
                   padding: '4px 10px',
                   borderRadius: '100px',
-                  background: 'rgba(212,255,0,.12)',
+                  background: 'rgba(11,200,240,.12)',
                   color: 'var(--y)',
-                  border: '1px solid rgba(212,255,0,.2)',
+                  border: '1px solid rgba(11,200,240,.2)',
                 }}>
                   À la une
                 </span>
@@ -231,7 +231,7 @@ export default function BlogPage() {
 
             {/* Visual panel */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(77,166,255,.15), rgba(212,255,0,.08))',
+              background: 'linear-gradient(135deg, rgba(77,166,255,.15), rgba(11,200,240,.08))',
               borderLeft: '1px solid rgba(255,255,255,.06)',
               display: 'flex',
               flexDirection: 'column',
@@ -254,7 +254,7 @@ export default function BlogPage() {
               }} />
               {[
                 { label: 'Leads qualifiés', value: '×10', color: '#4da6ff' },
-                { label: 'Temps économisé', value: '3h/jour', color: '#d4ff00' },
+                { label: 'Temps économisé', value: '3h/jour', color: '#0BC8F0' },
                 { label: 'Taux de réponse', value: '+340%', color: '#a78bfa' },
               ].map((stat) => (
                 <div key={stat.label} style={{
@@ -394,8 +394,8 @@ export default function BlogPage() {
 
         {/* Newsletter */}
         <div className="g2-asym" style={{
-          background: 'linear-gradient(135deg, var(--card), rgba(212,255,0,.04))',
-          border: '1px solid rgba(212,255,0,.15)',
+          background: 'linear-gradient(135deg, var(--card), rgba(11, 200, 240, .04))',
+          border: '1px solid rgba(11,200,240,.15)',
           borderRadius: '20px',
           padding: '48px',
           gap: '32px',
@@ -442,7 +442,7 @@ export default function BlogPage() {
       }}>
         <div className="w">
           <p style={{ fontSize: '13px', color: 'var(--fog)' }}>
-            © 2025 LUMIS SAS — <Link href="/legal/mentions" style={{ color: 'var(--fog)', textDecoration: 'none' }}>Mentions légales</Link> · <Link href="/legal/confidentialite" style={{ color: 'var(--fog)', textDecoration: 'none' }}>Confidentialité</Link>
+            © 2025 Cohesif SAS — <Link href="/legal/mentions" style={{ color: 'var(--fog)', textDecoration: 'none' }}>Mentions légales</Link> · <Link href="/legal/confidentialite" style={{ color: 'var(--fog)', textDecoration: 'none' }}>Confidentialité</Link>
           </p>
         </div>
       </footer>

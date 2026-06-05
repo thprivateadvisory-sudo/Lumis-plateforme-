@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://lumis.ai'
+  const base = 'https://cohesif.ai'
   const now = new Date()
 
   const pages = [

@@ -8,9 +8,9 @@
   --w1: rgba(255, 255, 255, 0.07);
   --w2: rgba(255, 255, 255, 0.12);
   --w3: rgba(255, 255, 255, 0.2);
-  --y: #d4ff00;
-  --yd: rgba(212, 255, 0, 0.12);
-  --yg: rgba(212, 255, 0, 0.06);
+  --y: #0BC8F0;
+  --yd: rgba(11, 200, 240, 0.12);
+  --yg: rgba(11, 200, 240, 0.06);
   --snow: #f0f2ff;
   --fog: #8892aa;
   --mist: #404860;
@@ -74,7 +74,7 @@ video {
 
 /* ─── SELECTION ──────────────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(212, 255, 0, 0.22);
+  background: rgba(11, 200, 240, 0.22);
   color: var(--snow);
 }
 
@@ -165,7 +165,7 @@ video {
   font-family: var(--fm);
   background: var(--yd);
   color: var(--y);
-  border: 1px solid rgba(212, 255, 0, 0.2);
+  border: 1px solid rgba(11, 200, 240, 0.2);
 }
 
 /* ─── SPACING UTILITIES ──────────────────────────────────────────────────── */
@@ -203,9 +203,9 @@ video {
   color: #000;
 }
 .by:hover {
-  background: #e8ff33;
+  background: #33d8f5;
   transform: translateY(-1px);
-  box-shadow: 0 8px 32px rgba(212, 255, 0, 0.25);
+  box-shadow: 0 8px 32px rgba(11, 200, 240, 0.25);
 }
 
 /* Ghost button */
@@ -451,7 +451,7 @@ video {
   position: fixed;
   width: 32px;
   height: 32px;
-  border: 1.5px solid rgba(212, 255, 0, 0.45);
+  border: 1.5px solid rgba(11, 200, 240, 0.45);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
@@ -586,8 +586,8 @@ video {
 .fi:focus,
 .fsel:focus,
 .ftxt:focus {
-  border-color: rgba(212, 255, 0, 0.4);
-  box-shadow: 0 0 0 3px rgba(212, 255, 0, 0.08);
+  border-color: rgba(11, 200, 240, 0.4);
+  box-shadow: 0 0 0 3px rgba(11, 200, 240, 0.08);
 }
 .fsel {
   appearance: none;
@@ -615,7 +615,7 @@ video {
 /* ─── TOPBAR ─────────────────────────────────────────────────────────────── */
 #topbar {
   background: var(--yd);
-  border-bottom: 1px solid rgba(212, 255, 0, 0.12);
+  border-bottom: 1px solid rgba(11, 200, 240, 0.12);
   padding: 10px 24px;
   text-align: center;
   font-size: 0.8125rem;
@@ -665,14 +665,14 @@ video {
   transform: translateX(-50%);
   width: 900px;
   height: 600px;
-  background: radial-gradient(ellipse, rgba(212, 255, 0, 0.08) 0%, transparent 65%);
+  background: radial-gradient(ellipse, rgba(11, 200, 240, 0.08) 0%, transparent 65%);
   animation: glow-pulse 4s ease-in-out infinite;
 }
 
 .hgrad {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(212, 255, 0, 0.04) 0%, transparent 60%),
+  background: radial-gradient(ellipse at 50% 0%, rgba(11, 200, 240, 0.04) 0%, transparent 60%),
               linear-gradient(180deg, transparent 60%, var(--void) 100%);
 }
 
@@ -681,7 +681,7 @@ video {
   align-items: center;
   gap: 8px;
   background: var(--yd);
-  border: 1px solid rgba(212, 255, 0, 0.2);
+  border: 1px solid rgba(11, 200, 240, 0.2);
   border-radius: 100px;
   padding: 6px 16px 6px 6px;
   font-size: 0.8125rem;
@@ -968,8 +968,8 @@ video {
   border-color: var(--w2);
 }
 .pbox.pfeatured {
-  border-color: rgba(212, 255, 0, 0.3);
-  background: linear-gradient(135deg, rgba(212, 255, 0, 0.04) 0%, var(--panel) 60%);
+  border-color: rgba(11, 200, 240, 0.3);
+  background: linear-gradient(135deg, rgba(11, 200, 240, 0.04) 0%, var(--panel) 60%);
 }
 .pbox-badge {
   position: absolute;
@@ -1244,7 +1244,7 @@ video {
   color: var(--y);
 }
 .fcol a.fy:hover {
-  color: #e8ff33;
+  color: #33d8f5;
 }
 
 .fbot {
@@ -1526,8 +1526,8 @@ video {
 
 /* ─── TARIFS — MISSING CLASSES ───────────────────────────────────────────── */
 .pbox.pf {
-  border-color: rgba(212, 255, 0, 0.3);
-  background: linear-gradient(135deg, rgba(212, 255, 0, 0.04) 0%, var(--panel) 60%);
+  border-color: rgba(11, 200, 240, 0.3);
+  background: linear-gradient(135deg, rgba(11, 200, 240, 0.04) 0%, var(--panel) 60%);
 }
 .pbadge {
   position: absolute;
@@ -1636,7 +1636,7 @@ video {
 .pbtn:disabled { opacity: 0.5; cursor: not-allowed; }
 .apill {
   display: inline-block;
-  background: rgba(212, 255, 0, 0.15);
+  background: rgba(11, 200, 240, 0.15);
   color: var(--y);
   border-radius: 100px;
   padding: 2px 8px;

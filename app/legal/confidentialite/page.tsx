@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Politique de confidentialité — LUMIS.AI',
-  description: 'Politique de confidentialité et protection des données personnelles de LUMIS.AI. Conformité RGPD.',
+  title: 'Politique de confidentialité — Cohesif IA',
+  description: 'Politique de confidentialité et protection des données personnelles de Cohesif IA. Conformité RGPD.',
 }
 
 export default function ConfidentialitePage() {
@@ -18,9 +18,9 @@ export default function ConfidentialitePage() {
           {[
             {
               title: '1. Responsable du traitement',
-              content: `LUMIS SAS, société par actions simplifiée au capital de 500 000€, immatriculée au RCS de Paris sous le numéro 123 456 789, dont le siège social est situé 42 avenue des Champs-Élysées, 75008 Paris, France (ci-après « LUMIS »).
+              content: `Cohesif SAS, société par actions simplifiée au capital de 500 000€, immatriculée au RCS de Paris sous le numéro 123 456 789, dont le siège social est situé 42 avenue des Champs-Élysées, 75008 Paris, France (ci-après « Cohesif »).
 
-Contact DPO : dpo@lumis.ai`
+Contact DPO : dpo@cohesif.ai`
             },
             {
               title: '2. Données collectées',
@@ -37,7 +37,7 @@ Nous ne collectons pas de données sensibles au sens de l'article 9 du RGPD.`
               title: '3. Finalités du traitement',
               content: `Vos données sont traitées pour les finalités suivantes :
 
-• Fourniture du service LUMIS.AI : exécution du contrat
+• Fourniture du service Cohesif IA : exécution du contrat
 • Communication et support client : intérêt légitime
 • Amélioration du service : intérêt légitime (données agrégées et anonymisées uniquement)
 • Envoi de communications commerciales : consentement ou intérêt légitime (clients existants)
@@ -50,7 +50,7 @@ Nous ne collectons pas de données sensibles au sens de l'article 9 du RGPD.`
 • Logs de connexion : 12 mois
 • Messages IA : 30 jours (chiffrés, automatiquement supprimés)
 
-Vous pouvez demander la suppression anticipée de vos données via dpo@lumis.ai.`
+Vous pouvez demander la suppression anticipée de vos données via dpo@cohesif.ai.`
             },
             {
               title: '5. Hébergement et transferts',
@@ -69,7 +69,7 @@ Nos sous-traitants sont tous établis dans l'UE et soumis à des contrats de tra
 • Droit d'opposition (art. 21) : vous opposer au traitement basé sur l'intérêt légitime
 • Droit à la limitation (art. 18) : limiter le traitement de vos données
 
-Pour exercer vos droits : dpo@lumis.ai | Réponse sous 30 jours.
+Pour exercer vos droits : dpo@cohesif.ai | Réponse sous 30 jours.
 Vous pouvez également déposer une réclamation auprès de la CNIL : cnil.fr`
             },
             {
@@ -93,7 +93,7 @@ Vous pouvez également déposer une réclamation auprès de la CNIL : cnil.fr`
         <div style={{ marginTop: 48, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           <Link href="/legal/cgu" className="btn bg">CGU →</Link>
           <Link href="/legal/mentions" className="btn bg">Mentions légales →</Link>
-          <a href="mailto:dpo@lumis.ai" className="btn by">Contacter le DPO →</a>
+          <a href="mailto:dpo@cohesif.ai" className="btn by">Contacter le DPO →</a>
         </div>
       </div>
     </section>

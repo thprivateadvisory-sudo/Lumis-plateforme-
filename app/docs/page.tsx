@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Documentation — LUMIS.AI',
+  title: 'Documentation — Cohesif IA',
   description:
-    "Documentation complète de l'API LUMIS.AI : démarrage rapide, référence API, agents autonomes, webhooks et SDKs. Commencez en 5 minutes.",
+    "Documentation complète de l'API Cohesif IA : démarrage rapide, référence API, agents autonomes, webhooks et SDKs. Commencez en 5 minutes.",
   openGraph: {
-    title: 'Documentation LUMIS.AI',
-    description: 'Intégrez LUMIS Ultra en 5 minutes. Guides, référence API, SDKs.',
-    url: 'https://lumis.ai/docs',
+    title: 'Documentation Cohesif IA',
+    description: 'Intégrez Cohesif Ultra en 5 minutes. Guides, référence API, SDKs.',
+    url: 'https://cohesif.ai/docs',
   },
 }
 
@@ -173,8 +173,8 @@ export default function DocsPage() {
           ))}
 
           <div style={{
-            background: 'rgba(212,255,0,.06)',
-            border: '1px solid rgba(212,255,0,.15)',
+            background: 'rgba(11,200,240,.06)',
+            border: '1px solid rgba(11,200,240,.15)',
             borderRadius: '10px',
             padding: '14px',
             marginTop: '8px',
@@ -185,7 +185,7 @@ export default function DocsPage() {
             <div style={{ fontSize: '12px', color: 'var(--fog)', lineHeight: 1.6 }}>
               Besoin d'aide ?
               <br />
-              <a href="mailto:api@lumis.ai" style={{ color: 'var(--y)', textDecoration: 'none' }}>api@lumis.ai</a>
+              <a href="mailto:api@cohesif.ai" style={{ color: 'var(--y)', textDecoration: 'none' }}>api@cohesif.ai</a>
             </div>
           </div>
         </aside>
@@ -197,7 +197,7 @@ export default function DocsPage() {
           <section id="quickstart" style={{ marginBottom: '72px' }}>
             <SectionTitle tag="01 — Démarrage" title="Démarrage rapide" id="quickstart-title" />
             <p className="lead" style={{ marginBottom: '32px' }}>
-              Intégrez LUMIS Ultra dans votre application en moins de 5 minutes. Notre API REST est compatible avec le standard OpenAI — migration depuis GPT-4 possible en 10 minutes.
+              Intégrez Cohesif Ultra dans votre application en moins de 5 minutes. Notre API REST est compatible avec le standard OpenAI — migration depuis GPT-4 possible en 10 minutes.
             </p>
 
             <div className="g3" style={{
@@ -229,7 +229,7 @@ export default function DocsPage() {
               Installation
             </h3>
             <p style={{ color: 'var(--fog)', fontSize: '14px', marginBottom: '16px', lineHeight: 1.7 }}>
-              Installez le SDK officiel LUMIS pour votre langage préféré :
+              Installez le SDK officiel Cohesif pour votre langage préféré :
             </p>
 
             <CB lang="bash — Python" code={`pip install lumis-ai`} />
@@ -258,18 +258,18 @@ yarn add @lumis/sdk`} />
               <strong style={{ color: '#ff5577' }}>Sécurité :</strong> Ne commitez jamais votre clé API dans votre code source. Utilisez des variables d'environnement.
             </div>
 
-            <CB lang="bash" code={`export LUMIS_API_KEY="lms-sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"`} />
+            <CB lang="bash" code={`export Cohesif_API_KEY="lms-sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"`} />
 
             <CB lang="python" code={`import lumis
 
 client = lumis.Client(api_key="lms-sk-...")
 # ou automatiquement depuis l'env
-client = lumis.Client()  # lit LUMIS_API_KEY`} />
+client = lumis.Client()  # lit Cohesif_API_KEY`} />
 
             <CB lang="typescript" code={`import Lumis from '@lumis/sdk'
 
 const client = new Lumis({
-  apiKey: process.env.LUMIS_API_KEY,
+  apiKey: process.env.Cohesif_API_KEY,
 })`} />
 
             {/* First request */}
@@ -326,7 +326,7 @@ console.log(response.choices[0].message.content)`} />
               Streaming
             </h3>
             <p style={{ color: 'var(--fog)', fontSize: '14px', marginBottom: '16px', lineHeight: 1.7 }}>
-              Activez le streaming pour une expérience utilisateur en temps réel. LUMIS Ultra supporte Server-Sent Events (SSE).
+              Activez le streaming pour une expérience utilisateur en temps réel. Cohesif Ultra supporte Server-Sent Events (SSE).
             </p>
 
             <CB lang="python" code={`with client.chat.completions.stream(
@@ -355,7 +355,7 @@ for await (const chunk of stream) {
             </div>
 
             <p className="lead" style={{ marginBottom: '32px' }}>
-              L'API LUMIS suit la convention REST. Toutes les requêtes utilisent HTTPS. Base URL : <code style={{ fontFamily: 'var(--fm)', color: 'var(--y)', fontSize: '14px' }}>https://api.lumis.ai/v1</code>
+              L'API Cohesif suit la convention REST. Toutes les requêtes utilisent HTTPS. Base URL : <code style={{ fontFamily: 'var(--fm)', color: 'var(--y)', fontSize: '14px' }}>https://api.cohesif.ai/v1</code>
             </p>
 
             {/* Endpoints table */}
@@ -423,7 +423,7 @@ for await (const chunk of stream) {
               {[
                 {
                   id: 'lumis-ultra',
-                  name: 'LUMIS Ultra',
+                  name: 'Cohesif Ultra',
                   ctx: '512K tokens',
                   speed: '38ms P95',
                   desc: 'Modèle flagship. Raisonnement avancé, multimodal, optimal pour tâches complexes.',
@@ -431,7 +431,7 @@ for await (const chunk of stream) {
                 },
                 {
                   id: 'lumis-pro',
-                  name: 'LUMIS Pro',
+                  name: 'Cohesif Pro',
                   ctx: '128K tokens',
                   speed: '18ms P95',
                   desc: 'Équilibre performance/vitesse. Idéal pour la production à grande échelle.',
@@ -439,7 +439,7 @@ for await (const chunk of stream) {
                 },
                 {
                   id: 'lumis-flash',
-                  name: 'LUMIS Flash',
+                  name: 'Cohesif Flash',
                   ctx: '32K tokens',
                   speed: '8ms P95',
                   desc: 'Ultra-rapide. Parfait pour les applications temps réel et chatbots à fort volume.',
@@ -447,7 +447,7 @@ for await (const chunk of stream) {
                 },
                 {
                   id: 'lumis-embed',
-                  name: 'LUMIS Embed',
+                  name: 'Cohesif Embed',
                   ctx: '8K tokens',
                   speed: '5ms P95',
                   desc: "Modèle d'embeddings optimisé pour le français. 1536 dimensions.",
@@ -469,9 +469,9 @@ for await (const chunk of stream) {
                       <span style={{
                         fontSize: '11px',
                         fontWeight: 700,
-                        background: 'rgba(212,255,0,.12)',
+                        background: 'rgba(11,200,240,.12)',
                         color: 'var(--y)',
-                        border: '1px solid rgba(212,255,0,.2)',
+                        border: '1px solid rgba(11,200,240,.2)',
                         padding: '2px 8px',
                         borderRadius: '100px',
                       }}>{m.badge}</span>
@@ -533,7 +533,7 @@ for await (const chunk of stream) {
             </div>
 
             <p className="lead" style={{ marginBottom: '32px' }}>
-              Les agents LUMIS sont des entités autonomes capables de décomposer des objectifs complexes, utiliser des outils externes et maintenir un contexte sur plusieurs sessions.
+              Les agents Cohesif sont des entités autonomes capables de décomposer des objectifs complexes, utiliser des outils externes et maintenir un contexte sur plusieurs sessions.
             </p>
 
             <h3 id="agents-overview" style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: 'var(--snow)' }}>
@@ -541,8 +541,8 @@ for await (const chunk of stream) {
             </h3>
 
             <div style={{
-              background: 'rgba(212,255,0,.04)',
-              border: '1px solid rgba(212,255,0,.15)',
+              background: 'rgba(11, 200, 240, .04)',
+              border: '1px solid rgba(11,200,240,.15)',
               borderRadius: '10px',
               padding: '16px 20px',
               marginBottom: '24px',
@@ -550,7 +550,7 @@ for await (const chunk of stream) {
               color: 'var(--snow)',
               lineHeight: 1.7,
             }}>
-              Les agents LUMIS utilisent un cycle <strong>Raisonnement → Action → Observation</strong> (RAO). Chaque cycle peut appeler des outils externes (API, bases de données, navigateur) et stocker des informations en mémoire longue durée.
+              Les agents Cohesif utilisent un cycle <strong>Raisonnement → Action → Observation</strong> (RAO). Chaque cycle peut appeler des outils externes (API, bases de données, navigateur) et stocker des informations en mémoire longue durée.
             </div>
 
             <h3 id="create-agent" style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: 'var(--snow)', marginTop: '32px' }}>
@@ -694,7 +694,7 @@ async def handle_webhook(request: Request):
     payload = await request.body()
     signature = request.headers.get("X-Lumis-Signature")
 
-    if not verify_webhook(payload, signature, os.getenv("LUMIS_WEBHOOK_SECRET")):
+    if not verify_webhook(payload, signature, os.getenv("Cohesif_WEBHOOK_SECRET")):
         raise HTTPException(status_code=401, detail="Signature invalide")
 
     event = json.loads(payload)
@@ -752,8 +752,8 @@ async def handle_webhook(request: Request):
 
           {/* Bottom CTA */}
           <div style={{
-            background: 'linear-gradient(135deg, rgba(212,255,0,.08), rgba(212,255,0,.03))',
-            border: '1px solid rgba(212,255,0,.15)',
+            background: 'linear-gradient(135deg, rgba(11,200,240,.08), rgba(11, 200, 240, .03))',
+            border: '1px solid rgba(11,200,240,.15)',
             borderRadius: '16px',
             padding: '40px',
             textAlign: 'center',
@@ -767,7 +767,7 @@ async def handle_webhook(request: Request):
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/demo" className="btn by blg">Créer mon compte →</Link>
-              <a href="mailto:api@lumis.ai" className="btn bg">Parler à un ingénieur</a>
+              <a href="mailto:api@cohesif.ai" className="btn bg">Parler à un ingénieur</a>
             </div>
           </div>
 

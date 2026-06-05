@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-const GUIDE_CONTENT = `LUMIS.AI — Guide Gratuit
+const GUIDE_CONTENT = `Cohesif IA — Guide Gratuit
 10 Automatisations IA pour PME Françaises
 =========================================
 
@@ -17,7 +17,7 @@ const GUIDE_CONTENT = `LUMIS.AI — Guide Gratuit
    Gain : 6h/semaine | Outil : Agent Léa Finance | ROI ×6 en 7 jours
 
 4. RÉDIGER 10× PLUS VITE AVEC L'IA
-   Gain : 8h/semaine | Outil : LUMIS Ultra | ROI immédiat dès J+1
+   Gain : 8h/semaine | Outil : Cohesif Ultra | ROI immédiat dès J+1
 
 5. ANALYSER VOS CONTRATS EN 2 MINUTES
    Gain : 4h/semaine | Outil : Agent Iris Juridique | ROI ×15 en 30 jours
@@ -29,17 +29,17 @@ const GUIDE_CONTENT = `LUMIS.AI — Guide Gratuit
    Gain : 10h par recrutement | Outil : Agent Hugo RH | −60% time-to-hire
 
 8. VEILLE CONCURRENTIELLE AUTOMATIQUE
-   Gain : 3h/semaine | Outil : LUMIS Ultra + API web
+   Gain : 3h/semaine | Outil : Cohesif Ultra + API web
 
 9. BASE DE CONNAISSANCE IA
-   Gain : 20h de formation/an | Outil : LUMIS RAG | ×4 vitesse onboarding
+   Gain : 20h de formation/an | Outil : Cohesif RAG | ×4 vitesse onboarding
 
 10. DEVIS ET FACTURES AUTOMATISÉS
-    Gain : 6h/semaine | Outil : LUMIS Ultra + Pennylane | −78% administratif
+    Gain : 6h/semaine | Outil : Cohesif Ultra + Pennylane | −78% administratif
 
 =========================================
-Pour aller plus loin : lumis.ai | contact@lumis.ai
-© 2025 LUMIS SAS — Paris, France`
+Pour aller plus loin : cohesif.ai | contact@cohesif.ai
+© 2025 Cohesif SAS — Paris, France`
 
 export default function GuidePage() {
   const [form, setForm] = useState({ name: '', email: '', company: '' })
@@ -64,7 +64,7 @@ export default function GuidePage() {
     const blob = new Blob([GUIDE_CONTENT], { type: 'text/plain;charset=utf-8' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
-    a.href = url; a.download = 'LUMIS-Guide-10-Automatisations-IA.txt'
+    a.href = url; a.download = 'Cohesif-Guide-10-Automatisations-IA.txt'
     document.body.appendChild(a); a.click()
     document.body.removeChild(a); URL.revokeObjectURL(url)
 
@@ -72,7 +72,7 @@ export default function GuidePage() {
   }
 
   return (
-    <section className="sec" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(212,255,0,.06),transparent)' }}>
+    <section className="sec" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(11,200,240,.06),transparent)' }}>
       <div className="ws" style={{ textAlign: 'center' }}>
         <div className="tag" style={{ justifyContent: 'center' }}>Guide Gratuit</div>
         <h1 className="h2">10 automatisations IA<br /><em>pour PME françaises.</em></h1>
@@ -80,7 +80,7 @@ export default function GuidePage() {
           Le guide pratique que 12&nbsp;000 dirigeants ont téléchargé. Cas concrets, outils, ROI estimé.
         </p>
 
-        <div style={{ background: 'var(--card)', border: '1px solid rgba(212,255,0,.2)', borderRadius: 24, padding: 44, maxWidth: 560, margin: '0 auto' }}>
+        <div style={{ background: 'var(--card)', border: '1px solid rgba(11,200,240,.2)', borderRadius: 24, padding: 44, maxWidth: 560, margin: '0 auto' }}>
           {/* Preview */}
           <div style={{ background: 'var(--panel)', borderRadius: 14, padding: 20, marginBottom: 28, textAlign: 'left' }}>
             <div style={{ fontSize: 12, color: 'var(--y)', fontFamily: 'var(--fm)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 12 }}>
@@ -109,7 +109,7 @@ export default function GuidePage() {
                 Prêt à mettre en pratique ces 10 automatisations ?
               </p>
               <Link href="/demo" className="btn by" style={{ width: '100%', justifyContent: 'center' }}>
-                Tester LUMIS gratuitement →
+                Tester Cohesif gratuitement →
               </Link>
             </div>
           ) : (

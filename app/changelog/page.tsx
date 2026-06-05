@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Changelog — LUMIS.AI | Nouveautés et mises à jour',
-  description: 'Toutes les mises à jour, nouvelles fonctionnalités et améliorations de la plateforme LUMIS.AI.',
+  title: 'Changelog — Cohesif IA | Nouveautés et mises à jour',
+  description: 'Toutes les mises à jour, nouvelles fonctionnalités et améliorations de la plateforme Cohesif IA.',
 }
 
 const RELEASES = [
   {
-    version: 'v3.2.0', date: '15 janvier 2025', title: 'LUMIS Ultra — Contexte 512K tokens',
+    version: 'v3.2.0', date: '15 janvier 2025', title: 'Cohesif Ultra — Contexte 512K tokens',
     tags: [{ label: 'Majeur', color: 'var(--y)' }],
     changes: [
-      { type: 'new', text: 'Contexte étendu à 512K tokens pour LUMIS Ultra' },
+      { type: 'new', text: 'Contexte étendu à 512K tokens pour Cohesif Ultra' },
       { type: 'new', text: 'Mode vision multimodal : analyse d\'images et de documents PDF' },
       { type: 'new', text: 'RAG natif avec connexion à vos bases de données' },
       { type: 'improved', text: 'Latence P95 réduite de 38ms à 24ms' },
@@ -52,7 +52,7 @@ const RELEASES = [
 ]
 
 const TYPE_STYLES = {
-  new: { label: 'Nouveau', bg: 'rgba(212,255,0,.1)', color: 'var(--y)', border: 'rgba(212,255,0,.2)' },
+  new: { label: 'Nouveau', bg: 'rgba(11, 200, 240, .1)', color: 'var(--y)', border: 'rgba(11,200,240,.2)' },
   improved: { label: 'Amélioré', bg: 'rgba(77,166,255,.1)', color: 'var(--blue)', border: 'rgba(77,166,255,.2)' },
   fixed: { label: 'Corrigé', bg: 'rgba(255,51,85,.08)', color: 'var(--red)', border: 'rgba(255,51,85,.2)' },
 }
@@ -60,12 +60,12 @@ const TYPE_STYLES = {
 export default function ChangelogPage() {
   return (
     <>
-      <section className="sec" style={{ background: 'radial-gradient(ellipse 70% 40% at 50% 0%,rgba(212,255,0,.05),transparent)', paddingBottom: 0 }}>
+      <section className="sec" style={{ background: 'radial-gradient(ellipse 70% 40% at 50% 0%,rgba(11, 200, 240, .05),transparent)', paddingBottom: 0 }}>
         <div className="wm" style={{ textAlign: 'center' }}>
           <div className="tag" style={{ justifyContent: 'center' }}>Changelog</div>
           <h1 className="h2">Ce qu&apos;on a<br /><em>construit pour vous.</em></h1>
           <p className="lead" style={{ margin: '0 auto' }}>
-            Toutes les mises à jour, améliorations et corrections de la plateforme LUMIS.AI. Publié à chaque release.
+            Toutes les mises à jour, améliorations et corrections de la plateforme Cohesif IA. Publié à chaque release.
           </p>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function ChangelogPage() {
             {RELEASES.map(release => (
               <div key={release.version} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, overflow: 'hidden' }}>
                 <div style={{ padding: '20px 28px', borderBottom: '1px solid var(--w1)', display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-                  <span style={{ fontFamily: 'var(--fm)', fontSize: 13, fontWeight: 700, color: 'var(--y)', background: 'rgba(212,255,0,.08)', border: '1px solid rgba(212,255,0,.15)', borderRadius: 6, padding: '4px 10px' }}>
+                  <span style={{ fontFamily: 'var(--fm)', fontSize: 13, fontWeight: 700, color: 'var(--y)', background: 'rgba(11,200,240,.08)', border: '1px solid rgba(11,200,240,.15)', borderRadius: 6, padding: '4px 10px' }}>
                     {release.version}
                   </span>
                   {release.tags.map(tag => (
@@ -110,9 +110,9 @@ export default function ChangelogPage() {
           <div style={{ marginTop: 52, background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: '32px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
             <div>
               <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 4 }}>Abonnez-vous aux releases</div>
-              <div style={{ fontSize: 13, color: 'var(--fog)' }}>Recevez un email à chaque nouvelle version de LUMIS.</div>
+              <div style={{ fontSize: 13, color: 'var(--fog)' }}>Recevez un email à chaque nouvelle version de Cohesif.</div>
             </div>
-            <a href="mailto:changelog@lumis.ai?subject=Abonnement%20changelog" className="btn by">
+            <a href="mailto:changelog@cohesif.ai?subject=Abonnement%20changelog" className="btn by">
               S&apos;abonner →
             </a>
           </div>
