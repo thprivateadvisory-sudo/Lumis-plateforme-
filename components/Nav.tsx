@@ -62,15 +62,18 @@ export default function Nav() {
         aria-label="Navigation principale"
       >
         {/* Logo */}
-        <Link href="/" aria-label="Cohesif IA — Accueil" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
+        <Link href="/" className="logo" aria-label="Cohesif IA — Accueil">
           <Image
-            src="/cohesif-logo.png"
-            alt="Cohesif IA"
-            width={120}
-            height={46}
+            src="/cohesif-icon.png"
+            alt=""
+            width={56}
+            height={30}
             style={{ objectFit: 'contain', display: 'block' }}
             priority
           />
+          <span className="logo-name">
+            Cohesif<span> IA</span>
+          </span>
         </Link>
 
         {/* Centre — desktop links */}
