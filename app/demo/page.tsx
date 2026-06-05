@@ -439,7 +439,7 @@ export default function DemoPage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Posez votre question… (Entrée pour envoyer)"
+              placeholder="Posez votre question…"
               rows={1}
               disabled={isLoading || isHardBlocked}
               style={{
