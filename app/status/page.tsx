@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Status LUMIS.AI — Tous les systèmes opérationnels',
-  description: 'Consultez l\'état en temps réel de tous les services LUMIS.AI. Uptime 99.98%, zéro incident.',
+  title: 'Status Cohesif IA — Tous les systèmes opérationnels',
+  description: 'Consultez l\'état en temps réel de tous les services Cohesif IA. Uptime 99.98%, zéro incident.',
 }
 
 const SERVICES = [
-  { name: 'API LUMIS Ultra', uptime: '99.98%', status: 'operational', icon: '⚡' },
+  { name: 'API Cohesif Ultra', uptime: '99.98%', status: 'operational', icon: '⚡' },
   { name: 'Chat & Démo Live', uptime: '99.97%', status: 'operational', icon: '💬' },
   { name: 'Agents Engine', uptime: '99.97%', status: 'operational', icon: '🤖' },
   { name: 'Authentication', uptime: '100%', status: 'operational', icon: '🔐' },
@@ -37,7 +37,7 @@ export default function StatusPage() {
       <section
         className="sec"
         style={{
-          background: 'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(212,255,0,.05),transparent)',
+          background: 'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(11, 200, 240, .05),transparent)',
           paddingBottom: 0,
         }}
       >
@@ -47,8 +47,8 @@ export default function StatusPage() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
-              background: 'rgba(212,255,0,.08)',
-              border: '1px solid rgba(212,255,0,.2)',
+              background: 'rgba(11,200,240,.08)',
+              border: '1px solid rgba(11,200,240,.2)',
               borderRadius: 100,
               padding: '10px 24px',
               marginBottom: 28,
@@ -71,7 +71,7 @@ export default function StatusPage() {
           <h1 className="h2">
             Status
             <br />
-            <em>LUMIS.AI</em>
+            <em>Cohesif IA</em>
           </h1>
           <p className="lead" style={{ margin: '0 auto' }}>
             Surveillance en temps réel de tous les services. Uptime moyen : <strong style={{ color: 'var(--snow)' }}>99.98%</strong> sur les 30 derniers jours.
@@ -207,8 +207,8 @@ export default function StatusPage() {
           <div
             style={{
               marginTop: 52,
-              background: 'linear-gradient(135deg,rgba(212,255,0,.06),var(--card))',
-              border: '1px solid rgba(212,255,0,.15)',
+              background: 'linear-gradient(135deg,rgba(11,200,240,.06),var(--card))',
+              border: '1px solid rgba(11,200,240,.15)',
               borderRadius: 20,
               padding: '36px 32px',
               display: 'flex',
@@ -227,7 +227,7 @@ export default function StatusPage() {
               </div>
             </div>
             <a
-              href="mailto:status@lumis.ai?subject=Abonnement%20status%20LUMIS"
+              href="mailto:status@cohesif.ai?subject=Abonnement%20status%20Cohesif"
               className="btn by"
               style={{ flexShrink: 0 }}
             >

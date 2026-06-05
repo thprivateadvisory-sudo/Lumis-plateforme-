@@ -36,11 +36,11 @@ const jetbrainsMono = JetBrains_Mono({
 /* ─── METADATA ───────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title: {
-    default: 'LUMIS.AI — Plateforme IA Souveraine Française | ISO 27001 · HDS · SOC 2',
-    template: '%s | LUMIS.AI',
+    default: 'Cohesif IA — Plateforme IA Souveraine Française | ISO 27001 · HDS · SOC 2',
+    template: '%s | Cohesif IA',
   },
   description:
-    "LUMIS est la plateforme d'intelligence artificielle souveraine française pour les grandes organisations. Agents IA autonomes, certifiée ISO 27001, HDS, SOC 2. Infrastructure 100% hébergée en France.",
+    "Cohesif est la plateforme d'intelligence artificielle souveraine française pour les grandes organisations. Agents IA autonomes, certifiée ISO 27001, HDS, SOC 2. Infrastructure 100% hébergée en France.",
   keywords: [
     'IA souveraine France',
     'intelligence artificielle française',
@@ -52,24 +52,24 @@ export const metadata: Metadata = {
     'RGPD',
     'grands comptes',
     'CAC40',
-    'LUMIS',
+    'Cohesif',
     'plateforme IA entreprise',
   ],
-  authors: [{ name: 'LUMIS SAS', url: 'https://lumis.ai' }],
-  creator: 'LUMIS SAS',
-  publisher: 'LUMIS SAS',
+  authors: [{ name: 'Cohesif SAS', url: 'https://cohesif.ai' }],
+  creator: 'Cohesif SAS',
+  publisher: 'Cohesif SAS',
   openGraph: {
-    title: 'LUMIS.AI — Plateforme IA Souveraine Française',
+    title: 'Cohesif IA — Plateforme IA Souveraine Française',
     description:
       "Agents IA autonomes pour les grandes organisations. Certifiée ISO 27001, HDS, SOC 2. 100% hébergé en France. SLA 99.99%.",
-    url: 'https://lumis.ai',
-    siteName: 'LUMIS.AI',
+    url: 'https://cohesif.ai',
+    siteName: 'Cohesif IA',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'LUMIS.AI — Plateforme IA Souveraine Française',
+        alt: 'Cohesif IA — Plateforme IA Souveraine Française',
       },
     ],
     type: 'website',
@@ -77,11 +77,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "LUMIS.AI — L'IA Souveraine Française",
+    title: "Cohesif IA — L'IA Souveraine Française",
     description:
       "Agents IA autonomes · ISO 27001 · HDS · SOC 2 · 100% hébergé en France.",
     images: ['/og.png'],
-    creator: '@LumisAI',
+    creator: '@CohesifIA',
   },
   robots: {
     index: true,
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  metadataBase: new URL('https://lumis.ai'),
+  metadataBase: new URL('https://cohesif.ai'),
   verification: {
     google: 'à-renseigner',
   },
@@ -134,7 +134,7 @@ export default function RootLayout({
         {/* Sticky CTA bar */}
         <div id="scta" role="complementary" aria-label="Offre promotionnelle">
           <span>
-            <strong>LUMIS Business</strong> — 14 jours gratuits, sans carte
+            <strong>Cohesif Business</strong> — 14 jours gratuits, sans carte
             bancaire.
           </span>
           <Link href="/tarifs" className="btn by bsm">
@@ -192,11 +192,11 @@ export default function RootLayout({
   document.querySelectorAll('a, button, [role="button"], label, select').forEach(function (el) {
     el.addEventListener('mouseenter', function () {
       if (cur)  { cur.style.width  = '12px'; cur.style.height  = '12px'; }
-      if (curo) { curo.style.width = '48px'; curo.style.height = '48px'; curo.style.borderColor = 'rgba(212,255,0,0.7)'; }
+      if (curo) { curo.style.width = '48px'; curo.style.height = '48px'; curo.style.borderColor = 'rgba(11, 200, 240, 0.7)'; }
     });
     el.addEventListener('mouseleave', function () {
       if (cur)  { cur.style.width  = '8px';  cur.style.height  = '8px'; }
-      if (curo) { curo.style.width = '32px'; curo.style.height = '32px'; curo.style.borderColor = 'rgba(212,255,0,0.45)'; }
+      if (curo) { curo.style.width = '32px'; curo.style.height = '32px'; curo.style.borderColor = 'rgba(11, 200, 240, 0.45)'; }
     });
   });
 

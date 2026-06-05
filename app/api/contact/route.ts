@@ -21,7 +21,7 @@ function buildNotificationEmail(data: ContactRequest): string {
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Nouveau message de contact — LUMIS.AI</title>
+  <title>Nouveau message de contact — Cohesif IA</title>
 </head>
 <body style="margin:0;padding:0;background-color:#0a0a0a;font-family:'Helvetica Neue',Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0a0a;padding:40px 20px;">
@@ -32,8 +32,8 @@ function buildNotificationEmail(data: ContactRequest): string {
           <!-- Header -->
           <tr>
             <td align="center" style="padding-bottom:32px;">
-              <div style="display:inline-block;background:#d4ff00;border-radius:12px;padding:12px 28px;">
-                <span style="font-size:24px;font-weight:900;color:#0a0a0a;letter-spacing:-0.5px;">LUMIS.AI</span>
+              <div style="display:inline-block;background:#0BC8F0;border-radius:12px;padding:12px 28px;">
+                <span style="font-size:24px;font-weight:900;color:#0a0a0a;letter-spacing:-0.5px;">Cohesif IA</span>
               </div>
             </td>
           </tr>
@@ -41,7 +41,7 @@ function buildNotificationEmail(data: ContactRequest): string {
           <!-- Card -->
           <tr>
             <td style="background:#141414;border-radius:16px;border:1px solid #2a2a2a;overflow:hidden;">
-              <div style="height:4px;background:linear-gradient(90deg,#d4ff00,#a8cc00);"></div>
+              <div style="height:4px;background:linear-gradient(90deg,#0BC8F0,#a8cc00);"></div>
               <div style="padding:40px;">
                 <h2 style="margin:0 0 24px;font-size:22px;font-weight:700;color:#ffffff;">
                   📬 Nouveau message de contact
@@ -68,8 +68,8 @@ function buildNotificationEmail(data: ContactRequest): string {
                       <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                           <td style="font-size:14px;color:#888888;width:120px;">Email</td>
-                          <td style="font-size:14px;color:#d4ff00;font-weight:500;">
-                            <a href="mailto:${email}" style="color:#d4ff00;text-decoration:none;">${email}</a>
+                          <td style="font-size:14px;color:#0BC8F0;font-weight:500;">
+                            <a href="mailto:${email}" style="color:#0BC8F0;text-decoration:none;">${email}</a>
                           </td>
                         </tr>
                       </table>
@@ -121,7 +121,7 @@ function buildNotificationEmail(data: ContactRequest): string {
           <tr>
             <td align="center" style="padding-top:28px;">
               <p style="margin:0;font-size:13px;color:#444444;">
-                © ${new Date().getFullYear()} LUMIS.AI — L'IA française souveraine
+                © ${new Date().getFullYear()} Cohesif IA — L'IA française souveraine
               </p>
             </td>
           </tr>
@@ -137,13 +137,13 @@ function buildNotificationEmail(data: ContactRequest): string {
 function buildConfirmationEmail(data: ContactRequest): string {
   const { firstName, email } = data
   const displayName = firstName ? firstName : 'là'
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lumis.ai'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cohesif.ai'
 
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Votre message a bien été reçu — LUMIS.AI</title>
+  <title>Votre message a bien été reçu — Cohesif IA</title>
 </head>
 <body style="margin:0;padding:0;background-color:#0a0a0a;font-family:'Helvetica Neue',Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0a0a;padding:40px 20px;">
@@ -154,8 +154,8 @@ function buildConfirmationEmail(data: ContactRequest): string {
           <!-- Header -->
           <tr>
             <td align="center" style="padding-bottom:32px;">
-              <div style="display:inline-block;background:#d4ff00;border-radius:12px;padding:12px 28px;">
-                <span style="font-size:24px;font-weight:900;color:#0a0a0a;letter-spacing:-0.5px;">LUMIS.AI</span>
+              <div style="display:inline-block;background:#0BC8F0;border-radius:12px;padding:12px 28px;">
+                <span style="font-size:24px;font-weight:900;color:#0a0a0a;letter-spacing:-0.5px;">Cohesif IA</span>
               </div>
             </td>
           </tr>
@@ -163,7 +163,7 @@ function buildConfirmationEmail(data: ContactRequest): string {
           <!-- Card -->
           <tr>
             <td style="background:#141414;border-radius:16px;border:1px solid #2a2a2a;overflow:hidden;">
-              <div style="height:4px;background:linear-gradient(90deg,#d4ff00,#a8cc00);"></div>
+              <div style="height:4px;background:linear-gradient(90deg,#0BC8F0,#a8cc00);"></div>
               <div style="padding:48px 40px;text-align:center;">
 
                 <!-- Icon -->
@@ -176,7 +176,7 @@ function buildConfirmationEmail(data: ContactRequest): string {
                 <p style="margin:0 0 32px;font-size:16px;color:#888888;line-height:1.6;">
                   Bonjour ${displayName},<br />
                   nous avons bien reçu votre message et vous répondrons<br />
-                  <strong style="color:#d4ff00;">dans les 4 heures ouvrées</strong>.
+                  <strong style="color:#0BC8F0;">dans les 4 heures ouvrées</strong>.
                 </p>
 
                 <!-- Promise box -->
@@ -186,7 +186,7 @@ function buildConfirmationEmail(data: ContactRequest): string {
                       <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                           <td style="width:48px;vertical-align:middle;">
-                            <div style="width:40px;height:40px;background:#d4ff0022;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;">⏱</div>
+                            <div style="width:40px;height:40px;background:#0BC8F022;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;">⏱</div>
                           </td>
                           <td style="padding-left:16px;vertical-align:middle;">
                             <p style="margin:0;font-size:15px;color:#ffffff;font-weight:600;">Réponse sous 4h garantie</p>
@@ -203,8 +203,8 @@ function buildConfirmationEmail(data: ContactRequest): string {
                   <tr>
                     <td align="center">
                       <a href="${siteUrl}"
-                         style="display:inline-block;background:#d4ff00;color:#0a0a0a;font-size:15px;font-weight:800;text-decoration:none;padding:14px 40px;border-radius:50px;letter-spacing:0.3px;">
-                        Retourner sur LUMIS.AI →
+                         style="display:inline-block;background:#0BC8F0;color:#0a0a0a;font-size:15px;font-weight:800;text-decoration:none;padding:14px 40px;border-radius:50px;letter-spacing:0.3px;">
+                        Retourner sur Cohesif IA →
                       </a>
                     </td>
                   </tr>
@@ -215,7 +215,7 @@ function buildConfirmationEmail(data: ContactRequest): string {
 
                 <p style="margin:0;font-size:14px;color:#555555;line-height:1.6;">
                   Vous pouvez également nous joindre directement à<br />
-                  <a href="mailto:contact@lumis.ai" style="color:#d4ff00;text-decoration:none;">contact@lumis.ai</a>
+                  <a href="mailto:contact@cohesif.ai" style="color:#0BC8F0;text-decoration:none;">contact@cohesif.ai</a>
                 </p>
 
               </div>
@@ -226,7 +226,7 @@ function buildConfirmationEmail(data: ContactRequest): string {
           <tr>
             <td align="center" style="padding-top:28px;">
               <p style="margin:0;font-size:13px;color:#444444;">
-                © ${new Date().getFullYear()} LUMIS.AI — L'IA française souveraine<br />
+                © ${new Date().getFullYear()} Cohesif IA — L'IA française souveraine<br />
                 <a href="${siteUrl}/legal/privacy" style="color:#555555;text-decoration:none;">Politique de confidentialité</a>
                 &nbsp;·&nbsp;
                 <a href="${siteUrl}/legal/terms" style="color:#555555;text-decoration:none;">CGU</a>
@@ -296,11 +296,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const emailPromises: Promise<unknown>[] = []
 
-    // Internal notification email to LUMIS team
+    // Internal notification email to Cohesif team
     emailPromises.push(
       getResend().emails.send({
-        from: 'LUMIS.AI Contact <noreply@lumis.ai>',
-        to: 'contact@lumis.ai',
+        from: 'Cohesif IA Contact <noreply@cohesif.ai>',
+        to: 'contact@cohesif.ai',
         replyTo: sanitised.email,
         subject: `[Contact] ${sanitised.subject}`,
         html: buildNotificationEmail(sanitised),
@@ -310,7 +310,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // Confirmation email to the user
     emailPromises.push(
       getResend().emails.send({
-        from: 'LUMIS.AI <noreply@lumis.ai>',
+        from: 'Cohesif IA <noreply@cohesif.ai>',
         to: sanitised.email,
         subject: 'Votre message a bien été reçu ✅',
         html: buildConfirmationEmail(sanitised),

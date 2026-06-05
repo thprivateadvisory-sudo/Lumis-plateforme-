@@ -51,9 +51,9 @@ export default function CarrieresClient() {
           <div className="tag" style={{ justifyContent: 'center' }}>Carrières</div>
           <h1 className="h2">Construisons ensemble<br /><em>l&apos;IA de demain.</em></h1>
           <p className="lead" style={{ margin: '0 auto 32px' }}>
-            LUMIS est la startup IA française à la croissance la plus rapide. +420% ARR, 312K utilisateurs, 40M€ levés. On cherche les meilleurs.
+            Cohesif est la startup IA française à la croissance la plus rapide. +420% ARR, 312K utilisateurs, 40M€ levés. On cherche les meilleurs.
           </p>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(212,255,0,.08)', border: '1px solid rgba(212,255,0,.2)', borderRadius: 100, padding: '10px 24px', fontSize: 15, fontWeight: 700, color: 'var(--y)' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(11,200,240,.08)', border: '1px solid rgba(11,200,240,.2)', borderRadius: 100, padding: '10px 24px', fontSize: 15, fontWeight: 700, color: 'var(--y)' }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--y)', animation: 'ping 2s infinite' }} />
             31 postes ouverts — Paris &amp; Remote
           </div>
@@ -62,12 +62,12 @@ export default function CarrieresClient() {
 
       <section className="secm">
         <div className="w">
-          <div className="tag">Pourquoi LUMIS ?</div>
+          <div className="tag">Pourquoi Cohesif ?</div>
           <h2 className="h2" style={{ fontSize: 'clamp(28px,4vw,48px)', marginBottom: 40 }}>Ce que vous<br /><em>trouvez ici.</em></h2>
           <div className="g3" style={{ gap: 16 }}>
             {PERKS.map(p => (
               <div key={p.label} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 18, padding: 24 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(212,255,0,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', marginBottom: 14 }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', marginBottom: 14 }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                 <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 6 }}>{p.label}</div>
                 <div style={{ fontSize: 13, color: 'var(--fog)', lineHeight: 1.6 }}>{p.desc}</div>
               </div>
@@ -89,7 +89,7 @@ export default function CarrieresClient() {
               <div style={{ border: '1px solid var(--w1)', borderRadius: 16, overflow: 'hidden' }}>
                 {dept.jobs.map((job, i) => (
                   <a key={job.title}
-                    href={`mailto:jobs@lumis.ai?subject=Candidature — ${job.title}`}
+                    href={`mailto:jobs@cohesif.ai?subject=Candidature — ${job.title}`}
                     className="job-row"
                     style={{ display: 'flex', alignItems: 'center', padding: '18px 24px', borderBottom: i < dept.jobs.length - 1 ? '1px solid var(--w1)' : 'none', background: 'var(--card)', textDecoration: 'none', gap: 16, transition: 'background .2s' }}
                     onMouseEnter={e => (e.currentTarget.style.background = 'var(--raise)')}
@@ -107,7 +107,7 @@ export default function CarrieresClient() {
 
           <div style={{ textAlign: 'center', marginTop: 32 }}>
             <p style={{ fontSize: 15, color: 'var(--fog)', marginBottom: 16 }}>Vous ne trouvez pas votre bonheur ?</p>
-            <a href="mailto:jobs@lumis.ai?subject=Candidature spontanée" className="btn bg blg">
+            <a href="mailto:jobs@cohesif.ai?subject=Candidature spontanée" className="btn bg blg">
               Candidature spontanée →
             </a>
           </div>

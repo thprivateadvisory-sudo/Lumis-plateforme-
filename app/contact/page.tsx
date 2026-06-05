@@ -84,7 +84,7 @@ export default function ContactPage() {
                     <select className="fsel" required value={form.subject}
                       onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}>
                       <option value="">Choisir un sujet...</option>
-                      <option>Démo LUMIS Ultra</option>
+                      <option>Démo Cohesif Ultra</option>
                       <option>Déploiement d&apos;agents IA</option>
                       <option>Solution Enterprise</option>
                       <option>Investissement</option>
@@ -118,12 +118,12 @@ export default function ContactPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
               {[
                 { icon: '📍', title: 'Siège social', content: '42 avenue des Champs-Élysées\n75008 Paris, France' },
-                { icon: '✉️', title: 'Email', content: 'contact@lumis.ai\ninvest@lumis.ai' },
+                { icon: '✉️', title: 'Email', content: 'contact@cohesif.ai\ninvest@cohesif.ai' },
                 { icon: '📞', title: 'Téléphone', content: '+33 1 23 45 67 89\nLun–Ven, 9h–18h' },
                 { icon: '⚡', title: 'Réponse immédiate', content: 'Notre agent Sofia répond 24/7 via le chat. Réponse humaine : 4h ouvrées.' },
               ].map(card => (
                 <div key={card.title} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 16, padding: 22, display: 'flex', gap: 15 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(212,255,0,.15)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 19 }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.15)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 19 }}>
                     {card.icon}
                   </div>
                   <div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
                 </div>
               ))}
               <Link href="/demo" className="btn by blg" style={{ justifyContent: 'center', textAlign: 'center' }}>
-                Tester LUMIS gratuitement →
+                Tester Cohesif gratuitement →
               </Link>
             </div>
           </div>

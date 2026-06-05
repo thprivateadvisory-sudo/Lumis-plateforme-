@@ -70,7 +70,7 @@ function PortfolioWidget() {
     <div
       style={{
         background: 'var(--panel)',
-        border: '1px solid rgba(212,255,0,0.2)',
+        border: '1px solid rgba(11, 200, 240, 0.2)',
         borderRadius: '18px',
         padding: '36px',
         maxWidth: '520px',
@@ -105,9 +105,9 @@ function PortfolioWidget() {
         </div>
         <div
           style={{
-            background: isUp ? 'rgba(212,255,0,0.12)' : 'rgba(255,51,85,0.12)',
+            background: isUp ? 'rgba(11, 200, 240, 0.12)' : 'rgba(255,51,85,0.12)',
             color: isUp ? 'var(--y)' : 'var(--red)',
-            border: `1px solid ${isUp ? 'rgba(212,255,0,0.25)' : 'rgba(255,51,85,0.25)'}`,
+            border: `1px solid ${isUp ? 'rgba(11, 200, 240, 0.25)' : 'rgba(255,51,85,0.25)'}`,
             borderRadius: '8px',
             padding: '6px 12px',
             fontFamily: 'var(--fm)',
@@ -129,14 +129,14 @@ function PortfolioWidget() {
       >
         <defs>
           <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={isUp ? '#d4ff00' : '#ff3355'} stopOpacity="0.3" />
-            <stop offset="100%" stopColor={isUp ? '#d4ff00' : '#ff3355'} stopOpacity="0" />
+            <stop offset="0%" stopColor={isUp ? '#0BC8F0' : '#ff3355'} stopOpacity="0.3" />
+            <stop offset="100%" stopColor={isUp ? '#0BC8F0' : '#ff3355'} stopOpacity="0" />
           </linearGradient>
         </defs>
         <polyline
           points={points}
           fill="none"
-          stroke={isUp ? '#d4ff00' : '#ff3355'}
+          stroke={isUp ? '#0BC8F0' : '#ff3355'}
           strokeWidth="2"
           strokeLinejoin="round"
           strokeLinecap="round"
@@ -286,7 +286,7 @@ const PACKS = [
     yield: '+18%',
     yieldDetail: 'rendement annuel cible',
     horizon: '2 ans',
-    description: 'Idéal pour découvrir l\'investissement LUMIS avec un ticket accessible.',
+    description: 'Idéal pour découvrir l\'investissement Cohesif avec un ticket accessible.',
     features: [
       'Accès aux rapports trimestriels',
       'Tableau de bord investisseur',
@@ -349,14 +349,14 @@ export default function InvestirPage() {
       {/* ── HERO ── */}
       <section className="sec" style={{ paddingBottom: 0 }}>
         <div className="wm" style={{ textAlign: 'center' }}>
-          <div className="tag">Investir dans LUMIS</div>
+          <div className="tag">Investir dans Cohesif</div>
           <h1 className="h2">
             Rejoignez la croissance
             <br />
             <em>de l&apos;IA souveraine française.</em>
           </h1>
           <p className="lead" style={{ margin: '20px auto 0', textAlign: 'center' }}>
-            18M€ ARR, +420% de croissance YoY, 82% de marge brute. LUMIS est la success story
+            18M€ ARR, +420% de croissance YoY, 82% de marge brute. Cohesif est la success story
             deeptech française de cette décennie.
           </p>
         </div>
@@ -393,10 +393,10 @@ export default function InvestirPage() {
                 key={pack.id}
                 style={{
                   background: pack.featured
-                    ? 'linear-gradient(135deg, rgba(212,255,0,0.05) 0%, var(--panel) 60%)'
+                    ? 'linear-gradient(135deg, rgba(11, 200, 240, 0.05) 0%, var(--panel) 60%)'
                     : 'var(--panel)',
                   border: pack.featured
-                    ? '1px solid rgba(212,255,0,0.3)'
+                    ? '1px solid rgba(11, 200, 240, 0.3)'
                     : '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '18px',
                   padding: '36px 32px',
@@ -462,8 +462,8 @@ export default function InvestirPage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    background: 'rgba(212,255,0,0.1)',
-                    border: '1px solid rgba(212,255,0,0.2)',
+                    background: 'rgba(11, 200, 240, 0.1)',
+                    border: '1px solid rgba(11, 200, 240, 0.2)',
                     borderRadius: '8px',
                     padding: '10px 16px',
                     marginBottom: '20px',
@@ -606,7 +606,7 @@ export default function InvestirPage() {
                   Investir comporte des risques, notamment de perte en capital. Les rendements indiqués
                   sont des projections basées sur les performances passées et les prévisions internes.
                   Les performances passées ne préjugent pas des performances futures. Tout investissement
-                  doit être adapté à votre situation financière personnelle. LUMIS.AI ne fournit pas de
+                  doit être adapté à votre situation financière personnelle. Cohesif IA ne fournit pas de
                   conseil en investissement. Consultez un conseiller financier agréé avant toute décision.
                   Investissement réservé aux investisseurs qualifiés conformément à la réglementation AMF.
                 </p>
@@ -622,7 +622,7 @@ export default function InvestirPage() {
           <div
             style={{
               background: 'var(--panel)',
-              border: '1px solid rgba(212,255,0,0.15)',
+              border: '1px solid rgba(11, 200, 240, 0.15)',
               borderRadius: '18px',
               padding: '48px 36px',
             }}

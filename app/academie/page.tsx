@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Académie LUMIS — Certifications IA pour professionnels',
+  title: 'Académie Cohesif — Certifications IA pour professionnels',
   description:
-    'Maîtrisez l\'IA en 3 mois avec les parcours certifiants LUMIS. Fondamentaux, Agents Autonomes, IA Enterprise, Prompt Engineering, No-Code et IA & Droit. Certificats reconnus par 480+ entreprises.',
+    'Maîtrisez l\'IA en 3 mois avec les parcours certifiants Cohesif. Fondamentaux, Agents Autonomes, IA Enterprise, Prompt Engineering, No-Code et IA & Droit. Certificats reconnus par 480+ entreprises.',
   openGraph: {
-    title: 'Académie LUMIS — Certifications IA pour professionnels',
+    title: 'Académie Cohesif — Certifications IA pour professionnels',
     description: '6 parcours certifiants. 12 400+ diplômés. Maîtrisez l\'IA en 3 mois.',
-    url: 'https://lumis.ai/academie',
+    url: 'https://cohesif.ai/academie',
   },
 }
 
@@ -30,7 +30,7 @@ const COURSES = [
   {
     emoji: '🤖',
     level: 'Intermédiaire',
-    levelColor: '#d4ff00',
+    levelColor: '#0BC8F0',
     title: 'Agents Autonomes',
     description:
       'Concevez, déployez et optimisez des agents IA métier. Apprenez à orchestrer plusieurs agents, gérer les mémoires et construire des pipelines automatisés.',
@@ -72,10 +72,10 @@ const COURSES = [
   {
     emoji: '⚙️',
     level: 'Intermédiaire',
-    levelColor: '#d4ff00',
+    levelColor: '#0BC8F0',
     title: 'Automatisation No-Code',
     description:
-      'Automatisez vos processus métier sans coder. Connectez LUMIS à vos outils (Make, Zapier, n8n, Notion, Slack) et construisez des workflows IA puissants.',
+      'Automatisez vos processus métier sans coder. Connectez Cohesif à vos outils (Make, Zapier, n8n, Notion, Slack) et construisez des workflows IA puissants.',
     price: '199€',
     rating: '4.8',
     students: '5 900',
@@ -122,7 +122,7 @@ const LEARNING_PATH = [
     title: 'Maîtrise',
     desc: 'Devenez le référent IA de votre organisation. Architecture enterprise, conformité légale et gouvernance des systèmes IA.',
     courses: ['IA Enterprise', 'IA & Droit'],
-    outcome: 'Vous êtes certifié LUMIS Expert et capable de piloter la transformation IA de toute organisation.',
+    outcome: 'Vous êtes certifié Cohesif Expert et capable de piloter la transformation IA de toute organisation.',
   },
 ]
 
@@ -132,7 +132,7 @@ export default function AcademiePage() {
       {/* ── HERO ── */}
       <section className="sec" style={{ paddingBottom: 0 }}>
         <div className="wm" style={{ textAlign: 'center' }}>
-          <div className="tag">Académie LUMIS</div>
+          <div className="tag">Académie Cohesif</div>
           <h1 className="h2">
             Devenez expert IA
             <br />
@@ -223,7 +223,7 @@ export default function AcademiePage() {
                     width: 56,
                     height: 56,
                     borderRadius: '14px',
-                    background: 'rgba(212,255,0,0.08)',
+                    background: 'rgba(11, 200, 240, 0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -261,9 +261,9 @@ export default function AcademiePage() {
                         borderRadius: '100px',
                         fontSize: '0.75rem',
                         fontFamily: 'var(--fm)',
-                        background: 'rgba(212,255,0,0.08)',
+                        background: 'rgba(11, 200, 240, 0.08)',
                         color: 'var(--y)',
-                        border: '1px solid rgba(212,255,0,0.2)',
+                        border: '1px solid rgba(11, 200, 240, 0.2)',
                       }}
                     >
                       🏆 Certifiant
@@ -389,7 +389,7 @@ export default function AcademiePage() {
                       right: '-10px',
                       width: '20px',
                       height: '2px',
-                      background: 'linear-gradient(90deg, rgba(212,255,0,0.4), rgba(212,255,0,0.1))',
+                      background: 'linear-gradient(90deg, rgba(11, 200, 240, 0.4), rgba(11, 200, 240, 0.1))',
                       zIndex: 1,
                     }}
                   />
@@ -410,8 +410,8 @@ export default function AcademiePage() {
                         width: 44,
                         height: 44,
                         borderRadius: '50%',
-                        background: 'rgba(212,255,0,0.12)',
-                        border: '2px solid rgba(212,255,0,0.3)',
+                        background: 'rgba(11, 200, 240, 0.12)',
+                        border: '2px solid rgba(11, 200, 240, 0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -468,8 +468,8 @@ export default function AcademiePage() {
                           margin: '3px 4px 3px 0',
                           padding: '3px 10px',
                           borderRadius: '100px',
-                          background: 'rgba(212,255,0,0.06)',
-                          border: '1px solid rgba(212,255,0,0.15)',
+                          background: 'rgba(11, 200, 240, 0.06)',
+                          border: '1px solid rgba(11, 200, 240, 0.15)',
                           color: 'var(--y)',
                           fontSize: '0.75rem',
                           fontFamily: 'var(--fm)',
@@ -482,8 +482,8 @@ export default function AcademiePage() {
 
                   <div
                     style={{
-                      background: 'rgba(212,255,0,0.05)',
-                      borderLeft: '3px solid rgba(212,255,0,0.4)',
+                      background: 'rgba(11, 200, 240, 0.05)',
+                      borderLeft: '3px solid rgba(11, 200, 240, 0.4)',
                       borderRadius: '0 6px 6px 0',
                       padding: '10px 14px',
                     }}
@@ -512,8 +512,8 @@ export default function AcademiePage() {
           {/* Parcours complet CTA */}
           <div
             style={{
-              background: 'linear-gradient(135deg, rgba(212,255,0,0.08) 0%, var(--panel) 100%)',
-              border: '1px solid rgba(212,255,0,0.25)',
+              background: 'linear-gradient(135deg, rgba(11, 200, 240, 0.08) 0%, var(--panel) 100%)',
+              border: '1px solid rgba(11, 200, 240, 0.25)',
               borderRadius: '18px',
               padding: '44px 48px',
               display: 'flex',
@@ -534,7 +534,7 @@ export default function AcademiePage() {
                   marginBottom: '8px',
                 }}
               >
-                Parcours Complet LUMIS Expert
+                Parcours Complet Cohesif Expert
               </h3>
               <p style={{ fontSize: '0.9375rem', color: 'var(--fog)', maxWidth: '480px' }}>
                 Les 6 formations incluses. Économisez 678€ par rapport aux cours séparés.
@@ -639,7 +639,7 @@ export default function AcademiePage() {
                     width: 56,
                     height: 56,
                     borderRadius: '50%',
-                    background: 'rgba(212,255,0,0.08)',
+                    background: 'rgba(11, 200, 240, 0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

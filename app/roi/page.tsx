@@ -35,7 +35,7 @@ function calcROI(
   const agentProductivity = numAgents * 12000 // €12K/agent/year average extra revenue
   const annualSavings = Math.round(laborSavings + agentProductivity)
 
-  // Monthly LUMIS cost (Business plan per agent + team seats)
+  // Monthly Cohesif cost (Business plan per agent + team seats)
   const planCost = teamSize <= 5 ? 29 : teamSize <= 20 ? 149 : 149 + (teamSize - 20) * 8
   const monthlyCost = Math.round(planCost + numAgents * 49)
 
@@ -49,7 +49,7 @@ function calcROI(
 
   // Breakdown
   const breakdown = [
-    { label: 'Temps économisé', value: Math.round(laborSavings), color: '#d4ff00' },
+    { label: 'Temps économisé', value: Math.round(laborSavings), color: '#0BC8F0' },
     { label: 'Productivité agents', value: Math.round(agentProductivity), color: '#4da6ff' },
     { label: 'Réduction erreurs', value: Math.round(teamSize * salary * 0.02), color: '#22c55e' },
     { label: 'Onboarding accéléré', value: Math.round(teamSize * 1200), color: '#f59e0b' },
@@ -115,7 +115,7 @@ interface SliderProps {
   accent?: string
 }
 
-function Slider({ label, value, min, max, step = 1, format, onChange, accent = '#d4ff00' }: SliderProps) {
+function Slider({ label, value, min, max, step = 1, format, onChange, accent = '#0BC8F0' }: SliderProps) {
   const pct = ((value - min) / (max - min)) * 100
   return (
     <div style={{ marginBottom: '28px' }}>
@@ -199,11 +199,11 @@ export default function ROIPage() {
           <h1 className="h2">
             Calculez vos économies
             <br />
-            <em>avec LUMIS.</em>
+            <em>avec Cohesif.</em>
           </h1>
           <p className="lead" style={{ margin: '0 auto', textAlign: 'center' }}>
             Ajustez les paramètres ci-dessous et voyez en temps réel le retour sur
-            investissement que LUMIS génère pour votre organisation.
+            investissement que Cohesif génère pour votre organisation.
           </p>
         </div>
       </section>
@@ -237,7 +237,7 @@ export default function ROIPage() {
                 max={50}
                 format={(v) => `${v} pers.`}
                 onChange={setTeamSize}
-                accent="#d4ff00"
+                accent="#0BC8F0"
               />
 
               <Slider
@@ -304,9 +304,9 @@ export default function ROIPage() {
                         transition: 'all .2s',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = 'rgba(212,255,0,.3)'
+                        e.currentTarget.style.borderColor = 'rgba(11, 200, 240, .3)'
                         e.currentTarget.style.color = 'var(--y)'
-                        e.currentTarget.style.background = 'rgba(212,255,0,.05)'
+                        e.currentTarget.style.background = 'rgba(11, 200, 240, .05)'
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.borderColor = 'rgba(255,255,255,.1)'
@@ -326,8 +326,8 @@ export default function ROIPage() {
 
               {/* Main metric */}
               <div style={{
-                background: 'linear-gradient(135deg, rgba(212,255,0,.08) 0%, var(--card) 60%)',
-                border: '1px solid rgba(212,255,0,.25)',
+                background: 'linear-gradient(135deg, rgba(11,200,240,.08) 0%, var(--card) 60%)',
+                border: '1px solid rgba(11, 200, 240, .25)',
                 borderRadius: '24px',
                 padding: '36px',
                 textAlign: 'center',
@@ -351,8 +351,8 @@ export default function ROIPage() {
               <div className="g2" style={{ gap: '12px' }}>
                 {[
                   { label: 'Heures libérées/an', value: animatedHours.toLocaleString('fr'), unit: 'h', color: '#4da6ff', icon: '⏱' },
-                  { label: 'Coût LUMIS/mois', value: animatedCost.toLocaleString('fr'), unit: '€', color: '#f59e0b', icon: '💳' },
-                  { label: 'Retour sur invest.', value: `×${(animatedROI / 10).toFixed(1)}`, unit: '', color: '#d4ff00', icon: '📈' },
+                  { label: 'Coût Cohesif/mois', value: animatedCost.toLocaleString('fr'), unit: '€', color: '#f59e0b', icon: '💳' },
+                  { label: 'Retour sur invest.', value: `×${(animatedROI / 10).toFixed(1)}`, unit: '', color: '#0BC8F0', icon: '📈' },
                   { label: 'Retour en', value: animatedPayback, unit: ' jours', color: '#22c55e', icon: '🚀' },
                 ].map((kpi) => (
                   <div key={kpi.label} style={{
@@ -425,7 +425,7 @@ export default function ROIPage() {
               {/* CTA */}
               <div style={{
                 background: 'var(--card)',
-                border: '1px solid rgba(212,255,0,.2)',
+                border: '1px solid rgba(11,200,240,.2)',
                 borderRadius: '20px',
                 padding: '24px',
                 display: 'flex',
@@ -467,7 +467,7 @@ export default function ROIPage() {
               {
                 icon: '⏱',
                 title: 'Temps libéré',
-                desc: 'LUMIS automatise 60% des tâches répétitives identifiées. Calculé sur la base du taux horaire moyen et du nombre d\'heures par an.',
+                desc: 'Cohesif automatise 60% des tâches répétitives identifiées. Calculé sur la base du taux horaire moyen et du nombre d\'heures par an.',
               },
               {
                 icon: '🤖',

@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Mentions Légales — LUMIS.AI',
-  description: 'Mentions légales de LUMIS.AI — éditeur, hébergeur, propriété intellectuelle.',
+  title: 'Mentions Légales — Cohesif IA',
+  description: 'Mentions légales de Cohesif IA — éditeur, hébergeur, propriété intellectuelle.',
 }
 
 export default function MentionsPage() {
@@ -18,7 +18,7 @@ export default function MentionsPage() {
             {
               title: 'Éditeur du site',
               items: [
-                ['Raison sociale', 'LUMIS SAS'],
+                ['Raison sociale', 'Cohesif SAS'],
                 ['Forme juridique', 'Société par Actions Simplifiée (SAS)'],
                 ['Capital social', '500 000 €'],
                 ['SIRET', '123 456 789 00012'],
@@ -26,7 +26,7 @@ export default function MentionsPage() {
                 ['Code APE', '6201Z — Programmation informatique'],
                 ['Siège social', '42 avenue des Champs-Élysées, 75008 Paris, France'],
                 ['Téléphone', '+33 1 23 45 67 89'],
-                ['Email', 'contact@lumis.ai'],
+                ['Email', 'contact@cohesif.ai'],
                 ['Directeur de publication', 'Alexandre Martin, Président'],
               ]
             },
@@ -42,15 +42,15 @@ export default function MentionsPage() {
             {
               title: 'Propriété intellectuelle',
               items: [
-                ['Marque', 'LUMIS® est une marque déposée à l\'INPI sous le n° 4 XXX XXX'],
+                ['Marque', 'Cohesif® est une marque déposée à l\'INPI sous le n° 4 XXX XXX'],
                 ['Brevets', '14 brevets déposés en France et à l\'EPO'],
-                ['Code source', 'Propriété exclusive de LUMIS SAS. Tous droits réservés.'],
+                ['Code source', 'Propriété exclusive de Cohesif SAS. Tous droits réservés.'],
               ]
             },
             {
               title: 'Données personnelles',
               items: [
-                ['DPO', 'dpo@lumis.ai'],
+                ['DPO', 'dpo@cohesif.ai'],
                 ['Autorité compétente', 'Commission Nationale de l\'Informatique et des Libertés (CNIL)'],
                 ['Déclaration CNIL', 'Conformité RGPD — aucune déclaration préalable requise'],
               ]

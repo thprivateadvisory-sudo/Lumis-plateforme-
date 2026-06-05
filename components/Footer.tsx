@@ -1,12 +1,24 @@
 import Link from 'next/link'
 
 /* ─── LOGO ───────────────────────────────────────────────────────────────── */
-function LumisLogo() {
+function CohesifLogo() {
   return (
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-label="LUMIS logo">
-      <rect width="34" height="34" rx="9" fill="#d4ff00" />
-      <path d="M9 25V9h4v13h8v3H9z" fill="#000" />
-      <circle cx="25" cy="11" r="3" fill="#000" />
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-label="Cohesif IA logo">
+      <g stroke="#5bbcd4" strokeWidth="1.3" strokeLinecap="round" opacity="0.75">
+        <line x1="17" y1="5" x2="29" y2="13"/>
+        <line x1="29" y1="13" x2="25" y2="27"/>
+        <line x1="25" y1="27" x2="9" y2="27"/>
+        <line x1="9" y1="27" x2="5" y2="13"/>
+        <line x1="5" y1="13" x2="17" y2="5"/>
+        <line x1="17" y1="5" x2="25" y2="27" opacity="0.5"/>
+        <line x1="5" y1="13" x2="29" y2="13" opacity="0.5"/>
+        <line x1="9" y1="27" x2="29" y2="13" opacity="0.5"/>
+      </g>
+      <circle cx="17" cy="5" r="2.3" fill="#7ec8da"/>
+      <circle cx="5" cy="13" r="2.3" fill="#7ec8da"/>
+      <circle cx="9" cy="27" r="2.3" fill="#7ec8da"/>
+      <circle cx="25" cy="27" r="2.3" fill="#7ec8da"/>
+      <circle cx="29" cy="13" r="3.2" fill="#0BC8F0"/>
     </svg>
   )
 }
@@ -46,11 +58,11 @@ const COLUMNS = [
   {
     title: 'Produits',
     links: [
-      { label: 'LUMIS Ultra',  href: '/produits' },
+      { label: 'Cohesif Ultra',  href: '/produits' },
       { label: 'Agents IA',   href: '/agents' },
       { label: 'Marketplace', href: '/produits' },
-      { label: 'API LUMIS',   href: '/docs' },
-      { label: 'LUMIS ONE',   href: '/produits' },
+      { label: 'API Cohesif',   href: '/docs' },
+      { label: 'Cohesif One',   href: '/produits' },
       { label: 'Enterprise',  href: '/entreprises' },
     ],
   },
@@ -107,14 +119,14 @@ const SOCIAL_LINKS = [
 /* ─── FOOTER COMPONENT ───────────────────────────────────────────────────── */
 export default function Footer() {
   return (
-    <footer id="footer" aria-label="Pied de page LUMIS">
+    <footer id="footer" aria-label="Pied de page Cohesif">
       <div className="w">
         {/* Main grid */}
         <div className="fgrid">
           {/* Brand column */}
           <div className="fbrand">
-            <Link href="/" aria-label="LUMIS — Accueil" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-              <LumisLogo />
+            <Link href="/" aria-label="Cohesif IA — Accueil" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+              <CohesifLogo />
               <span
                 style={{
                   fontFamily: 'var(--fh)',
@@ -124,7 +136,7 @@ export default function Footer() {
                   letterSpacing: '-0.02em',
                 }}
               >
-                LUMIS<span style={{ color: 'var(--y)' }}>.AI</span>
+                Cohesif<span style={{ color: 'var(--y)' }}> IA</span>
               </span>
             </Link>
 
@@ -142,7 +154,7 @@ export default function Footer() {
               <span className="fbrand-badge">HDS</span>
             </div>
 
-            <nav className="fsoc" aria-label="Réseaux sociaux LUMIS">
+            <nav className="fsoc" aria-label="Réseaux sociaux Cohesif">
               {SOCIAL_LINKS.map((s) => (
                 <a
                   key={s.label}
@@ -178,7 +190,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="fbot">
           <p className="fcopy">
-            © 2025 LUMIS SAS — SIRET 123&nbsp;456&nbsp;789&nbsp;00012 · 42 av.
+            © 2025 Cohesif SAS — SIRET 123&nbsp;456&nbsp;789&nbsp;00012 · 42 av.
             des Champs-Élysées, 75008 Paris
           </p>
 

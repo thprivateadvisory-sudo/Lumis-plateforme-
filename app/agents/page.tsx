@@ -179,7 +179,7 @@ export default function AgentsPage() {
           <div
             style={{
               background: 'var(--card)',
-              border: '1px solid rgba(212,255,0,0.15)',
+              border: '1px solid rgba(11,200,240,0.15)',
               borderRadius: 22,
               padding: '48px 36px',
             }}

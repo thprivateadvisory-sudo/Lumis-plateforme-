@@ -2,35 +2,35 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'LUMIS.AI — Plateforme IA Souveraine Française | ISO 27001 · HDS · SOC 2',
+  title: 'Cohesif IA — Plateforme IA Souveraine Française | ISO 27001 · HDS · SOC 2',
   description:
-    'LUMIS est la plateforme d\'intelligence artificielle souveraine française pour les grandes organisations. Agents IA autonomes, certifiée ISO 27001, HDS, SOC 2. Infrastructure 100% hébergée en France. Déployez en 48h.',
+    'Cohesif est la plateforme d\'intelligence artificielle souveraine française pour les grandes organisations. Agents IA autonomes, certifiée ISO 27001, HDS, SOC 2. Infrastructure 100% hébergée en France. Déployez en 48h.',
   keywords: 'IA souveraine, intelligence artificielle France, agents IA, ISO 27001, HDS, SOC 2, RGPD, grands comptes, CAC40, LLM français',
   openGraph: {
-    title: 'LUMIS.AI — Plateforme IA Souveraine Française',
+    title: 'Cohesif IA — Plateforme IA Souveraine Française',
     description:
       'Agents IA autonomes pour les grandes organisations. Certifiée ISO 27001 · HDS · SOC 2. 100% hébergé en France. SLA 99.99%.',
-    url: 'https://lumis.ai',
-    siteName: 'LUMIS.AI',
+    url: 'https://cohesif.ai',
+    siteName: 'Cohesif IA',
     locale: 'fr_FR',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "LUMIS.AI — L'IA Souveraine Française",
+    title: "Cohesif IA — L'IA Souveraine Française",
     description: 'Agents IA autonomes · ISO 27001 · HDS · 312K utilisateurs · SLA 99.99%',
   },
   alternates: {
-    canonical: 'https://lumis.ai',
+    canonical: 'https://cohesif.ai',
   },
 }
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'LUMIS.AI',
-  url: 'https://lumis.ai',
-  logo: 'https://lumis.ai/logo.png',
+  name: 'Cohesif IA',
+  url: 'https://cohesif.ai',
+  logo: 'https://cohesif.ai/logo.png',
   description:
     'Plateforme IA souveraine française. Agents autonomes, LLM propriétaires, certifiée ISO 27001, HDS, SOC 2.',
   foundingDate: '2022',
@@ -42,8 +42,8 @@ const jsonLd = {
     addressCountry: 'FR',
   },
   sameAs: [
-    'https://twitter.com/lumisai',
-    'https://linkedin.com/company/lumisai',
+    'https://twitter.com/cohesifai',
+    'https://linkedin.com/company/cohesifai',
   ],
 }
 
@@ -74,7 +74,7 @@ const WHY_ITEMS = [
   {
     n: '03',
     title: 'Modèles de niveau mondial, en français',
-    desc: 'LUMIS Ultra surpasse GPT-4o sur les benchmarks français et tâches métier. 512K tokens de contexte, multimodal natif, raisonnement avancé. Conçu pour le droit français, la finance européenne et l\'industrie.',
+    desc: 'Cohesif Ultra surpasse GPT-4o sur les benchmarks français et tâches métier. 512K tokens de contexte, multimodal natif, raisonnement avancé. Conçu pour le droit français, la finance européenne et l\'industrie.',
   },
   {
     n: '04',
@@ -85,7 +85,7 @@ const WHY_ITEMS = [
 
 const TESTIMONIALS = [
   {
-    quote: '"En 3 mois, nos agents LUMIS ont généré 2,4M€ de nouveau pipeline commercial. C\'est notre investissement technologique le plus rentable de l\'année, sans aucune exception."',
+    quote: '"En 3 mois, nos agents Cohesif ont généré 2,4M€ de nouveau pipeline commercial. C\'est notre investissement technologique le plus rentable de l\'année, sans aucune exception."',
     initials: 'MD',
     name: 'Maxime Durand',
     role: 'CEO — ScaleX · SaaS B2B',
@@ -93,7 +93,7 @@ const TESTIMONIALS = [
     metricLabel: 'pipeline généré',
   },
   {
-    quote: '"LUMIS analyse nos 50 000 transactions mensuelles en 2 minutes. Avant : 2 jours, 3 personnes. On a récupéré l\'équivalent de 6 ETP par mois."',
+    quote: '"Cohesif analyse nos 50 000 transactions mensuelles en 2 minutes. Avant : 2 jours, 3 personnes. On a récupéré l\'équivalent de 6 ETP par mois."',
     initials: 'CM',
     name: 'Claire Monet',
     role: 'CFO — Groupe Mercure · 80M€ CA',
@@ -101,7 +101,7 @@ const TESTIMONIALS = [
     metricLabel: 'récupérés / mois',
   },
   {
-    quote: '"Hébergement 100% français, certifications HDS — pour un CHU c\'est non-négociable. LUMIS est la seule plateforme IA qui répond à nos exigences de sécurité."',
+    quote: '"Hébergement 100% français, certifications HDS — pour un CHU c\'est non-négociable. Cohesif est la seule plateforme IA qui répond à nos exigences de sécurité."',
     initials: 'FL',
     name: 'Dr. François Lemaire',
     role: 'CISO — CHU de Lyon',
@@ -208,27 +208,38 @@ function TerminalPreview() {
           <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840', display: 'block' }} />
         </div>
         <span style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', fontSize: 11, color: 'rgba(255,255,255,.4)', letterSpacing: '.05em' }}>
-          LUMIS · Finance Agent
+          Cohesif · Finance Agent
         </span>
       </div>
 
       <div style={{ padding: '20px 20px 0', display: 'flex', flexDirection: 'column', gap: 16 }}>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <div style={{ background: 'rgba(212,255,0,.12)', border: '1px solid rgba(212,255,0,.2)', borderRadius: '12px 12px 2px 12px', padding: '10px 14px', fontSize: 13, color: 'rgba(255,255,255,.85)', maxWidth: '80%', lineHeight: 1.6 }}>
+          <div style={{ background: 'rgba(11,200,240,.12)', border: '1px solid rgba(11,200,240,.2)', borderRadius: '12px 12px 2px 12px', padding: '10px 14px', fontSize: 13, color: 'rgba(255,255,255,.85)', maxWidth: '80%', lineHeight: 1.6 }}>
             Analyse nos 50 000 transactions de mars et identifie les anomalies
           </div>
         </div>
 
         <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-          <svg width="26" height="26" viewBox="0 0 27 27" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-            <rect width="27" height="27" rx="7" fill="#d4ff00" />
-            <path d="M7 20V7h3v10h6v3H7z" fill="#000" />
-            <circle cx="20" cy="9" r="2.5" fill="#000" />
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
+            <rect width="26" height="26" rx="7" fill="#0a1525"/>
+            <g stroke="#5bbcd4" strokeWidth="1" strokeLinecap="round" opacity="0.8">
+              <line x1="13" y1="4" x2="21" y2="9"/>
+              <line x1="21" y1="9" x2="19" y2="20"/>
+              <line x1="19" y1="20" x2="7" y2="20"/>
+              <line x1="7" y1="20" x2="5" y2="9"/>
+              <line x1="5" y1="9" x2="13" y2="4"/>
+              <line x1="5" y1="9" x2="21" y2="9" opacity="0.5"/>
+            </g>
+            <circle cx="13" cy="4" r="1.5" fill="#7ec8da"/>
+            <circle cx="5" cy="9" r="1.5" fill="#7ec8da"/>
+            <circle cx="7" cy="20" r="1.5" fill="#7ec8da"/>
+            <circle cx="19" cy="20" r="1.5" fill="#7ec8da"/>
+            <circle cx="21" cy="9" r="2.2" fill="#0BC8F0"/>
           </svg>
           <div style={{ background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.08)', borderRadius: '2px 12px 12px 12px', padding: '10px 14px', fontSize: 13, color: 'rgba(255,255,255,.8)', lineHeight: 1.7, flex: 1 }}>
             Analyse terminée en <strong style={{ color: '#fff' }}>1m 48s</strong>.{' '}
             <strong style={{ color: '#fff' }}>3 anomalies détectées</strong>, dont une fraude potentielle de{' '}
-            <strong style={{ color: '#d4ff00' }}>12 400€</strong> sur le compte #FR-4829.
+            <strong style={{ color: '#0BC8F0' }}>12 400€</strong> sur le compte #FR-4829.
           </div>
         </div>
 
@@ -244,7 +255,7 @@ function TerminalPreview() {
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '0 16px 16px', background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 10, padding: '10px 12px' }}>
         <span style={{ flex: 1, fontSize: 12, color: 'rgba(255,255,255,.3)' }}>Posez une question à votre agent…</span>
-        <div style={{ width: 28, height: 28, borderRadius: 7, background: '#d4ff00', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <div style={{ width: 28, height: 28, borderRadius: 7, background: '#0BC8F0', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6l4-4 4 4" stroke="#000" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </div>
       </div>
@@ -265,7 +276,7 @@ export default function HomePage() {
           <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.3 }} viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
             <defs>
               <pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse">
-                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(212,255,0,0.06)" strokeWidth="1" />
+                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(11, 200, 240, 0.06)" strokeWidth="1" />
               </pattern>
               <radialGradient id="gm" cx="50%" cy="40%" r="55%">
                 <stop offset="0%" stopColor="white" />
@@ -282,20 +293,20 @@ export default function HomePage() {
             {/* Left — copy */}
             <div>
               <p style={{ fontFamily: 'var(--fm)', fontSize: 11, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--fog)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: '#d4ff00', flexShrink: 0 }} />
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: '#0BC8F0', flexShrink: 0 }} />
                 IA Souveraine Française · Série B · 40M€
               </p>
 
               <h1 style={{ fontSize: 'clamp(2.5rem,4.5vw,4.25rem)', fontWeight: 700, lineHeight: 1.08, letterSpacing: '-.025em', color: 'var(--snow)', margin: 0 }}>
                 L&apos;IA souveraine
                 <br />
-                <em style={{ fontStyle: 'italic', color: '#d4ff00', fontFamily: 'var(--fi)', fontWeight: 400 }}>pour les grandes</em>
+                <em style={{ fontStyle: 'italic', color: '#0BC8F0', fontFamily: 'var(--fi)', fontWeight: 400 }}>pour les grandes</em>
                 <br />
                 organisations.
               </h1>
 
               <p style={{ marginTop: 24, maxWidth: 440, fontSize: 16, lineHeight: 1.75, color: 'var(--fog)' }}>
-                LUMIS déploie des <strong style={{ color: 'var(--snow)' }}>agents IA autonomes</strong> dans vos
+                Cohesif déploie des <strong style={{ color: 'var(--snow)' }}>agents IA autonomes</strong> dans vos
                 systèmes métier. Infrastructure certifiée, données hébergées en France,
                 contrats adaptés aux exigences des grands comptes.
               </p>
@@ -321,7 +332,7 @@ export default function HomePage() {
       {/* ── LOGOS ── */}
       <div style={{ borderTop: '1px solid var(--w1)', background: 'var(--deep)', padding: '28px 0', overflow: 'hidden', maskImage: 'linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)', WebkitMaskImage: 'linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)' }}>
         <p style={{ textAlign: 'center', fontSize: 11, fontFamily: 'var(--fm)', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--mist)', marginBottom: 20 }}>
-          Ils font confiance à LUMIS
+          Ils font confiance à Cohesif
         </p>
         <div className="mq">
           {[...LOGOS, ...LOGOS].map((l, i) => (
@@ -349,12 +360,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── POURQUOI LUMIS ── */}
+      {/* ── POURQUOI Cohesif ── */}
       <section className="sec" style={{ background: 'var(--deep)' }}>
         <div className="w">
           <div className="why-layout">
             <div style={{ position: 'sticky', top: 'calc(var(--nav) + 32px)' }}>
-              <div className="tag">Pourquoi LUMIS</div>
+              <div className="tag">Pourquoi Cohesif</div>
               <h2 className="h2" style={{ fontSize: 'clamp(1.6rem,3vw,2.25rem)' }}>
                 L&apos;IA qui<br /><em>performe vraiment.</em>
               </h2>
@@ -371,7 +382,7 @@ export default function HomePage() {
                 const Icon = WHY_ICONS[i]
                 return (
                   <div key={item.n} style={{ display: 'grid', gridTemplateColumns: '52px 1fr', gap: 24, padding: '36px 0', borderBottom: i < WHY_ITEMS.length - 1 ? '1px solid var(--w1)' : 'none', alignItems: 'start' }}>
-                    <div style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--yd)', border: '1px solid rgba(212,255,0,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', flexShrink: 0 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', flexShrink: 0 }}>
                       <Icon />
                     </div>
                     <div>
@@ -393,7 +404,7 @@ export default function HomePage() {
             <div style={{ maxWidth: 480 }}>
               <div className="tag">Démo interactive</div>
               <h2 style={{ fontFamily: 'var(--fh)', fontSize: 'clamp(1.4rem,2.5vw,1.875rem)', fontWeight: 700, color: 'var(--snow)', lineHeight: 1.2, marginTop: 8 }}>
-                Essayez LUMIS en direct.<br />
+                Essayez Cohesif en direct.<br />
                 <span style={{ color: 'var(--y)', fontFamily: 'var(--fi)', fontStyle: 'italic', fontWeight: 400 }}>Sans inscription.</span>
               </h2>
               <p style={{ marginTop: 14, fontSize: 15, color: 'var(--fog)', lineHeight: 1.7 }}>
@@ -453,7 +464,7 @@ export default function HomePage() {
 
           <div className="price-row">
             {PLANS.map((plan) => (
-              <div key={plan.name} style={{ background: plan.featured ? 'linear-gradient(135deg,rgba(212,255,0,.06),var(--panel))' : 'var(--panel)', border: plan.featured ? '1px solid rgba(212,255,0,.3)' : '1px solid var(--w1)', borderRadius: 16, padding: '32px 28px', position: 'relative' }}>
+              <div key={plan.name} style={{ background: plan.featured ? 'linear-gradient(135deg,rgba(11,200,240,.06),var(--panel))' : 'var(--panel)', border: plan.featured ? '1px solid rgba(11, 200, 240, .3)' : '1px solid var(--w1)', borderRadius: 16, padding: '32px 28px', position: 'relative' }}>
                 {plan.featured && (
                   <span style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', background: 'var(--y)', color: '#000', fontSize: 11, fontWeight: 700, padding: '4px 14px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: 'var(--fm)' }}>
                     Le plus populaire
@@ -484,7 +495,7 @@ export default function HomePage() {
                 Planifiez votre<br /><em>démonstration.</em>
               </h2>
               <p style={{ marginTop: 16, marginBottom: 32, fontSize: 15, color: 'var(--fog)', lineHeight: 1.75, maxWidth: 420 }}>
-                Un expert LUMIS vous présente la plateforme adaptée à vos systèmes, vos contraintes de sécurité et vos cas d&apos;usage métier. Sans engagement.
+                Un expert Cohesif vous présente la plateforme adaptée à vos systèmes, vos contraintes de sécurité et vos cas d&apos;usage métier. Sans engagement.
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <Link href="/contact" className="btn by">Planifier une démonstration →</Link>

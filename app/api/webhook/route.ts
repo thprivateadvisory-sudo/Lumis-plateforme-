@@ -10,8 +10,8 @@ const WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET!
 
 function getPlanLabel(plan: string): string {
   const labels: Record<string, string> = {
-    pro: 'LUMIS Pro',
-    business: 'LUMIS Business',
+    pro: 'Cohesif Pro',
+    business: 'Cohesif Business',
   }
   return labels[plan] ?? plan
 }
@@ -27,14 +27,14 @@ function getBillingLabel(billing: string): string {
 function buildWelcomeEmail(customerEmail: string, plan: string, billing: string): string {
   const planLabel = getPlanLabel(plan)
   const billingLabel = getBillingLabel(billing)
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lumis.ai'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cohesif.ai'
 
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bienvenue dans LUMIS.AI</title>
+  <title>Bienvenue dans Cohesif IA</title>
 </head>
 <body style="margin:0;padding:0;background-color:#0a0a0a;font-family:'Helvetica Neue',Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0a0a;padding:40px 20px;">
@@ -45,8 +45,8 @@ function buildWelcomeEmail(customerEmail: string, plan: string, billing: string)
           <!-- Header -->
           <tr>
             <td align="center" style="padding-bottom:32px;">
-              <div style="display:inline-block;background:#d4ff00;border-radius:12px;padding:12px 28px;">
-                <span style="font-size:24px;font-weight:900;color:#0a0a0a;letter-spacing:-0.5px;">LUMIS.AI</span>
+              <div style="display:inline-block;background:#0BC8F0;border-radius:12px;padding:12px 28px;">
+                <span style="font-size:24px;font-weight:900;color:#0a0a0a;letter-spacing:-0.5px;">Cohesif IA</span>
               </div>
             </td>
           </tr>
@@ -56,13 +56,13 @@ function buildWelcomeEmail(customerEmail: string, plan: string, billing: string)
             <td style="background:#141414;border-radius:16px;border:1px solid #2a2a2a;overflow:hidden;">
 
               <!-- Top accent bar -->
-              <div style="height:4px;background:linear-gradient(90deg,#d4ff00,#a8cc00);"></div>
+              <div style="height:4px;background:linear-gradient(90deg,#0BC8F0,#a8cc00);"></div>
 
               <div style="padding:48px 40px;">
 
                 <!-- Title -->
                 <h1 style="margin:0 0 8px;font-size:28px;font-weight:800;color:#ffffff;line-height:1.2;">
-                  Bienvenue dans LUMIS.AI&nbsp;🚀
+                  Bienvenue dans Cohesif IA&nbsp;🚀
                 </h1>
                 <p style="margin:0 0 32px;font-size:16px;color:#888888;">
                   Votre abonnement est activé. Prêt à booster votre productivité&nbsp;?
@@ -81,7 +81,7 @@ function buildWelcomeEmail(customerEmail: string, plan: string, billing: string)
                         <tr>
                           <td style="font-size:15px;color:#aaaaaa;">Formule</td>
                           <td align="right">
-                            <span style="display:inline-block;background:#d4ff00;color:#0a0a0a;font-size:13px;font-weight:700;padding:4px 12px;border-radius:20px;">${planLabel}</span>
+                            <span style="display:inline-block;background:#0BC8F0;color:#0a0a0a;font-size:13px;font-weight:700;padding:4px 12px;border-radius:20px;">${planLabel}</span>
                           </td>
                         </tr>
                       </table>
@@ -104,7 +104,7 @@ function buildWelcomeEmail(customerEmail: string, plan: string, billing: string)
                   <tr>
                     <td align="center">
                       <a href="${siteUrl}/dashboard"
-                         style="display:inline-block;background:#d4ff00;color:#0a0a0a;font-size:16px;font-weight:800;text-decoration:none;padding:16px 48px;border-radius:50px;letter-spacing:0.3px;">
+                         style="display:inline-block;background:#0BC8F0;color:#0a0a0a;font-size:16px;font-weight:800;text-decoration:none;padding:16px 48px;border-radius:50px;letter-spacing:0.3px;">
                         Accéder à la plateforme →
                       </a>
                     </td>
@@ -117,7 +117,7 @@ function buildWelcomeEmail(customerEmail: string, plan: string, billing: string)
                 <!-- Support note -->
                 <p style="margin:0;font-size:14px;color:#666666;text-align:center;line-height:1.6;">
                   Une question&nbsp;? Notre équipe répond en moins de 4h.<br />
-                  <a href="mailto:contact@lumis.ai" style="color:#d4ff00;text-decoration:none;">contact@lumis.ai</a>
+                  <a href="mailto:contact@cohesif.ai" style="color:#0BC8F0;text-decoration:none;">contact@cohesif.ai</a>
                 </p>
 
               </div>
@@ -128,7 +128,7 @@ function buildWelcomeEmail(customerEmail: string, plan: string, billing: string)
           <tr>
             <td align="center" style="padding-top:32px;">
               <p style="margin:0;font-size:13px;color:#444444;">
-                © ${new Date().getFullYear()} LUMIS.AI — L'IA française souveraine<br />
+                © ${new Date().getFullYear()} Cohesif IA — L'IA française souveraine<br />
                 <a href="${siteUrl}/legal/privacy" style="color:#555555;text-decoration:none;">Politique de confidentialité</a>
                 &nbsp;·&nbsp;
                 <a href="${siteUrl}/legal/terms" style="color:#555555;text-decoration:none;">CGU</a>
@@ -193,9 +193,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         // Send welcome email
         if (customerEmail) {
           const { error: emailError } = await getResend().emails.send({
-            from: 'LUMIS.AI <noreply@lumis.ai>',
+            from: 'Cohesif IA <noreply@cohesif.ai>',
             to: customerEmail,
-            subject: 'Bienvenue dans LUMIS.AI ! 🚀',
+            subject: 'Bienvenue dans Cohesif IA ! 🚀',
             html: buildWelcomeEmail(customerEmail, plan, billing),
           })
 

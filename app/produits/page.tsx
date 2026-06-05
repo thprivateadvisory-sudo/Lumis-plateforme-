@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Produits LUMIS.AI — Toute la puissance de l\'IA souveraine',
+  title: 'Produits Cohesif IA — Toute la puissance de l\'IA souveraine',
   description:
-    'LUMIS Ultra, Agents Autonomes, Marketplace IA, API souveraine, Académie et offres Enterprise. Une plateforme complète pour transformer votre entreprise par l\'IA, hébergée 100% en France.',
+    'Cohesif Ultra, Agents Autonomes, Marketplace IA, API souveraine, Académie et offres Enterprise. Une plateforme complète pour transformer votre entreprise par l\'IA, hébergée 100% en France.',
   openGraph: {
-    title: 'Produits LUMIS.AI — Toute la puissance de l\'IA souveraine',
-    description: 'De l\'assistant premium à l\'API enterprise, découvrez tous les produits LUMIS.',
-    url: 'https://lumis.ai/produits',
+    title: 'Produits Cohesif IA — Toute la puissance de l\'IA souveraine',
+    description: 'De l\'assistant premium à l\'API enterprise, découvrez tous les produits Cohesif.',
+    url: 'https://cohesif.ai/produits',
   },
 }
 
@@ -17,88 +17,88 @@ const VisualUltra = () => (
   <svg width="120" height="80" viewBox="0 0 120 80" fill="none" aria-hidden="true">
     <defs>
       <radialGradient id="ug" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#d4ff00" stopOpacity="0.25" />
-        <stop offset="100%" stopColor="#d4ff00" stopOpacity="0" />
+        <stop offset="0%" stopColor="#0BC8F0" stopOpacity="0.25" />
+        <stop offset="100%" stopColor="#0BC8F0" stopOpacity="0" />
       </radialGradient>
     </defs>
     <circle cx="60" cy="40" r="38" fill="url(#ug)" />
-    <circle cx="60" cy="40" r="24" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="4 3" />
-    <circle cx="60" cy="40" r="10" fill="#d4ff00" fillOpacity="0.15" />
-    <circle cx="60" cy="40" r="4" fill="#d4ff00" />
-    <line x1="60" y1="4" x2="60" y2="20" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <line x1="96" y1="22" x2="84" y2="29" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <line x1="96" y1="58" x2="84" y2="51" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <line x1="60" y1="76" x2="60" y2="60" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <line x1="24" y1="58" x2="36" y2="51" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <line x1="24" y1="22" x2="36" y2="29" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <circle cx="60" cy="4" r="2.5" fill="#d4ff00" fillOpacity="0.7" />
-    <circle cx="96" cy="22" r="2.5" fill="#d4ff00" fillOpacity="0.7" />
-    <circle cx="96" cy="58" r="2.5" fill="#d4ff00" fillOpacity="0.7" />
+    <circle cx="60" cy="40" r="24" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="4 3" />
+    <circle cx="60" cy="40" r="10" fill="#0BC8F0" fillOpacity="0.15" />
+    <circle cx="60" cy="40" r="4" fill="#0BC8F0" />
+    <line x1="60" y1="4" x2="60" y2="20" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <line x1="96" y1="22" x2="84" y2="29" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <line x1="96" y1="58" x2="84" y2="51" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <line x1="60" y1="76" x2="60" y2="60" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <line x1="24" y1="58" x2="36" y2="51" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <line x1="24" y1="22" x2="36" y2="29" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <circle cx="60" cy="4" r="2.5" fill="#0BC8F0" fillOpacity="0.7" />
+    <circle cx="96" cy="22" r="2.5" fill="#0BC8F0" fillOpacity="0.7" />
+    <circle cx="96" cy="58" r="2.5" fill="#0BC8F0" fillOpacity="0.7" />
   </svg>
 )
 
 const VisualAgents = () => (
   <svg width="80" height="64" viewBox="0 0 80 64" fill="none" aria-hidden="true">
-    <rect x="4" y="20" width="28" height="28" rx="8" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <rect x="48" y="20" width="28" height="28" rx="8" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <circle cx="18" cy="10" r="6" fill="#d4ff00" fillOpacity="0.2" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.5" />
-    <circle cx="62" cy="10" r="6" fill="#d4ff00" fillOpacity="0.2" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.5" />
-    <line x1="24" y1="16" x2="30" y2="20" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" />
-    <line x1="56" y1="16" x2="50" y2="20" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" />
-    <line x1="32" y1="34" x2="48" y2="34" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="3 2" />
-    <circle cx="18" cy="34" r="4" fill="#d4ff00" fillOpacity="0.4" />
-    <circle cx="62" cy="34" r="4" fill="#d4ff00" fillOpacity="0.4" />
-    <path d="M14 55 L18 50 L22 55" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
-    <path d="M58 55 L62 50 L66 55" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
+    <rect x="4" y="20" width="28" height="28" rx="8" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <rect x="48" y="20" width="28" height="28" rx="8" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <circle cx="18" cy="10" r="6" fill="#0BC8F0" fillOpacity="0.2" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.5" />
+    <circle cx="62" cy="10" r="6" fill="#0BC8F0" fillOpacity="0.2" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.5" />
+    <line x1="24" y1="16" x2="30" y2="20" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" />
+    <line x1="56" y1="16" x2="50" y2="20" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" />
+    <line x1="32" y1="34" x2="48" y2="34" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="3 2" />
+    <circle cx="18" cy="34" r="4" fill="#0BC8F0" fillOpacity="0.4" />
+    <circle cx="62" cy="34" r="4" fill="#0BC8F0" fillOpacity="0.4" />
+    <path d="M14 55 L18 50 L22 55" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
+    <path d="M58 55 L62 50 L66 55" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
   </svg>
 )
 
 const VisualMarketplace = () => (
   <svg width="80" height="64" viewBox="0 0 80 64" fill="none" aria-hidden="true">
-    <rect x="6" y="8" width="20" height="20" rx="5" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" />
-    <rect x="30" y="8" width="20" height="20" rx="5" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" />
-    <rect x="54" y="8" width="20" height="20" rx="5" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" />
-    <rect x="6" y="36" width="20" height="20" rx="5" fill="#d4ff00" fillOpacity="0.15" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.6" />
-    <rect x="30" y="36" width="20" height="20" rx="5" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" />
-    <rect x="54" y="36" width="20" height="20" rx="5" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" />
-    <path d="M14 44 l3 3 5-5" stroke="#d4ff00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="6" y="8" width="20" height="20" rx="5" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" />
+    <rect x="30" y="8" width="20" height="20" rx="5" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" />
+    <rect x="54" y="8" width="20" height="20" rx="5" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" />
+    <rect x="6" y="36" width="20" height="20" rx="5" fill="#0BC8F0" fillOpacity="0.15" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.6" />
+    <rect x="30" y="36" width="20" height="20" rx="5" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" />
+    <rect x="54" y="36" width="20" height="20" rx="5" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" />
+    <path d="M14 44 l3 3 5-5" stroke="#0BC8F0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
 const VisualAPI = () => (
   <svg width="80" height="64" viewBox="0 0 80 64" fill="none" aria-hidden="true">
-    <rect x="4" y="12" width="72" height="40" rx="8" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.3" />
-    <text x="12" y="30" fontFamily="monospace" fontSize="8" fill="#d4ff00" fillOpacity="0.7">POST /api/v2</text>
-    <text x="12" y="42" fontFamily="monospace" fontSize="7" fill="#d4ff00" fillOpacity="0.4">{`{ model: "ultra" }`}</text>
-    <rect x="4" y="12" width="72" height="10" rx="8" fill="#d4ff00" fillOpacity="0.05" />
-    <circle cx="14" cy="17" r="2.5" fill="#d4ff00" fillOpacity="0.5" />
-    <circle cx="22" cy="17" r="2.5" fill="#d4ff00" fillOpacity="0.3" />
-    <circle cx="30" cy="17" r="2.5" fill="#d4ff00" fillOpacity="0.15" />
+    <rect x="4" y="12" width="72" height="40" rx="8" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.3" />
+    <text x="12" y="30" fontFamily="monospace" fontSize="8" fill="#0BC8F0" fillOpacity="0.7">POST /api/v2</text>
+    <text x="12" y="42" fontFamily="monospace" fontSize="7" fill="#0BC8F0" fillOpacity="0.4">{`{ model: "ultra" }`}</text>
+    <rect x="4" y="12" width="72" height="10" rx="8" fill="#0BC8F0" fillOpacity="0.05" />
+    <circle cx="14" cy="17" r="2.5" fill="#0BC8F0" fillOpacity="0.5" />
+    <circle cx="22" cy="17" r="2.5" fill="#0BC8F0" fillOpacity="0.3" />
+    <circle cx="30" cy="17" r="2.5" fill="#0BC8F0" fillOpacity="0.15" />
   </svg>
 )
 
 const VisualAcademie = () => (
   <svg width="80" height="64" viewBox="0 0 80 64" fill="none" aria-hidden="true">
-    <path d="M40 8 L72 24 L40 40 L8 24 Z" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" fill="#d4ff00" fillOpacity="0.05" />
-    <line x1="40" y1="40" x2="40" y2="56" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.4" />
-    <line x1="28" y1="48" x2="52" y2="48" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.4" />
-    <line x1="64" y1="30" x2="64" y2="46" stroke="#d4ff00" strokeWidth="1.5" strokeOpacity="0.5" />
-    <circle cx="64" cy="48" r="3" fill="#d4ff00" fillOpacity="0.6" />
-    <circle cx="40" cy="24" r="4" fill="#d4ff00" fillOpacity="0.4" />
+    <path d="M40 8 L72 24 L40 40 L8 24 Z" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" fill="#0BC8F0" fillOpacity="0.05" />
+    <line x1="40" y1="40" x2="40" y2="56" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.4" />
+    <line x1="28" y1="48" x2="52" y2="48" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.4" />
+    <line x1="64" y1="30" x2="64" y2="46" stroke="#0BC8F0" strokeWidth="1.5" strokeOpacity="0.5" />
+    <circle cx="64" cy="48" r="3" fill="#0BC8F0" fillOpacity="0.6" />
+    <circle cx="40" cy="24" r="4" fill="#0BC8F0" fillOpacity="0.4" />
   </svg>
 )
 
 const VisualEnterprise = () => (
   <svg width="80" height="64" viewBox="0 0 80 64" fill="none" aria-hidden="true">
-    <rect x="16" y="8" width="48" height="48" rx="6" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.3" fill="none" />
-    <rect x="22" y="16" width="14" height="14" rx="3" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.5" />
-    <rect x="44" y="16" width="14" height="14" rx="3" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.5" />
-    <rect x="22" y="38" width="14" height="14" rx="3" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.5" />
-    <rect x="44" y="38" width="14" height="14" rx="3" fill="#d4ff00" fillOpacity="0.1" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.5" />
-    <path d="M8 40 L16 32" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 2" />
-    <path d="M72 40 L64 32" stroke="#d4ff00" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 2" />
-    <circle cx="8" cy="42" r="3" fill="#d4ff00" fillOpacity="0.3" />
-    <circle cx="72" cy="42" r="3" fill="#d4ff00" fillOpacity="0.3" />
+    <rect x="16" y="8" width="48" height="48" rx="6" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.3" fill="none" />
+    <rect x="22" y="16" width="14" height="14" rx="3" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.5" />
+    <rect x="44" y="16" width="14" height="14" rx="3" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.5" />
+    <rect x="22" y="38" width="14" height="14" rx="3" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.5" />
+    <rect x="44" y="38" width="14" height="14" rx="3" fill="#0BC8F0" fillOpacity="0.1" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.5" />
+    <path d="M8 40 L16 32" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 2" />
+    <path d="M72 40 L64 32" stroke="#0BC8F0" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 2" />
+    <circle cx="8" cy="42" r="3" fill="#0BC8F0" fillOpacity="0.3" />
+    <circle cx="72" cy="42" r="3" fill="#0BC8F0" fillOpacity="0.3" />
   </svg>
 )
 
@@ -109,7 +109,7 @@ const products = [
     badge: 'Flagship',
     badgeColor: 'var(--y)',
     badgeText: '#000',
-    title: 'LUMIS Ultra',
+    title: 'Cohesif Ultra',
     subtitle: 'Assistant IA Premium',
     description:
       'L\'assistant conversationnel le plus avancé du marché français. 512K tokens de contexte, multimodal natif, raisonnement avancé. Surpasse GPT-4o sur les benchmarks métier français.',
@@ -157,7 +157,7 @@ const products = [
   {
     id: 'api',
     badge: 'Développeurs',
-    title: 'LUMIS API',
+    title: 'Cohesif API',
     subtitle: 'Infrastructure IA souveraine',
     description:
       'API REST certifiée ISO 27001, hébergée en France. Latence 38ms P95, 99.99% uptime, 4B+ tokens/jour. Compatible OpenAI SDK. Zéro dépendance aux Big Tech.',
@@ -173,7 +173,7 @@ const products = [
   {
     id: 'academie',
     badge: 'Formation',
-    title: 'Académie LUMIS',
+    title: 'Académie Cohesif',
     subtitle: 'Maîtrisez l\'IA en 3 mois',
     description:
       'Parcours certifiants conçus avec des experts métier. De l\'initiation à l\'IA jusqu\'aux architectures enterprise. Certificat reconnu par 480+ entreprises partenaires.',
@@ -189,7 +189,7 @@ const products = [
   {
     id: 'enterprise',
     badge: 'Enterprise',
-    title: 'LUMIS Enterprise',
+    title: 'Cohesif Enterprise',
     subtitle: 'Déploiement souverain total',
     description:
       'Infrastructure dédiée, modèles entraînés sur vos données, intégration SI complète et SLA premium. Pour les organisations qui ne peuvent pas se permettre de compromis sur la sécurité.',
@@ -217,7 +217,7 @@ export default function ProduitsPage() {
             <em>Zéro compromis.</em>
           </h1>
           <p className="lead" style={{ margin: '20px auto 0', textAlign: 'center' }}>
-            De l&apos;assistant conversationnel à l&apos;infrastructure enterprise, LUMIS couvre chaque
+            De l&apos;assistant conversationnel à l&apos;infrastructure enterprise, Cohesif couvre chaque
             besoin IA de votre organisation — avec une souveraineté totale.
           </p>
         </div>
@@ -233,7 +233,7 @@ export default function ProduitsPage() {
                 style={{
                   background: 'var(--panel)',
                   border: p.id === 'ultra'
-                    ? '1px solid rgba(212,255,0,0.25)'
+                    ? '1px solid rgba(11, 200, 240, 0.25)'
                     : '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '18px',
                   padding: p.wide ? undefined : '36px 32px',
@@ -256,7 +256,7 @@ export default function ProduitsPage() {
                       right: '-40px',
                       width: '280px',
                       height: '280px',
-                      background: 'radial-gradient(ellipse, rgba(212,255,0,0.07) 0%, transparent 70%)',
+                      background: 'radial-gradient(ellipse, rgba(11, 200, 240, 0.07) 0%, transparent 70%)',
                       pointerEvents: 'none',
                     }}
                   />
@@ -408,7 +408,7 @@ export default function ProduitsPage() {
             }}
           >
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <div className="tag" style={{ justifyContent: 'center' }}>Pourquoi choisir LUMIS</div>
+              <div className="tag" style={{ justifyContent: 'center' }}>Pourquoi choisir Cohesif</div>
               <h2
                 style={{
                   fontFamily: 'var(--fh)',
@@ -432,7 +432,7 @@ export default function ProduitsPage() {
                       width: 52,
                       height: 52,
                       borderRadius: '12px',
-                      background: 'rgba(212,255,0,0.08)',
+                      background: 'rgba(11, 200, 240, 0.08)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',

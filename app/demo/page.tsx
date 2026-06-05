@@ -211,7 +211,7 @@ export default function DemoPage() {
           <LumisAvatar />
           <div>
             <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--snow)', letterSpacing: '-.01em' }}>
-              LUMIS Core
+              Cohesif Core
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--fog)' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0 }} />
@@ -258,7 +258,7 @@ export default function DemoPage() {
               Bonjour. Comment puis-je vous aider ?
             </h2>
             <p style={{ color: 'var(--fog)', fontSize: 14, lineHeight: 1.7, marginBottom: 32, maxWidth: 460 }}>
-              Je suis LUMIS, votre assistant IA souverain français. Posez-moi n&apos;importe quelle
+              Je suis Cohesif, votre assistant IA souverain français. Posez-moi n&apos;importe quelle
               question ou choisissez une suggestion.
             </p>
             <div style={{
@@ -287,9 +287,9 @@ export default function DemoPage() {
                     lineHeight: 1.45,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(212,255,0,.3)'
+                    e.currentTarget.style.borderColor = 'rgba(11, 200, 240, .3)'
                     e.currentTarget.style.color = 'var(--snow)'
-                    e.currentTarget.style.background = 'rgba(212,255,0,.04)'
+                    e.currentTarget.style.background = 'rgba(11, 200, 240, .04)'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = 'var(--w1)'
@@ -311,8 +311,8 @@ export default function DemoPage() {
             {/* Soft upsell after SOFT_UPSELL_AT messages */}
             {msg.role === 'assistant' && messageCount === SOFT_UPSELL_AT && i === messages.length - 1 && showSoftUpsell && (
               <div style={{
-                background: 'rgba(212,255,0,.05)',
-                border: '1px solid rgba(212,255,0,.18)',
+                background: 'rgba(11, 200, 240, .05)',
+                border: '1px solid rgba(11, 200, 240, .18)',
                 borderRadius: 12,
                 padding: '14px 20px',
                 marginBottom: 20,
@@ -346,8 +346,8 @@ export default function DemoPage() {
 
               <div style={{
                 maxWidth: '74%',
-                background: msg.role === 'user' ? 'rgba(212,255,0,.08)' : 'var(--card)',
-                border: `1px solid ${msg.role === 'user' ? 'rgba(212,255,0,.16)' : 'var(--w1)'}`,
+                background: msg.role === 'user' ? 'rgba(11,200,240,.08)' : 'var(--card)',
+                border: `1px solid ${msg.role === 'user' ? 'rgba(11, 200, 240, .16)' : 'var(--w1)'}`,
                 borderRadius: msg.role === 'user' ? '14px 3px 14px 14px' : '3px 14px 14px 14px',
                 padding: '12px 16px',
                 fontSize: 14,
@@ -397,7 +397,7 @@ export default function DemoPage() {
         {/* Hard limit */}
         {isHardBlocked && (
           <div style={{
-            background: 'var(--panel)', border: '1px solid rgba(212,255,0,.25)',
+            background: 'var(--panel)', border: '1px solid rgba(11, 200, 240, .25)',
             borderRadius: 16, padding: '40px 32px', textAlign: 'center', margin: '8px 0',
           }}>
             <div style={{
@@ -415,7 +415,7 @@ export default function DemoPage() {
             </h3>
             <p style={{ color: 'var(--fog)', fontSize: 14, lineHeight: 1.7, marginBottom: 28, maxWidth: 380, margin: '0 auto 28px' }}>
               Passez Pro pour des conversations illimitées, des agents personnalisés
-              et l&apos;accès à LUMIS Ultra.
+              et l&apos;accès à Cohesif Ultra.
             </p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/tarifs" className="btn by">Passer Pro — 29€/mois →</Link>
@@ -451,7 +451,7 @@ export default function DemoPage() {
                 minHeight: 44, maxHeight: 160, overflowY: 'auto', outline: 'none',
                 transition: 'border-color .15s',
               }}
-              onFocus={(e) => { e.target.style.borderColor = 'rgba(212,255,0,.3)' }}
+              onFocus={(e) => { e.target.style.borderColor = 'rgba(11, 200, 240, .3)' }}
               onBlur={(e) => { e.target.style.borderColor = 'var(--w1)' }}
             />
             <button
@@ -477,7 +477,7 @@ export default function DemoPage() {
             color: 'var(--mist)', fontFamily: 'var(--fm)',
             maxWidth: 780, margin: '8px auto 0',
           }}>
-            LUMIS peut faire des erreurs · Hébergé en France · RGPD natif
+            Cohesif peut faire des erreurs · Hébergé en France · RGPD natif
           </p>
         </div>
       )}
@@ -494,7 +494,7 @@ export default function DemoPage() {
               Prêt à aller plus loin ?
             </div>
             <div style={{ fontSize: 13, color: 'var(--fog)' }}>
-              Messages illimités · Agents personnalisés · API access · LUMIS Ultra
+              Messages illimités · Agents personnalisés · API access · Cohesif Ultra
             </div>
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Solutions Entreprises — LUMIS.AI | IA sur-mesure pour PME et grands comptes',
+  title: 'Solutions Entreprises — Cohesif IA | IA sur-mesure pour PME et grands comptes',
   description: 'Solutions IA sur-mesure pour PME, scale-ups et grands comptes. Déploiement accompagné, conformité RGPD garantie, ROI mesuré dès le premier mois.',
 }
 
@@ -34,7 +34,7 @@ const SOLUTIONS = [
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
     title: 'Formation Équipes',
-    desc: 'Programmes de formation sur-mesure pour vos collaborateurs, du dirigeant au développeur. Certification interne LUMIS.',
+    desc: 'Programmes de formation sur-mesure pour vos collaborateurs, du dirigeant au développeur. Certification interne Cohesif.',
     cta: 'Voir les programmes',
   },
   {
@@ -62,7 +62,7 @@ const CASES = [
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,
     sector: 'Santé · CHU Régional',
     result: '18h économisées/médecin/mois',
-    desc: 'LUMIS Ultra déployé pour synthèse de comptes-rendus et recherche bibliographique. Conformité HDS totale, zéro donnée exportée.',
+    desc: 'Cohesif Ultra déployé pour synthèse de comptes-rendus et recherche bibliographique. Conformité HDS totale, zéro donnée exportée.',
   },
   {
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>,
@@ -123,7 +123,7 @@ export default function EntreprisesPage() {
           <div className="g3" style={{ gap: 16 }}>
             {SOLUTIONS.map(s => (
               <div key={s.title} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: 28, transition: 'border-color .2s' }}>
-                <div style={{ width: 46, height: 46, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(212,255,0,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', marginBottom: 18 }}>
+                <div style={{ width: 46, height: 46, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', marginBottom: 18 }}>
                   {s.icon}
                 </div>
                 <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-.02em', marginBottom: 8, color: 'var(--snow)' }}>{s.title}</div>
@@ -168,7 +168,7 @@ export default function EntreprisesPage() {
           <div className="tag" style={{ justifyContent: 'center' }}>Passer à l&apos;action</div>
           <h2 className="h2" style={{ marginTop: 8 }}>Prêt à transformer<br /><em>votre organisation ?</em></h2>
           <p style={{ marginTop: 16, marginBottom: 36, fontSize: 15, color: 'var(--fog)', lineHeight: 1.75 }}>
-            Un expert LUMIS vous présente la plateforme adaptée à vos systèmes, vos contraintes de sécurité et vos cas d&apos;usage métier. Sans engagement.
+            Un expert Cohesif vous présente la plateforme adaptée à vos systèmes, vos contraintes de sécurité et vos cas d&apos;usage métier. Sans engagement.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contact" className="btn by blg">Demander une démonstration</Link>

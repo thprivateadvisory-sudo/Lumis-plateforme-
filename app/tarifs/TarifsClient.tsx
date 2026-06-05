@@ -10,8 +10,8 @@ const PLANS = [
   {
     id: 'free',
     name: 'Free',
-    pitchMensuel: 'Découvrez LUMIS sans engagement',
-    pitchAnnuel: 'Découvrez LUMIS sans engagement',
+    pitchMensuel: 'Découvrez Cohesif sans engagement',
+    pitchAnnuel: 'Découvrez Cohesif sans engagement',
     priceMensuel: 0,
     priceAnnuel: 0,
     unit: '/mois',
@@ -22,7 +22,7 @@ const PLANS = [
     href: '/demo',
     features: [
       { label: '20 messages / jour', on: true },
-      { label: 'Accès LUMIS Core', on: true },
+      { label: 'Accès Cohesif Core', on: true },
       { label: 'Interface chat web', on: true },
       { label: '1 agent pré-configuré', on: true },
       { label: 'API access', on: false },
@@ -46,7 +46,7 @@ const PLANS = [
     href: null,
     features: [
       { label: 'Messages illimités', on: true },
-      { label: 'LUMIS Ultra (GPT-4o level)', on: true },
+      { label: 'Cohesif Ultra (GPT-4o level)', on: true },
       { label: '5 agents personnalisés', on: true },
       { label: 'API access (100K tokens/mois)', on: true },
       { label: 'Intégrations Slack & Teams', on: true },
@@ -108,7 +108,7 @@ const PLANS = [
 const FAQ_ITEMS = [
   {
     q: 'Est-ce que mes données restent en France ?',
-    a: 'Oui, à 100%. Toute l\'infrastructure LUMIS est hébergée dans nos datacenters en Île-de-France, certifiés HDS et ISO 27001. Aucune donnée ne transite hors de l\'Union Européenne. Nous n\'utilisons aucun sous-traitant américain pour le stockage ou le traitement des données.',
+    a: 'Oui, à 100%. Toute l\'infrastructure Cohesif est hébergée dans nos datacenters en Île-de-France, certifiés HDS et ISO 27001. Aucune donnée ne transite hors de l\'Union Européenne. Nous n\'utilisons aucun sous-traitant américain pour le stockage ou le traitement des données.',
   },
   {
     q: 'Puis-je changer de plan à tout moment ?',
@@ -123,8 +123,8 @@ const FAQ_ITEMS = [
     a: 'Le plan Enterprise ajoute un hébergement on-premise ou cloud dédié exclusivement pour votre organisation, un SLA 99.99% contractuel avec pénalités, des modèles fine-tunés sur vos données métier, un Customer Success Manager dédié, et une facturation adaptée (mensuelle, trimestrielle ou annuelle).',
   },
   {
-    q: 'Quelle est la différence entre LUMIS Core et LUMIS Ultra ?',
-    a: 'LUMIS Core est notre modèle optimisé pour la rapidité (réponse < 1s), idéal pour les tâches courantes. LUMIS Ultra est notre modèle de pointe avec 512K tokens de contexte, raisonnement avancé et performances supérieures à GPT-4o sur les benchmarks francophones. Ultra est inclus à partir du plan Pro.',
+    q: 'Quelle est la différence entre Cohesif Core et Cohesif Ultra ?',
+    a: 'Cohesif Core est notre modèle optimisé pour la rapidité (réponse < 1s), idéal pour les tâches courantes. Cohesif Ultra est notre modèle de pointe avec 512K tokens de contexte, raisonnement avancé et performances supérieures à GPT-4o sur les benchmarks francophones. Ultra est inclus à partir du plan Pro.',
   },
 ]
 
@@ -322,7 +322,7 @@ export default function TarifsClient() {
           <div className="tag" style={{ justifyContent: 'center' }}>Vous hésitez encore ?</div>
           <h2 className="h2">Calculez votre ROI</h2>
           <p className="lead" style={{ margin: '0 auto 36px', textAlign: 'center' }}>
-            Découvrez en 2 minutes combien LUMIS peut faire économiser à votre équipe.
+            Découvrez en 2 minutes combien Cohesif peut faire économiser à votre équipe.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/roi" className="btn by blg">
