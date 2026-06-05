@@ -210,15 +210,24 @@ export default function TarifsClient() {
                 fontSize: '14px',
                 cursor: 'pointer',
                 transition: 'all .2s',
-                background: billing === 'annuel' ? 'var(--raise)' : 'transparent',
-                color: billing === 'annuel' ? 'var(--snow)' : 'var(--fog)',
+                background: billing === 'annuel' ? '#0BC8F0' : 'transparent',
+                color: billing === 'annuel' ? '#000' : 'var(--fog)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
               }}
             >
               Annuel
-              <span className="apill">-30%</span>
+              <span style={{
+                display: 'inline-block',
+                background: billing === 'annuel' ? 'rgba(0,0,0,.15)' : 'rgba(11,200,240,.15)',
+                color: billing === 'annuel' ? '#000' : 'var(--y)',
+                borderRadius: 100,
+                padding: '2px 8px',
+                fontSize: 11,
+                fontWeight: 700,
+                fontFamily: 'var(--fm)',
+              }}>-30%</span>
             </button>
           </div>
         </div>
@@ -254,8 +263,13 @@ export default function TarifsClient() {
                     )}
                   </div>
                   {billing === 'annuel' && price !== null && price > 0 && (
-                    <div style={{ fontSize: '12px', color: 'var(--y)', marginTop: '4px', fontWeight: 600 }}>
-                      Facturé {price * 12}€ / an
+                    <div style={{ marginTop: '6px', display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                      <span style={{ fontSize: '13px', color: 'var(--fog)', textDecoration: 'line-through' }}>
+                        {plan.priceMensuel}€/mois
+                      </span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#22c55e', background: 'rgba(34,197,94,.1)', border: '1px solid rgba(34,197,94,.2)', borderRadius: 50, padding: '2px 10px' }}>
+                        Économie {((plan.priceMensuel! - price) * 12)}€/an
+                      </span>
                     </div>
                   )}
                   <p className="ppitch">{pitch}</p>

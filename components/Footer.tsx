@@ -163,7 +163,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="fbot">
           <p className="fcopy">
-            © 2025 Groupe Cohesif — SIRET 889&nbsp;287&nbsp;462&nbsp;00036 · 200 rue de la Croix Nivert, Paris
+            © 2026 Groupe Cohesif — SIRET 889&nbsp;287&nbsp;462&nbsp;00036 · 200 rue de la Croix Nivert, Paris
           </p>
 
           <nav className="flegal" aria-label="Liens légaux">

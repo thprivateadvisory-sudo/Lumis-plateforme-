@@ -121,7 +121,7 @@ function buildNotificationEmail(data: ContactRequest): string {
           <tr>
             <td align="center" style="padding-top:28px;">
               <p style="margin:0;font-size:13px;color:#444444;">
-                © ${new Date().getFullYear()} Cohesif IA — L'IA française souveraine
+                © 2026 Groupe Cohesif — L'IA française souveraine
               </p>
             </td>
           </tr>
@@ -226,7 +226,7 @@ function buildConfirmationEmail(data: ContactRequest): string {
           <tr>
             <td align="center" style="padding-top:28px;">
               <p style="margin:0;font-size:13px;color:#444444;">
-                © ${new Date().getFullYear()} Cohesif IA — L'IA française souveraine<br />
+                © 2026 Groupe Cohesif — L'IA française souveraine<br />
                 <a href="${siteUrl}/legal/privacy" style="color:#555555;text-decoration:none;">Politique de confidentialité</a>
                 &nbsp;·&nbsp;
                 <a href="${siteUrl}/legal/terms" style="color:#555555;text-decoration:none;">CGU</a>
