@@ -43,7 +43,7 @@ export default function ContactPage() {
             <div style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 22, padding: 36 }}>
               {status === 'success' ? (
                 <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                  <div style={{ fontSize: 56, marginBottom: 16 }}>✅</div>
+                  <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(40,200,64,.12)', border: '1px solid rgba(40,200,64,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#28c840" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <h3 style={{ fontSize: 22, fontWeight: 800, marginBottom: 8 }}>Message envoyé !</h3>
                   <p style={{ color: 'var(--fog)', fontSize: 15, lineHeight: 1.6 }}>
                     Réponse garantie sous <strong style={{ color: 'var(--snow)' }}>4 heures ouvrées</strong>.<br />
@@ -108,7 +108,7 @@ export default function ContactPage() {
                     {status === 'loading' ? 'Envoi en cours...' : 'Envoyer le message →'}
                   </button>
                   <p style={{ fontSize: 12, color: 'var(--fog)', textAlign: 'center', marginTop: 10 }}>
-                    🔒 Vos données sont protégées · Réponse sous 4h ouvrées
+                    Vos données sont protégées · Réponse sous 4h ouvrées
                   </p>
                 </form>
               )}
@@ -117,7 +117,7 @@ export default function ContactPage() {
             {/* Info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
               {[
-                { icon: '📍', title: 'Siège social', content: '42 avenue des Champs-Élysées\n75008 Paris, France 🇫🇷' },
+                { icon: '📍', title: 'Siège social', content: '42 avenue des Champs-Élysées\n75008 Paris, France' },
                 { icon: '✉️', title: 'Email', content: 'contact@lumis.ai\ninvest@lumis.ai' },
                 { icon: '📞', title: 'Téléphone', content: '+33 1 23 45 67 89\nLun–Ven, 9h–18h' },
                 { icon: '⚡', title: 'Réponse immédiate', content: 'Notre agent Sofia répond 24/7 via le chat. Réponse humaine : 4h ouvrées.' },

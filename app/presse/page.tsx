@@ -61,7 +61,7 @@ export default function PressePage() {
             {COVERAGE.map(item => (
               <div key={item.media} className="rv" style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: 28 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                  <span style={{ fontSize: 28 }}>{item.logo}</span>
+                  <div style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--raise)', border: '1px solid var(--w2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 15, color: 'var(--y)', flexShrink: 0 }}>{item.media.charAt(0)}</div>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: 15 }}>{item.media}</div>
                     <div style={{ fontSize: 12, color: 'var(--fog)' }}>{item.date}</div>
@@ -82,13 +82,13 @@ export default function PressePage() {
           <h2 className="h2" style={{ fontSize: 'clamp(28px,4vw,48px)', marginBottom: 40 }}>Ressources pour<br /><em>les journalistes.</em></h2>
           <div className="g2" style={{ gap: 16, marginBottom: 40 }}>
             {[
-              { icon: '📁', title: 'Dossier de presse', desc: 'Présentation complète, faits & chiffres, biographies équipe', action: 'Télécharger' },
-              { icon: '🖼️', title: 'Logos & Visuels', desc: 'Logos HD, captures produit, photos équipe haute résolution', action: 'Télécharger' },
-              { icon: '📊', title: 'Data Room investisseurs', desc: 'Métriques, projections financières, deck Series B', action: 'Demander accès' },
-              { icon: '🎤', title: 'Interview CEO', desc: 'Demande d\'interview ou de témoignage avec nos fondateurs', action: 'Contacter' },
+              { title: 'Dossier de presse', desc: 'Présentation complète, faits & chiffres, biographies équipe', action: 'Télécharger' },
+              { title: 'Logos & Visuels', desc: 'Logos HD, captures produit, photos équipe haute résolution', action: 'Télécharger' },
+              { title: 'Data Room investisseurs', desc: 'Métriques, projections financières, deck Series B', action: 'Demander accès' },
+              { title: 'Interview CEO', desc: 'Demande d\'interview ou de témoignage avec nos fondateurs', action: 'Contacter' },
             ].map(r => (
               <div key={r.title} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 16, padding: 24, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ fontSize: 32, marginBottom: 14 }}>{r.icon}</div>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(212,255,0,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', marginBottom: 14 }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
                 <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 6 }}>{r.title}</div>
                 <div style={{ fontSize: 13, color: 'var(--fog)', lineHeight: 1.6, flex: 1, marginBottom: 16 }}>{r.desc}</div>
                 <a href="mailto:presse@lumis.ai" style={{ fontSize: 13, fontWeight: 700, color: 'var(--y)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
