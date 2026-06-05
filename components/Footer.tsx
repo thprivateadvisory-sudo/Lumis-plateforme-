@@ -47,12 +47,12 @@ const COLUMNS = [
   {
     title: 'Solutions',
     links: [
-      { label: 'PME & Scale-ups',   href: '/entreprises' },
-      { label: 'Grands comptes',    href: '/entreprises' },
-      { label: 'Secteur Santé',     href: '/entreprises' },
-      { label: 'Finance & Banque',  href: '/entreprises' },
-      { label: 'Industrie',         href: '/entreprises' },
-      { label: 'Secteur Public',    href: '/entreprises' },
+      { label: 'PME & Scale-ups',   href: '/entreprises#pme' },
+      { label: 'Grands comptes',    href: '/entreprises#grands-comptes' },
+      { label: 'Secteur Santé',     href: '/entreprises#sante' },
+      { label: 'Finance & Banque',  href: '/entreprises#finance' },
+      { label: 'Industrie',         href: '/entreprises#industrie' },
+      { label: 'Secteur Public',    href: '/entreprises#secteur-public' },
     ],
   },
   {

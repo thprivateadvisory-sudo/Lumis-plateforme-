@@ -162,6 +162,80 @@ export default function EntreprisesPage() {
         </div>
       </section>
 
+      {/* SECTEURS */}
+      <section className="sec">
+        <div className="w">
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div className="tag" style={{ justifyContent: 'center' }}>Solutions par secteur</div>
+            <h2 className="h2" style={{ marginTop: 8 }}>Une réponse adaptée<br /><em>à chaque secteur.</em></h2>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {[
+              {
+                id: 'pme',
+                emoji: '🏢',
+                title: 'PME & Scale-ups',
+                desc: 'Automatisez vos processus, boostez votre prospection et réduisez vos coûts opérationnels dès 29€/mois. Déploiement en 48h, sans équipe IT dédiée.',
+                points: ['Onboarding guidé en 48h', 'Agents prêts à l\'emploi', 'Tarifs adaptés à votre taille'],
+              },
+              {
+                id: 'grands-comptes',
+                emoji: '🏦',
+                title: 'Grands comptes',
+                desc: 'Infrastructure dédiée, SLA 99.99%, intégration SAP / Salesforce / SharePoint. Un Customer Success Manager dédié et un audit de sécurité inclus.',
+                points: ['Cloud dédié ou on-premise', 'Fine-tuning sur vos données', 'Support 24/7 contractuel'],
+              },
+              {
+                id: 'sante',
+                emoji: '🏥',
+                title: 'Secteur Santé',
+                desc: 'Hébergement HDS certifié, conformité RGPD et ANSSI. Synthèse de comptes-rendus, aide au diagnostic, gestion administrative automatisée.',
+                points: ['Certifié HDS', 'Zéro donnée exportée hors France', 'Compatible DPI & logiciels métier'],
+              },
+              {
+                id: 'finance',
+                emoji: '📊',
+                title: 'Finance & Banque',
+                desc: 'Analyse de risques, conformité réglementaire (MiFID, DORA), détection de fraude et reporting automatisé. Audit trail complet.',
+                points: ['Conformité MiFID II / DORA', 'Audit logs RGPD complets', 'Analyse de contrats en masse'],
+              },
+              {
+                id: 'industrie',
+                emoji: '⚙️',
+                title: 'Industrie',
+                desc: 'Maintenance prédictive, contrôle qualité IA, optimisation de chaîne logistique. Intégration avec vos outils ERP et SCADA.',
+                points: ['Connecteurs ERP natifs', 'Maintenance prédictive', 'Rapport de production automatisé'],
+              },
+              {
+                id: 'secteur-public',
+                emoji: '🏛️',
+                title: 'Secteur Public',
+                desc: 'Infrastructure souveraine conforme SecNumCloud, traitement des données sensibles en France. Marchés publics et accompagnement dédié.',
+                points: ['Éligible marchés publics', 'Hébergement souverain France', 'Conformité SecNumCloud'],
+              },
+            ].map(s => (
+              <div key={s.id} id={s.id} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: '28px 32px', scrollMarginTop: 80, display: 'flex', gap: 28, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                <div style={{ fontSize: 36, flexShrink: 0, lineHeight: 1 }}>{s.emoji}</div>
+                <div style={{ flex: 1, minWidth: 220 }}>
+                  <div style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', marginBottom: 8, color: 'var(--snow)' }}>{s.title}</div>
+                  <div style={{ fontSize: 14, color: 'var(--fog)', lineHeight: 1.65, marginBottom: 14 }}>{s.desc}</div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {s.points.map(p => (
+                      <span key={p} style={{ fontSize: 12, fontWeight: 600, color: 'var(--y)', background: 'var(--yd)', border: '1px solid rgba(11,200,240,.15)', borderRadius: 50, padding: '4px 12px' }}>
+                        ✓ {p}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <Link href="/contact" className="btn bg bsm" style={{ flexShrink: 0, alignSelf: 'center' }}>
+                  En savoir plus →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA FINAL */}
       <section className="sec" style={{ background: 'var(--void)' }}>
         <div className="wm" style={{ textAlign: 'center' }}>
