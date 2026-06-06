@@ -101,13 +101,23 @@ export default function AgentChatPage() {
     const prevHtml = html.style.overflow
     const prevBody = body.style.overflow
     const prevBodyH = body.style.height
+
     html.style.overflow = 'hidden'
     body.style.overflow = 'hidden'
     body.style.height = '100%'
+
+    // Masque le footer et la bannière sticky qui ajoutent de la hauteur
+    const footer = document.querySelector('footer') as HTMLElement | null
+    const scta = document.getElementById('scta') as HTMLElement | null
+    if (footer) footer.style.display = 'none'
+    if (scta) scta.style.display = 'none'
+
     return () => {
       html.style.overflow = prevHtml
       body.style.overflow = prevBody
       body.style.height = prevBodyH
+      if (footer) footer.style.display = ''
+      if (scta) scta.style.display = ''
     }
   }, [])
 
@@ -576,7 +586,11 @@ export default function AgentChatPage() {
                 resize: 'none', minHeight: 44, maxHeight: 160,
                 overflowY: 'auto', outline: 'none', transition: 'border-color .15s',
               }}
-              onFocus={(e) => { e.target.style.borderColor = agent.color + '55' }}
+              onFocus={(e) => {
+                e.target.style.borderColor = agent.color + '55'
+                // Empêche le saut de scroll iOS quand le clavier s'ouvre
+                window.scrollTo(0, 0)
+              }}
               onBlur={(e) => { e.target.style.borderColor = 'var(--w1)' }}
             />
             <button
