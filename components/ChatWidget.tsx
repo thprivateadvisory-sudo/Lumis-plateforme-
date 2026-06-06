@@ -1,8 +1,16 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function ChatWidget() {
+  const pathname = usePathname()
+
+  // Masqué sur les pages avec leur propre interface de chat
+  if (pathname?.startsWith('/agents/') || pathname === '/demo' || pathname?.startsWith('/dashboard')) {
+    return null
+  }
+
   return (
     <Link
       href="/demo"

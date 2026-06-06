@@ -94,11 +94,21 @@ export default function AgentChatPage() {
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const abortRef = useRef<AbortController | null>(null)
 
-  // Bloque le scroll du body pour éviter le saut au focus du textarea sur mobile
+  // Bloque tout scroll de page sur iOS/Android quand le chat est ouvert
   useEffect(() => {
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = prev }
+    const html = document.documentElement
+    const body = document.body
+    const prevHtml = html.style.overflow
+    const prevBody = body.style.overflow
+    const prevBodyH = body.style.height
+    html.style.overflow = 'hidden'
+    body.style.overflow = 'hidden'
+    body.style.height = '100%'
+    return () => {
+      html.style.overflow = prevHtml
+      body.style.overflow = prevBody
+      body.style.height = prevBodyH
+    }
   }, [])
 
   useEffect(() => {
