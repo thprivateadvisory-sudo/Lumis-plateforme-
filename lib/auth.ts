@@ -2,11 +2,13 @@ import { getSupabase } from './supabase'
 
 export async function signUp(email: string, password: string, fullName: string) {
   const supabase = getSupabase()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cohesif-ia.fr'
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
       data: { full_name: fullName },
+      emailRedirectTo: `${siteUrl}/dashboard`,
     },
   })
   return { data, error }
@@ -38,7 +40,7 @@ export async function getUser() {
 
 export async function resetPassword(email: string) {
   const supabase = getSupabase()
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cohesif-ia.fr'
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: `${siteUrl}/dashboard?reset=true`,
   })
