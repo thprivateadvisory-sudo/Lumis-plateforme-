@@ -449,6 +449,27 @@ export default function DemoPage() {
           </div>
         )}
 
+        {/* ── FOOTER UPSELL (inside scroll) ── */}
+        <div style={{ borderTop: '1px solid var(--w1)', padding: '24px 0', marginTop: 8 }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            gap: 16, flexWrap: 'wrap',
+          }}>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 3, letterSpacing: '-.02em', color: 'var(--snow)' }}>
+                Prêt à aller plus loin ?
+              </div>
+              <div style={{ fontSize: 12, color: 'var(--fog)' }}>
+                Messages illimités · Agents personnalisés · API access
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              <Link href="/tarifs" className="btn by bsm">Pro — dès 29€/mois →</Link>
+              <Link href="/roi" className="btn bg bsm">Calculer mon ROI</Link>
+            </div>
+          </div>
+        </div>
+
         <div ref={bottomRef} />
       </div>
 
@@ -503,28 +524,6 @@ export default function DemoPage() {
           </p>
         </div>
       )}
-
-      {/* ── FOOTER UPSELL ── */}
-      <div style={{ borderTop: '1px solid var(--w1)', padding: '24px', background: 'var(--deep)' }}>
-        <div style={{
-          maxWidth: 780, margin: '0 auto',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          gap: 24, flexWrap: 'wrap',
-        }}>
-          <div>
-            <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4, letterSpacing: '-.02em', color: 'var(--snow)' }}>
-              Prêt à aller plus loin ?
-            </div>
-            <div style={{ fontSize: 13, color: 'var(--fog)' }}>
-              Messages illimités · Agents personnalisés · API access · Cohesif Ultra
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <Link href="/tarifs" className="btn by bsm">Pro — dès 29€/mois →</Link>
-            <Link href="/roi" className="btn bg bsm">Calculer mon ROI</Link>
-          </div>
-        </div>
-      </div>
 
       <style>{`
         @keyframes chatBounce {
