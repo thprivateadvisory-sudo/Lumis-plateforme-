@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { signIn, signUp, resetPassword } from '@/lib/auth'
@@ -8,7 +8,7 @@ import { useAuth } from '@/components/AuthProvider'
 
 type Mode = 'login' | 'signup' | 'forgot'
 
-export default function ConnexionPage() {
+function ConnexionForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { user, loading } = useAuth()
@@ -294,4 +294,12 @@ const inputStyle: React.CSSProperties = {
   fontFamily: 'var(--fh)', fontSize: 14,
   outline: 'none', transition: 'border-color .15s',
   boxSizing: 'border-box',
+}
+
+export default function ConnexionPage() {
+  return (
+    <Suspense>
+      <ConnexionForm />
+    </Suspense>
+  )
 }
