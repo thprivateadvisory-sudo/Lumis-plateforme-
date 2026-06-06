@@ -54,7 +54,6 @@ function PortfolioWidget() {
   const pct = ((growth / baseValue) * 100).toFixed(2)
   const isUp = growth >= 0
 
-  // Mini sparkline SVG
   const min = Math.min(...history)
   const max = Math.max(...history)
   const range = max - min || 1
@@ -119,7 +118,6 @@ function PortfolioWidget() {
         </div>
       </div>
 
-      {/* Sparkline */}
       <svg
         width="100%"
         height="48"
@@ -276,6 +274,370 @@ function StatsSection() {
   )
 }
 
+/* ── INVEST MODAL ── */
+interface PackInfo {
+  id: string
+  name: string
+  amount: string
+  yield: string
+  horizon: string
+}
+
+interface InvestModalProps {
+  pack: PackInfo
+  onClose: () => void
+}
+
+function InvestModal({ pack, onClose }: InvestModalProps) {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [company, setCompany] = useState('')
+  const [message, setMessage] = useState('')
+  const [acceptRisk, setAcceptRisk] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
+
+  // Prevent body scroll while modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!acceptRisk) {
+      setErrorMsg('Veuillez confirmer avoir pris connaissance des risques.')
+      return
+    }
+    setStatus('loading')
+    setErrorMsg('')
+    try {
+      const res = await fetch('/api/investir', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          pack: pack.name,
+          packAmount: pack.amount,
+          packYield: pack.yield,
+          firstName: firstName.trim(),
+          lastName: lastName.trim() || undefined,
+          email: email.trim(),
+          phone: phone.trim() || undefined,
+          company: company.trim() || undefined,
+          message: message.trim() || undefined,
+        }),
+      })
+      if (!res.ok) throw new Error('server_error')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+      setErrorMsg('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.')
+    }
+  }
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    background: 'rgba(255,255,255,0.05)',
+    border: '1px solid rgba(255,255,255,0.12)',
+    borderRadius: '10px',
+    padding: '12px 14px',
+    fontSize: '0.9375rem',
+    color: 'var(--snow)',
+    outline: 'none',
+    fontFamily: 'inherit',
+    boxSizing: 'border-box',
+    transition: 'border-color 0.15s',
+  }
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    fontSize: '0.8125rem',
+    fontWeight: 600,
+    color: 'var(--fog)',
+    marginBottom: '6px',
+    fontFamily: 'var(--fm)',
+  }
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 1000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '16px',
+      }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
+    >
+      {/* Backdrop */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(0,0,0,0.75)',
+          backdropFilter: 'blur(6px)',
+        }}
+      />
+
+      {/* Panel */}
+      <div
+        style={{
+          position: 'relative',
+          background: 'var(--panel)',
+          border: '1px solid rgba(11,200,240,0.2)',
+          borderRadius: '20px',
+          width: '100%',
+          maxWidth: '520px',
+          maxHeight: '90vh',
+          overflowY: 'auto',
+          padding: '36px 32px',
+        }}
+      >
+        {/* Close */}
+        <button
+          onClick={onClose}
+          aria-label="Fermer"
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+            background: 'rgba(255,255,255,0.07)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: '8px',
+            width: '32px',
+            height: '32px',
+            cursor: 'pointer',
+            color: 'var(--fog)',
+            fontSize: '1rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          ×
+        </button>
+
+        {status === 'success' ? (
+          <div style={{ textAlign: 'center', padding: '16px 0' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🎯</div>
+            <h2
+              style={{
+                fontFamily: 'var(--fh)',
+                fontSize: '1.5rem',
+                fontWeight: 800,
+                color: 'var(--snow)',
+                marginBottom: '12px',
+              }}
+            >
+              Demande enregistrée !
+            </h2>
+            <p style={{ fontSize: '0.9375rem', color: 'var(--fog)', lineHeight: 1.65, marginBottom: '8px' }}>
+              Notre équipe investisseurs vous contactera sous{' '}
+              <strong style={{ color: 'var(--y)' }}>24h ouvrées</strong> pour finaliser votre dossier.
+            </p>
+            <p style={{ fontSize: '0.875rem', color: 'var(--mist)', marginBottom: '28px' }}>
+              Un email de confirmation a été envoyé à <strong>{email}</strong>
+            </p>
+            <button onClick={onClose} className="btn by" style={{ width: '100%', justifyContent: 'center' }}>
+              Fermer →
+            </button>
+          </div>
+        ) : (
+          <>
+            {/* Header */}
+            <div style={{ marginBottom: '24px' }}>
+              <div
+                style={{
+                  fontFamily: 'var(--fm)',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: 'var(--y)',
+                  marginBottom: '6px',
+                }}
+              >
+                Candidature investisseur
+              </div>
+              <h2
+                style={{
+                  fontFamily: 'var(--fh)',
+                  fontSize: '1.5rem',
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  color: 'var(--snow)',
+                  marginBottom: '12px',
+                }}
+              >
+                Pack {pack.name}
+              </h2>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                {[
+                  { label: pack.amount, sub: 'min.' },
+                  { label: pack.yield + '/an', sub: 'rendement cible' },
+                  { label: pack.horizon, sub: 'horizon' },
+                ].map((item) => (
+                  <div
+                    key={item.sub}
+                    style={{
+                      background: 'rgba(11,200,240,0.08)',
+                      border: '1px solid rgba(11,200,240,0.15)',
+                      borderRadius: '8px',
+                      padding: '6px 12px',
+                      textAlign: 'center',
+                    }}
+                  >
+                    <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--y)' }}>{item.label}</div>
+                    <div style={{ fontSize: '0.7rem', color: 'var(--fog)', fontFamily: 'var(--fm)' }}>{item.sub}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {/* Name row */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div>
+                  <label style={labelStyle}>Prénom *</label>
+                  <input
+                    type="text"
+                    required
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder="Jean"
+                    style={inputStyle}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>Nom</label>
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Dupont"
+                    style={inputStyle}
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div>
+                <label style={labelStyle}>Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="jean@exemple.fr"
+                  style={inputStyle}
+                />
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label style={labelStyle}>Téléphone</label>
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="+33 6 00 00 00 00"
+                  style={inputStyle}
+                />
+              </div>
+
+              {/* Company */}
+              <div>
+                <label style={labelStyle}>Entreprise / Structure</label>
+                <input
+                  type="text"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  placeholder="Optionnel"
+                  style={inputStyle}
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label style={labelStyle}>Message (optionnel)</label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Questions, précisions sur votre profil investisseur..."
+                  rows={3}
+                  style={{ ...inputStyle, resize: 'vertical' }}
+                />
+              </div>
+
+              {/* Risk checkbox */}
+              <label
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '10px',
+                  cursor: 'pointer',
+                  padding: '14px',
+                  background: 'rgba(255,51,85,0.04)',
+                  border: '1px solid rgba(255,51,85,0.15)',
+                  borderRadius: '10px',
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={acceptRisk}
+                  onChange={(e) => setAcceptRisk(e.target.checked)}
+                  style={{ marginTop: '2px', flexShrink: 0, accentColor: '#0BC8F0' }}
+                />
+                <span style={{ fontSize: '0.8125rem', color: 'var(--fog)', lineHeight: 1.5 }}>
+                  J&apos;ai pris connaissance des risques liés à l&apos;investissement (perte en capital possible)
+                  et confirme être un investisseur qualifié conformément à la réglementation AMF.
+                </span>
+              </label>
+
+              {errorMsg && (
+                <p style={{ fontSize: '0.8125rem', color: 'var(--red, #ff3355)', margin: 0 }}>
+                  {errorMsg}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="btn by"
+                style={{ width: '100%', justifyContent: 'center', opacity: status === 'loading' ? 0.6 : 1 }}
+              >
+                {status === 'loading' ? 'Envoi en cours…' : 'Soumettre ma candidature →'}
+              </button>
+
+              <p
+                style={{
+                  fontSize: '0.75rem',
+                  color: 'var(--mist)',
+                  textAlign: 'center',
+                  fontFamily: 'var(--fm)',
+                  margin: 0,
+                }}
+              >
+                Notre équipe vous répondra sous 24h · NDA sur demande
+              </p>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
 const PACKS = [
   {
     id: 'starter',
@@ -294,7 +656,6 @@ const PACKS = [
       'Liquidité partielle à 12 mois',
     ],
     cta: 'Investir maintenant',
-    ctaHref: '/tarifs',
     featured: false,
   },
   {
@@ -316,7 +677,6 @@ const PACKS = [
       'Priorité de liquidité',
     ],
     cta: 'Investir maintenant',
-    ctaHref: '/tarifs',
     featured: true,
   },
   {
@@ -338,14 +698,28 @@ const PACKS = [
       'Relation banquier dédié',
     ],
     cta: 'Nous contacter',
-    ctaHref: '/contact',
     featured: false,
   },
 ]
 
 export default function InvestirPage() {
+  const [modalPack, setModalPack] = useState<(typeof PACKS)[0] | null>(null)
+
   return (
     <main>
+      {modalPack && modalPack.id !== 'institutionnel' && (
+        <InvestModal
+          pack={{
+            id: modalPack.id,
+            name: modalPack.name,
+            amount: modalPack.amount,
+            yield: modalPack.yield,
+            horizon: modalPack.horizon,
+          }}
+          onClose={() => setModalPack(null)}
+        />
+      )}
+
       {/* ── HERO ── */}
       <section className="sec" style={{ paddingBottom: 0 }}>
         <div className="wm" style={{ textAlign: 'center' }}>
@@ -535,13 +909,23 @@ export default function InvestirPage() {
                   ))}
                 </ul>
 
-                <Link
-                  href={pack.ctaHref}
-                  className={`btn ${pack.featured ? 'by' : 'bg'}`}
-                  style={{ width: '100%', justifyContent: 'center' }}
-                >
-                  {pack.cta} →
-                </Link>
+                {pack.id === 'institutionnel' ? (
+                  <Link
+                    href="/contact"
+                    className="btn bg"
+                    style={{ width: '100%', justifyContent: 'center' }}
+                  >
+                    {pack.cta} →
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => setModalPack(pack)}
+                    className={`btn ${pack.featured ? 'by' : 'bg'}`}
+                    style={{ width: '100%', justifyContent: 'center', cursor: 'pointer' }}
+                  >
+                    {pack.cta} →
+                  </button>
+                )}
               </article>
             ))}
           </div>
