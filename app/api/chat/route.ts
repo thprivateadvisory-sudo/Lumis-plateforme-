@@ -117,7 +117,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     ;(async () => {
       try {
         const model = getGemini().getGenerativeModel({
-          model: 'gemini-2.0-flash',
+          model: 'gemini-1.5-flash',
           systemInstruction: SYSTEM_PROMPT,
         })
 
@@ -141,7 +141,8 @@ export async function POST(request: NextRequest): Promise<Response> {
         await writeSSE('done', {})
         await incrementMessageCount(effectiveSessionId)
       } catch (streamError) {
-        console.error('[chat/route] Gemini stream error:', streamError)
+        const errMsg = streamError instanceof Error ? streamError.message : String(streamError)
+        console.error('[chat/route] Gemini stream error:', errMsg)
         try {
           await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
         } catch {
