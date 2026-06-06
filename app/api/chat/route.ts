@@ -131,7 +131,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         }))
 
         const result = await getGemini().models.generateContentStream({
-          model: 'gemini-2.0-flash',
+          model: 'gemini-1.5-flash',
           contents,
           config: { systemInstruction: SYSTEM_PROMPT },
         })
@@ -149,7 +149,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         const errMsg = streamError instanceof Error ? streamError.message : String(streamError)
         console.error('[chat/route] Gemini stream error:', errMsg)
         try {
-          await writeSSE('error', { message: `DEBUG: ${errMsg.slice(0, 120)}` })
+          await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
         } catch {
           // writer may already be closed
         }
@@ -171,10 +171,9 @@ export async function POST(request: NextRequest): Promise<Response> {
       },
     })
   } catch (error) {
-    const msg2 = error instanceof Error ? error.message : String(error)
-    console.error('[chat/route] Unexpected error:', msg2)
+    console.error('[chat/route] Unexpected error:', error)
     return NextResponse.json(
-      { error: 'INTERNAL_ERROR', message: `SERVER: ${msg2.slice(0, 120)}` },
+      { error: 'INTERNAL_ERROR', message: 'Une erreur est survenue. Veuillez réessayer.' },
       { status: 500 }
     )
   }
