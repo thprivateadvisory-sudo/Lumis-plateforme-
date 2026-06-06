@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { signIn, signUp, resetPassword } from '@/lib/auth'
@@ -70,6 +71,8 @@ function ConnexionForm() {
         setError('Veuillez confirmer votre email avant de vous connecter.')
       } else if (msg.includes('User already registered')) {
         setError('Un compte existe déjà avec cet email. Connectez-vous.')
+      } else if (msg.includes('Load failed') || msg.includes('Failed to fetch') || msg.includes('NetworkError') || msg.includes('fetch')) {
+        setError('Connexion au serveur impossible. Vérifiez votre connexion internet et réessayez.')
       } else {
         setError(msg || 'Une erreur est survenue. Réessayez.')
       }
@@ -101,15 +104,7 @@ function ConnexionForm() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none', marginBottom: 28 }}>
-            <div style={{
-              width: 36, height: 36, borderRadius: 9, background: 'var(--y)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <svg width="16" height="16" viewBox="0 0 34 34" fill="none">
-                <path d="M9 25V9h4v13h8v3H9z" fill="#000" />
-                <circle cx="25" cy="11" r="3" fill="#000" />
-              </svg>
-            </div>
+            <Image src="/cohesif-icon.png" alt="Cohesif IA" width={36} height={36} style={{ borderRadius: 9, display: 'block' }} />
             <span style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 16, color: 'var(--snow)' }}>
               Cohesif IA
             </span>
