@@ -149,7 +149,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         const errMsg = streamError instanceof Error ? streamError.message : String(streamError)
         console.error('[chat/route] Gemini stream error:', errMsg)
         try {
-          await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
+          await writeSSE('error', { message: `DEBUG: ${errMsg.slice(0, 120)}` })
         } catch {
           // writer may already be closed
         }
@@ -171,9 +171,10 @@ export async function POST(request: NextRequest): Promise<Response> {
       },
     })
   } catch (error) {
-    console.error('[chat/route] Unexpected error:', error)
+    const msg2 = error instanceof Error ? error.message : String(error)
+    console.error('[chat/route] Unexpected error:', msg2)
     return NextResponse.json(
-      { error: 'INTERNAL_ERROR', message: 'Une erreur est survenue. Veuillez réessayer.' },
+      { error: 'INTERNAL_ERROR', message: `SERVER: ${msg2.slice(0, 120)}` },
       { status: 500 }
     )
   }
