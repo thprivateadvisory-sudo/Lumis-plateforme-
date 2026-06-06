@@ -43,7 +43,7 @@ const PLANS = [
     featured: false,
     ctaLabel: 'Démarrer l\'essai gratuit',
     ctaStyle: 'pghost',
-    href: '/contact',
+    href: null,
     features: [
       { label: 'Messages illimités', on: true },
       { label: 'Cohesif Ultra (GPT-4o level)', on: true },
@@ -67,7 +67,7 @@ const PLANS = [
     featured: true,
     ctaLabel: 'Démarrer l\'essai gratuit',
     ctaStyle: 'pyel',
-    href: '/contact',
+    href: null,
     features: [
       { label: 'Tout le plan Pro', on: true },
       { label: 'Agents illimités', on: true },
@@ -128,10 +128,16 @@ const FAQ_ITEMS = [
   },
 ]
 
+const BILLING_MAP: Record<BillingMode, 'monthly' | 'annual'> = {
+  mensuel: 'monthly',
+  annuel: 'annual',
+}
+
 export default function TarifsClient() {
   const [billing, setBilling] = useState<BillingMode>('mensuel')
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [loading, setLoading] = useState<string | null>(null)
+  const [checkoutError, setCheckoutError] = useState<string | null>(null)
   const router = useRouter()
 
   const handlePlanClick = async (plan: typeof PLANS[0]) => {
@@ -140,18 +146,21 @@ export default function TarifsClient() {
       return
     }
     setLoading(plan.id)
+    setCheckoutError(null)
     try {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan: plan.id, billing }),
+        body: JSON.stringify({ plan: plan.id, billing: BILLING_MAP[billing] }),
       })
       const data = await res.json()
       if (data.url) {
         window.location.href = data.url
+      } else {
+        setCheckoutError('Une erreur est survenue. Veuillez réessayer ou contacter le support.')
       }
     } catch {
-      // handle error silently
+      setCheckoutError('Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.')
     } finally {
       setLoading(null)
     }
@@ -299,6 +308,21 @@ export default function TarifsClient() {
           <p style={{ textAlign: 'center', marginTop: '24px', fontSize: '13px', color: 'var(--fog)' }}>
             ✓ 14 jours gratuits sans carte bancaire · ✓ Annulation en 1 clic · ✓ Données 100% France
           </p>
+
+          {checkoutError && (
+            <p style={{
+              textAlign: 'center',
+              marginTop: '16px',
+              padding: '12px 20px',
+              background: 'rgba(239,68,68,.1)',
+              border: '1px solid rgba(239,68,68,.3)',
+              borderRadius: 12,
+              fontSize: '14px',
+              color: '#ef4444',
+            }}>
+              {checkoutError}
+            </p>
+          )}
         </div>
       </section>
 
