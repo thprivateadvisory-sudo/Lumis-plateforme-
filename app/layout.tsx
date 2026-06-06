@@ -8,6 +8,7 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ChatWidget from '@/components/ChatWidget'
+import { AuthProvider } from '@/components/AuthProvider'
 import Link from 'next/link'
 
 /* ─── FONTS ─────────────────────────────────────────────────────────────── */
@@ -119,6 +120,7 @@ export default function RootLayout({
       style={fontStyle}
     >
       <body style={{ overflowX: 'hidden', cursor: 'none' }}>
+        <AuthProvider>
         {/* Custom cursor */}
         <div id="cur" aria-hidden="true" />
         <div id="curo" aria-hidden="true" />
@@ -148,6 +150,8 @@ export default function RootLayout({
 
         {/* Floating chat widget */}
         <ChatWidget />
+
+        </AuthProvider>
 
         {/* Client-side scripts */}
         <script

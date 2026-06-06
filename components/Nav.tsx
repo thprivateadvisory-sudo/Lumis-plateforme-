@@ -3,7 +3,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { useAuth } from '@/components/AuthProvider'
+import { signOut } from '@/lib/auth'
 
 /* ─── NAV LINK DATA ──────────────────────────────────────────────────────── */
 const NAV_LINKS = [
@@ -19,8 +21,15 @@ const NAV_LINKS = [
 /* ─── COMPONENT ──────────────────────────────────────────────────────────── */
 export default function Nav() {
   const pathname = usePathname()
+  const router = useRouter()
+  const { user } = useAuth()
   const [scrolled, setScrolled]       = useState(false)
   const [menuOpen, setMenuOpen]       = useState(false)
+
+  async function handleSignOut() {
+    await signOut()
+    router.replace('/')
+  }
 
   /* nav scroll class */
   const handleScroll = useCallback(() => {
@@ -99,16 +108,29 @@ export default function Nav() {
 
         {/* Right — CTA buttons */}
         <div className="nav-r">
-          <Link
-            href="/contact"
-            className="btn bg bsm"
-            style={{ display: 'inline-flex' }}
-          >
-            Contact
-          </Link>
-          <Link href="/contact" className="btn by bsm">
-            Demander une démo
-          </Link>
+          {user ? (
+            <>
+              <Link href="/dashboard" className="btn bg bsm" style={{ display: 'inline-flex' }}>
+                Mon compte
+              </Link>
+              <button
+                onClick={handleSignOut}
+                className="btn bg bsm"
+                style={{ background: 'transparent', border: '1px solid var(--w1)', color: 'var(--fog)' }}
+              >
+                Déconnexion
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/connexion" className="btn bg bsm" style={{ display: 'inline-flex' }}>
+                Connexion
+              </Link>
+              <Link href="/connexion?mode=signup" className="btn by bsm">
+                S&apos;inscrire
+              </Link>
+            </>
+          )}
 
           {/* Hamburger — visible below 900px via CSS */}
           <button
@@ -153,22 +175,25 @@ export default function Nav() {
         </Link>
 
         <div className="nav-r" style={{ marginTop: '16px' }}>
-          <Link
-            href="/contact"
-            className="btn bg"
-            style={{ width: '100%', justifyContent: 'center' }}
-            onClick={() => setMenuOpen(false)}
-          >
-            Contact
-          </Link>
-          <Link
-            href="/contact"
-            className="btn by"
-            style={{ width: '100%', justifyContent: 'center' }}
-            onClick={() => setMenuOpen(false)}
-          >
-            Demander une démo
-          </Link>
+          {user ? (
+            <>
+              <Link href="/dashboard" className="btn bg" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setMenuOpen(false)}>
+                Mon compte
+              </Link>
+              <button onClick={handleSignOut} className="btn bg" style={{ width: '100%', justifyContent: 'center', background: 'transparent', border: '1px solid var(--w1)', color: 'var(--fog)' }}>
+                Déconnexion
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/connexion" className="btn bg" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setMenuOpen(false)}>
+                Connexion
+              </Link>
+              <Link href="/connexion" className="btn by" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setMenuOpen(false)}>
+                S&apos;inscrire
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>
