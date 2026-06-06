@@ -61,6 +61,6 @@ export async function incrementCount(
     count: newCount,
     limit: MESSAGE_LIMIT,
     unlimited: false,
-    blocked: newCount > MESSAGE_LIMIT,
+    blocked: newCount >= MESSAGE_LIMIT,
   }
 }

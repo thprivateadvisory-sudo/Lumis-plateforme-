@@ -123,7 +123,7 @@ export default function CheckoutSuccessPage() {
         </div>
 
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/demo" className="btn by blg">
+          <Link href="/dashboard" className="btn by blg">
             Accéder à mon espace →
           </Link>
           <Link href="/docs" className="btn bg blg">
