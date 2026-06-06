@@ -134,7 +134,8 @@ export default function DemoPage() {
           setIsLoading(false)
           return
         }
-        throw new Error(`HTTP ${res.status}`)
+        const errBody = await res.json().catch(() => ({}))
+        throw new Error(errBody.message || `HTTP ${res.status}`)
       }
 
       const reader = res.body.getReader()
@@ -175,11 +176,12 @@ export default function DemoPage() {
         }
       }
     } catch (err: unknown) {
-      if (err instanceof Error && err.name !== 'AbortError') {
+      const errMsg = err instanceof Error ? err.name : ''
+      if (errMsg !== 'AbortError') {
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantId
-              ? { ...m, content: 'Désolé, une erreur est survenue. Veuillez réessayer.' }
+              ? { ...m, content: err instanceof Error ? err.message : 'Erreur inconnue' }
               : m
           )
         )
