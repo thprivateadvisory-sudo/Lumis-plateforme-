@@ -460,7 +460,7 @@ export default function DemoPage() {
                 border: '1px solid var(--w1)',
                 borderRadius: 10, padding: '11px 14px',
                 color: 'var(--snow)', fontFamily: 'var(--fh)',
-                fontSize: 14, resize: 'none',
+                fontSize: 16, resize: 'none',
                 minHeight: 44, maxHeight: 160, overflowY: 'auto', outline: 'none',
                 transition: 'border-color .15s',
               }}
