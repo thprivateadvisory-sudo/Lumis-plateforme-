@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { agents, getAgentBySlug, type AgentConfig } from '@/lib/agents-config'
 import { useAuth } from '@/components/AuthProvider'
+import { getSupabase } from '@/lib/supabase'
 
 type Role = 'user' | 'assistant'
 
@@ -136,10 +137,22 @@ export default function AgentChatPage() {
       const controller = new AbortController()
       abortRef.current = controller
 
+      // Get auth token for server-side counting
+      const { data: { session: authSession } } = await getSupabase().auth.getSession()
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      if (authSession?.access_token) {
+        headers['Authorization'] = `Bearer ${authSession.access_token}`
+      }
+
       const res = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: allMessages, sessionId, agentSlug: slug }),
+        headers,
+        body: JSON.stringify({
+          messages: allMessages,
+          sessionId,
+          agentSlug: slug,
+          anonCount: newCount,
+        }),
         signal: controller.signal,
       })
 

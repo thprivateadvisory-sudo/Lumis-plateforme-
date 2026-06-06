@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAgentBySlug } from '@/lib/agents-config'
+import { getSupabase } from '@/lib/supabase'
+import { getCountStatus, incrementCount } from '@/lib/message-counter'
 
 export const dynamic = 'force-dynamic'
 
 const DEFAULT_SYSTEM_PROMPT =
   "Tu es l'assistant IA de la plateforme Cohesif IA. Tu aides les entreprises françaises à être plus productives. Réponds toujours en français, de façon professionnelle mais accessible. Sois concis (max 200 mots). Si on te demande qui tu es, dis que tu es l'assistant de Cohesif IA, la plateforme IA souveraine française."
 
-const MESSAGE_LIMIT = 20
+const ANON_LIMIT = 20
 
 interface ChatMessage {
   role: 'user' | 'assistant'
@@ -17,17 +19,21 @@ interface ChatRequest {
   messages: ChatMessage[]
   sessionId?: string
   agentSlug?: string
+  anonCount?: number
 }
 
-function getMessageCount(sessionId: string): number {
-  void sessionId
-  return 0
+async function resolveUser(authHeader: string | null) {
+  if (!authHeader?.startsWith('Bearer ')) return null
+  const token = authHeader.slice(7)
+  const { data: { user }, error } = await getSupabase().auth.getUser(token)
+  if (error || !user) return null
+  return user
 }
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
     const body: ChatRequest = await request.json()
-    const { messages, sessionId, agentSlug } = body
+    const { messages, agentSlug, anonCount = 0 } = body
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json({ error: 'INVALID_REQUEST' }, { status: 400 })
@@ -48,14 +54,29 @@ export async function POST(request: NextRequest): Promise<Response> {
       return NextResponse.json({ error: 'INVALID_REQUEST' }, { status: 400 })
     }
 
-    const effectiveSessionId = sessionId?.trim() || `anon-${Date.now()}`
-    if (getMessageCount(effectiveSessionId) >= MESSAGE_LIMIT) {
-      return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
+    // ── Auth check ────────────────────────────────────────────────────────────
+    const authHeader = request.headers.get('Authorization')
+    const user = await resolveUser(authHeader)
+
+    if (user) {
+      // Authenticated user: server-side count check
+      const status = await getCountStatus(user.id, user.email!, agentSlug || 'demo')
+      if (status.blocked) {
+        return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
+      }
+      // Increment count (fire-and-forget, don't block response)
+      incrementCount(user.id, user.email!, agentSlug || 'demo').catch(console.error)
+    } else {
+      // Anonymous user: trust client-provided count as best-effort
+      if (anonCount >= ANON_LIMIT) {
+        return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
+      }
     }
 
     const agent = agentSlug ? getAgentBySlug(agentSlug) : undefined
     const systemPrompt = agent?.systemPrompt ?? DEFAULT_SYSTEM_PROMPT
 
+    // ── Streaming response ────────────────────────────────────────────────────
     const encoder = new TextEncoder()
     const { readable, writable } = new TransformStream()
     const writer = writable.getWriter()
@@ -107,7 +128,7 @@ export async function POST(request: NextRequest): Promise<Response> {
               const text = chunk.choices?.[0]?.delta?.content
               if (text) await writeSSE('delta', { text })
             } catch {
-              // ignore non-JSON
+              // ignore non-JSON chunk
             }
           }
         }
@@ -118,9 +139,9 @@ export async function POST(request: NextRequest): Promise<Response> {
         console.error('[chat/route] error:', msg)
         try {
           await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
-        } catch { /* closed */ }
+        } catch { /* stream closed */ }
       } finally {
-        try { await writer.close() } catch { /* closed */ }
+        try { await writer.close() } catch { /* already closed */ }
       }
     })()
 

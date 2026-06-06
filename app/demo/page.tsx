@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
+import { getSupabase } from '@/lib/supabase'
 
 type Role = 'user' | 'assistant'
 
@@ -125,10 +126,16 @@ export default function DemoPage() {
       const controller = new AbortController()
       abortRef.current = controller
 
+      const { data: { session: authSession } } = await getSupabase().auth.getSession()
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      if (authSession?.access_token) {
+        headers['Authorization'] = `Bearer ${authSession.access_token}`
+      }
+
       const res = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: allMessages, sessionId }),
+        headers,
+        body: JSON.stringify({ messages: allMessages, sessionId, anonCount: newCount }),
         signal: controller.signal,
       })
 
