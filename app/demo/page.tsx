@@ -181,7 +181,7 @@ export default function DemoPage() {
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantId
-              ? { ...m, content: err instanceof Error ? err.message : 'Erreur inconnue' }
+              ? { ...m, content: 'Désolé, une erreur est survenue. Veuillez réessayer.' }
               : m
           )
         )
