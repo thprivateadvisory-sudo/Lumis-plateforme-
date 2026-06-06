@@ -1,7 +1,7 @@
 export interface AgentConfig {
   slug: string
   name: string
-  emoji: string
+  iconSvg: string
   version: string
   category: string
   tagline: string
@@ -19,7 +19,7 @@ export const agents: AgentConfig[] = [
   {
     slug: 'axel-commercial',
     name: 'Axel Commercial',
-    emoji: '💼',
+    iconSvg: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
     version: 'v2.4',
     category: 'Commercial',
     tagline: 'Votre commercial IA disponible 24h/24',
@@ -61,7 +61,7 @@ Comportement :
   {
     slug: 'lea-finance',
     name: 'Léa Finance',
-    emoji: '📊',
+    iconSvg: '<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>',
     version: 'v1.9',
     category: 'Finance',
     tagline: 'Votre directrice financière IA',
@@ -104,7 +104,7 @@ Comportement :
   {
     slug: 'max-marketing',
     name: 'Max Marketing',
-    emoji: '🎯',
+    iconSvg: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
     version: 'v3.1',
     category: 'Marketing',
     tagline: 'Votre directeur marketing IA',
@@ -147,7 +147,7 @@ Comportement :
   {
     slug: 'sofia-support',
     name: 'Sofia Support',
-    emoji: '🎧',
+    iconSvg: '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>',
     version: 'v2.7',
     category: 'Support',
     tagline: 'Votre responsable support IA',
@@ -190,7 +190,7 @@ Comportement :
   {
     slug: 'iris-juridique',
     name: 'Iris Juridique',
-    emoji: '⚖️',
+    iconSvg: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
     version: 'v1.5',
     category: 'Juridique',
     tagline: 'Votre conseillère juridique IA',
@@ -233,7 +233,7 @@ Comportement :
   {
     slug: 'hugo-rh',
     name: 'Hugo RH',
-    emoji: '👥',
+    iconSvg: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
     version: 'v2.0',
     category: 'RH',
     tagline: 'Votre DRH IA',

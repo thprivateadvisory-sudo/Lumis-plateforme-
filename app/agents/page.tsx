@@ -56,7 +56,9 @@ export default function AgentsPage() {
                   }}
                 >
                   <div className="agh">
-                    <div className="agav">{agent.emoji}</div>
+                    <div className="agav" style={{ color: agent.color }}>
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: agent.iconSvg }} />
+                    </div>
                     <div>
                       <div className="agn">{agent.name}</div>
                       <div className="agr">{agent.version}</div>

@@ -49,9 +49,9 @@ const AgentAvatar = ({ agent, size = 32 }: { agent: AgentConfig; size?: number }
     background: agent.color + '22',
     border: `1px solid ${agent.color}44`,
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    flexShrink: 0, fontSize: size * 0.5,
+    flexShrink: 0, color: agent.color,
   }}>
-    {agent.emoji}
+    <svg width={size * 0.5} height={size * 0.5} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: agent.iconSvg }} />
   </div>
 )
 
