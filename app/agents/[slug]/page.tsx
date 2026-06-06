@@ -94,6 +94,13 @@ export default function AgentChatPage() {
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const abortRef = useRef<AbortController | null>(null)
 
+  // Bloque le scroll du body pour éviter le saut au focus du textarea sur mobile
+  useEffect(() => {
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = prev }
+  }, [])
+
   useEffect(() => {
     if (slug) setMessageCount(getMessageCount(slug))
   }, [slug])
@@ -235,7 +242,7 @@ export default function AgentChatPage() {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column',
-      height: '100dvh', paddingTop: 'var(--nav)',
+      position: 'fixed', top: 'var(--nav)', left: 0, right: 0, bottom: 0,
       background: 'var(--void)', overflow: 'hidden',
     }}>
       {/* HEADER */}
