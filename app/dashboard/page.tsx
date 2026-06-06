@@ -1,21 +1,37 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/components/AuthProvider'
 import { signOut } from '@/lib/auth'
 import { agents } from '@/lib/agents-config'
+import type { PlanType } from '@/lib/subscription'
 
 export default function DashboardPage() {
   const { user, loading } = useAuth()
   const router = useRouter()
+  const [plan, setPlan] = useState<PlanType>('free')
+  const [planLoading, setPlanLoading] = useState(true)
+  const [billingInfo, setBillingInfo] = useState<{ billing: string; created_at: string } | null>(null)
 
   useEffect(() => {
     if (!loading && !user) {
       router.replace('/connexion?redirect=/dashboard')
     }
   }, [user, loading, router])
+
+  useEffect(() => {
+    if (!user?.email) return
+    fetch(`/api/subscription?email=${encodeURIComponent(user.email)}`)
+      .then((r) => r.json())
+      .then((data) => {
+        setPlan(data.plan ?? 'free')
+        setBillingInfo(data.subscription ?? null)
+      })
+      .catch(() => {})
+      .finally(() => setPlanLoading(false))
+  }, [user])
 
   if (loading || !user) {
     return (
@@ -85,26 +101,47 @@ export default function DashboardPage() {
         </div>
 
         {/* Plan banner */}
-        <div style={{
-          background: 'rgba(11,200,240,.05)', border: '1px solid rgba(11,200,240,.15)',
-          borderRadius: 14, padding: '20px 24px', marginBottom: 36,
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{
-              padding: '4px 10px', borderRadius: 6, background: 'var(--raise)',
-              border: '1px solid var(--w1)', fontSize: 11, fontFamily: 'var(--fm)', color: 'var(--fog)',
-            }}>
-              PLAN GRATUIT
+        {!planLoading && (
+          <div style={{
+            background: plan === 'free' ? 'rgba(11,200,240,.05)' : 'rgba(168,204,0,.05)',
+            border: `1px solid ${plan === 'free' ? 'rgba(11,200,240,.15)' : 'rgba(168,204,0,.2)'}`,
+            borderRadius: 14, padding: '20px 24px', marginBottom: 36,
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{
+                padding: '4px 10px', borderRadius: 6,
+                background: plan === 'free' ? 'var(--raise)' : plan === 'pro' ? 'rgba(11,200,240,.15)' : 'rgba(168,204,0,.15)',
+                border: `1px solid ${plan === 'free' ? 'var(--w1)' : plan === 'pro' ? 'rgba(11,200,240,.3)' : 'rgba(168,204,0,.3)'}`,
+                fontSize: 11, fontFamily: 'var(--fm)',
+                color: plan === 'free' ? 'var(--fog)' : plan === 'pro' ? '#0BC8F0' : '#a8cc00',
+                fontWeight: 700,
+              }}>
+                PLAN {plan.toUpperCase()}
+              </div>
+              {plan === 'free' ? (
+                <span style={{ fontSize: 13, color: 'var(--fog)' }}>
+                  20 messages gratuits par agent · Passez Pro pour un accès illimité
+                </span>
+              ) : (
+                <span style={{ fontSize: 13, color: 'var(--fog)' }}>
+                  Messages illimités · Tous les agents débloqués
+                  {billingInfo && ` · Facturation ${billingInfo.billing === 'monthly' ? 'mensuelle' : 'annuelle'}`}
+                </span>
+              )}
             </div>
-            <span style={{ fontSize: 13, color: 'var(--fog)' }}>
-              20 messages gratuits par agent · Passez Pro pour un accès illimité
-            </span>
+            {plan === 'free' ? (
+              <Link href="/tarifs" className="btn by bsm">
+                Débloquer Pro — 29€/mois
+              </Link>
+            ) : (
+              <div style={{ fontSize: 13, color: '#22c55e', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
+                Abonnement actif
+              </div>
+            )}
           </div>
-          <Link href="/tarifs" className="btn by bsm">
-            Débloquer Pro — 29€/mois
-          </Link>
-        </div>
+        )}
 
         {/* Agents section */}
         <div style={{ marginBottom: 40 }}>
@@ -204,8 +241,13 @@ export default function DashboardPage() {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid var(--w1)' }}>
               <span style={{ fontSize: 13, color: 'var(--fog)' }}>Plan actuel</span>
-              <span style={{ fontSize: 13, padding: '3px 10px', borderRadius: 6, background: 'var(--raise)', border: '1px solid var(--w1)', color: 'var(--fog)', fontFamily: 'var(--fm)' }}>
-                GRATUIT
+              <span style={{
+                fontSize: 12, padding: '3px 10px', borderRadius: 6, fontFamily: 'var(--fm)', fontWeight: 700,
+                background: plan === 'free' ? 'var(--raise)' : plan === 'pro' ? 'rgba(11,200,240,.12)' : 'rgba(168,204,0,.12)',
+                border: `1px solid ${plan === 'free' ? 'var(--w1)' : plan === 'pro' ? 'rgba(11,200,240,.3)' : 'rgba(168,204,0,.3)'}`,
+                color: plan === 'free' ? 'var(--fog)' : plan === 'pro' ? '#0BC8F0' : '#a8cc00',
+              }}>
+                {planLoading ? '…' : plan.toUpperCase()}
               </span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0' }}>

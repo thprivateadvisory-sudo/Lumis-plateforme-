@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '@/components/AuthProvider'
 
 type BillingMode = 'mensuel' | 'annuel'
 
@@ -139,10 +140,15 @@ export default function TarifsClient() {
   const [loading, setLoading] = useState<string | null>(null)
   const [checkoutError, setCheckoutError] = useState<string | null>(null)
   const router = useRouter()
+  const { user } = useAuth()
 
   const handlePlanClick = async (plan: typeof PLANS[0]) => {
     if (plan.href) {
       router.push(plan.href)
+      return
+    }
+    if (!user) {
+      router.push(`/connexion?redirect=/tarifs`)
       return
     }
     setLoading(plan.id)
@@ -151,7 +157,7 @@ export default function TarifsClient() {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan: plan.id, billing: BILLING_MAP[billing] }),
+        body: JSON.stringify({ plan: plan.id, billing: BILLING_MAP[billing], userEmail: user.email }),
       })
       const data = await res.json()
       if (data.url) {

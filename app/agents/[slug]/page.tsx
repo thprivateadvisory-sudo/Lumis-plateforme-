@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { agents, getAgentBySlug, type AgentConfig } from '@/lib/agents-config'
+import { useAuth } from '@/components/AuthProvider'
 
 type Role = 'user' | 'assistant'
 
@@ -79,11 +80,13 @@ export default function AgentChatPage() {
   const params = useParams()
   const slug = typeof params.slug === 'string' ? params.slug : ''
   const agent = getAgentBySlug(slug)
+  const { user } = useAuth()
 
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [messageCount, setMessageCount] = useState(0)
+  const [isPro, setIsPro] = useState(false)
   const [sessionId] = useState(() => (typeof window !== 'undefined' ? getOrCreateSessionId() : ''))
   const chatAreaRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -94,15 +97,23 @@ export default function AgentChatPage() {
   }, [slug])
 
   useEffect(() => {
+    if (!user?.email) return
+    fetch(`/api/subscription?email=${encodeURIComponent(user.email)}`)
+      .then((r) => r.json())
+      .then((data) => setIsPro(data.plan === 'pro' || data.plan === 'business'))
+      .catch(() => {})
+  }, [user])
+
+  useEffect(() => {
     const el = chatAreaRef.current
     if (el) el.scrollTop = el.scrollHeight
   }, [messages, isLoading])
 
   if (!agent) return <NotFound />
 
-  const isHardBlocked = messageCount >= MAX_FREE
-  const showSoftUpsell = messageCount >= SOFT_UPSELL_AT && messageCount < MAX_FREE
-  const remaining = Math.max(0, MAX_FREE - messageCount)
+  const isHardBlocked = !isPro && messageCount >= MAX_FREE
+  const showSoftUpsell = !isPro && messageCount >= SOFT_UPSELL_AT && messageCount < MAX_FREE
+  const remaining = isPro ? Infinity : Math.max(0, MAX_FREE - messageCount)
   const progressColor = messageCount >= 16 ? '#ff3355' : messageCount >= 10 ? '#f59e0b' : agent.color
 
   const sendMessage = useCallback(async (text: string) => {
@@ -238,18 +249,26 @@ export default function AgentChatPage() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontFamily: 'var(--fm)', fontSize: 11, color: 'var(--fog)', whiteSpace: 'nowrap' }}>
-              {remaining} messages restants
-            </span>
-            <div style={{ width: 72, height: 3, borderRadius: 100, background: 'var(--w1)', overflow: 'hidden', flexShrink: 0 }}>
-              <div style={{
-                height: '100%',
-                width: `${(messageCount / MAX_FREE) * 100}%`,
-                background: progressColor,
-                borderRadius: 100,
-                transition: 'width .3s',
-              }} />
-            </div>
+            {isPro ? (
+              <span style={{ fontSize: 11, fontFamily: 'var(--fm)', color: '#0BC8F0' }}>
+                ∞ illimité · Pro
+              </span>
+            ) : (
+              <>
+                <span style={{ fontFamily: 'var(--fm)', fontSize: 11, color: 'var(--fog)', whiteSpace: 'nowrap' }}>
+                  {remaining} messages restants
+                </span>
+                <div style={{ width: 72, height: 3, borderRadius: 100, background: 'var(--w1)', overflow: 'hidden', flexShrink: 0 }}>
+                  <div style={{
+                    height: '100%',
+                    width: `${(messageCount / MAX_FREE) * 100}%`,
+                    background: progressColor,
+                    borderRadius: 100,
+                    transition: 'width .3s',
+                  }} />
+                </div>
+              </>
+            )}
           </div>
           <Link href="/tarifs" className="btn by bsm">Passer Pro →</Link>
         </div>

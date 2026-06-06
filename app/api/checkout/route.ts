@@ -9,6 +9,7 @@ type Billing = 'monthly' | 'annual'
 interface CheckoutRequest {
   plan: Plan
   billing: Billing
+  userEmail?: string
 }
 
 type PriceMap = Record<Plan, Record<Billing, string | undefined>>
@@ -31,7 +32,7 @@ function getPriceId(plan: Plan, billing: Billing): string | undefined {
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const body: CheckoutRequest = await request.json()
-    const { plan, billing } = body
+    const { plan, billing, userEmail } = body
 
     // Validate input
     if (!plan || !billing) {
@@ -85,9 +86,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/tarifs`,
       allow_promotion_codes: true,
+      ...(userEmail ? { customer_email: userEmail } : {}),
       metadata: {
         plan,
         billing,
+        ...(userEmail ? { user_email: userEmail } : {}),
       },
     })
 
