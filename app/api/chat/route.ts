@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getAnthropic } from '@/lib/anthropic'
+import { getGemini } from '@/lib/gemini'
 import { getSupabaseAdmin } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
 
 const SYSTEM_PROMPT =
-  "Tu es l'assistant IA de la plateforme Cohesif IA. Tu aides les entreprises françaises à être plus productives. Réponds toujours en français, de façon professionnelle mais accessible. Sois concis (max 200 mots). Si on te demande qui tu es, dis que tu es l'assistant de Cohesif IA, la plateforme IA souveraine française. Ne mentionne jamais Claude ou Anthropic."
+  "Tu es l'assistant IA de la plateforme Cohesif IA. Tu aides les entreprises françaises à être plus productives. Réponds toujours en français, de façon professionnelle mais accessible. Sois concis (max 200 mots). Si on te demande qui tu es, dis que tu es l'assistant de Cohesif IA, la plateforme IA souveraine française."
 
 const MESSAGE_LIMIT = 20
 
@@ -48,7 +48,6 @@ async function incrementMessageCount(sessionId: string): Promise<void> {
   await getSupabaseAdmin().rpc('increment_message_count', { p_session_id: sessionId }).then(
     async ({ error }) => {
       if (error) {
-        // Fallback: fetch current count then update
         const { data } = await getSupabaseAdmin()
           .from('chat_sessions')
           .select('message_count')
@@ -77,7 +76,6 @@ export async function POST(request: NextRequest): Promise<Response> {
       )
     }
 
-    // Validate and normalise messages
     const validMessages: ChatMessage[] = messages
       .filter(
         (m) =>
@@ -96,7 +94,6 @@ export async function POST(request: NextRequest): Promise<Response> {
       )
     }
 
-    // Rate-limit check via Supabase
     const effectiveSessionId =
       sessionId && sessionId.trim().length > 0
         ? sessionId.trim()
@@ -108,9 +105,7 @@ export async function POST(request: NextRequest): Promise<Response> {
       return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
     }
 
-    // Build SSE stream
     const encoder = new TextEncoder()
-
     const { readable, writable } = new TransformStream()
     const writer = writable.getWriter()
 
@@ -119,31 +114,34 @@ export async function POST(request: NextRequest): Promise<Response> {
       await writer.write(encoder.encode(payload))
     }
 
-    // Stream Anthropic response in the background
     ;(async () => {
       try {
-        const stream = getAnthropic().messages.stream({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 800,
-          system: SYSTEM_PROMPT,
-          messages: validMessages,
+        const model = getGemini().getGenerativeModel({
+          model: 'gemini-2.0-flash',
+          systemInstruction: SYSTEM_PROMPT,
         })
 
-        for await (const event of stream) {
-          if (
-            event.type === 'content_block_delta' &&
-            event.delta.type === 'text_delta'
-          ) {
-            await writeSSE('delta', { text: event.delta.text })
+        const history = validMessages.slice(0, -1).map((m) => ({
+          role: m.role === 'assistant' ? 'model' : 'user',
+          parts: [{ text: m.content }],
+        }))
+
+        const lastMessage = validMessages[validMessages.length - 1].content
+
+        const chat = model.startChat({ history })
+        const result = await chat.sendMessageStream(lastMessage)
+
+        for await (const chunk of result.stream) {
+          const text = chunk.text()
+          if (text) {
+            await writeSSE('delta', { text })
           }
         }
 
         await writeSSE('done', {})
-
-        // Increment message count after successful streaming
         await incrementMessageCount(effectiveSessionId)
       } catch (streamError) {
-        console.error('[chat/route] Anthropic stream error:', streamError)
+        console.error('[chat/route] Gemini stream error:', streamError)
         try {
           await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
         } catch {
