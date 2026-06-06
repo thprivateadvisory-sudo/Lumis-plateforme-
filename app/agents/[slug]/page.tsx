@@ -43,13 +43,13 @@ function incrementMessageCount(slug: string): number {
   return next
 }
 
-const AgentAvatar = ({ agent }: { agent: AgentConfig }) => (
+const AgentAvatar = ({ agent, size = 32 }: { agent: AgentConfig; size?: number }) => (
   <div style={{
-    width: 32, height: 32, borderRadius: 9,
+    width: size, height: size, borderRadius: size * 0.28,
     background: agent.color + '22',
     border: `1px solid ${agent.color}44`,
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    flexShrink: 0, fontSize: 16,
+    flexShrink: 0, fontSize: size * 0.5,
   }}>
     {agent.emoji}
   </div>
@@ -138,7 +138,6 @@ export default function AgentChatPage() {
       const controller = new AbortController()
       abortRef.current = controller
 
-      // Get auth token for server-side counting
       const { data: { session: authSession } } = await getSupabase().auth.getSession()
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
       if (authSession?.access_token) {
@@ -240,86 +239,121 @@ export default function AgentChatPage() {
       background: 'var(--void)', overflow: 'hidden',
     }}>
       {/* HEADER */}
-      <div style={{
-        borderBottom: '1px solid var(--w1)', padding: '14px 24px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: 'var(--panel)', gap: 16,
+      <div className="agent-header" style={{
+        borderBottom: '1px solid var(--w1)',
+        padding: '12px 20px',
+        background: 'var(--panel)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Link href="/agents" style={{ color: 'var(--fog)', fontSize: 13, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
-            ← Agents
-          </Link>
-          <div style={{ width: 1, height: 20, background: 'var(--w1)' }} />
-          <AgentAvatar agent={agent} />
-          <div>
-            <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--snow)', letterSpacing: '-.01em' }}>
+        {/* Back link */}
+        <Link href="/agents" style={{
+          color: 'var(--fog)', fontSize: 13, textDecoration: 'none',
+          flexShrink: 0, display: 'flex', alignItems: 'center', gap: 4,
+        }}>
+          ←
+          <span className="back-label"> Agents</span>
+        </Link>
+
+        <div style={{ width: 1, height: 16, background: 'var(--w1)', flexShrink: 0 }} />
+
+        {/* Avatar + name + status */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 9, flex: 1, minWidth: 0 }}>
+          <AgentAvatar agent={agent} size={30} />
+          <div style={{ minWidth: 0 }}>
+            <div style={{
+              fontWeight: 700, fontSize: 14, color: 'var(--snow)',
+              letterSpacing: '-.01em', whiteSpace: 'nowrap',
+              overflow: 'hidden', textOverflow: 'ellipsis',
+            }}>
               {agent.name}
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--fog)' }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0 }} />
-              En ligne · <span style={{ color: modelLabel === 'Cohesif Ultra' ? '#0BC8F0' : 'var(--fog)', fontWeight: modelLabel === 'Cohesif Ultra' ? 600 : 400 }}>{modelLabel}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 1 }}>
+              <span style={{
+                width: 6, height: 6, borderRadius: '50%',
+                background: '#22c55e', display: 'inline-block', flexShrink: 0,
+              }} />
+              <span style={{ fontSize: 11, color: 'var(--fog)', whiteSpace: 'nowrap' }}>En ligne</span>
+              <span style={{ fontSize: 11, color: 'var(--w2)' }}>·</span>
+              <span style={{
+                fontSize: 11, whiteSpace: 'nowrap',
+                color: modelLabel === 'Cohesif Ultra' ? '#0BC8F0' : 'var(--fog)',
+                fontWeight: modelLabel === 'Cohesif Ultra' ? 600 : 400,
+              }}>{modelLabel}</span>
             </div>
           </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            {isPro ? (
-              <span style={{ fontSize: 11, fontFamily: 'var(--fm)', color: '#0BC8F0' }}>
-                ∞ illimité · Pro
+        {/* Counter + CTA */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
+          {isPro ? (
+            <span style={{ fontSize: 11, fontFamily: 'var(--fm)', color: '#0BC8F0', whiteSpace: 'nowrap' }}>
+              ∞ Pro
+            </span>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{
+                fontFamily: 'var(--fm)', fontSize: 11,
+                color: remaining <= 5 ? '#f59e0b' : 'var(--fog)',
+                whiteSpace: 'nowrap',
+              }}>
+                {remaining}<span className="counter-suffix"> restants</span>
               </span>
-            ) : (
-              <>
-                <span style={{ fontFamily: 'var(--fm)', fontSize: 11, color: 'var(--fog)', whiteSpace: 'nowrap' }}>
-                  {remaining} messages restants
-                </span>
-                <div style={{ width: 72, height: 3, borderRadius: 100, background: 'var(--w1)', overflow: 'hidden', flexShrink: 0 }}>
-                  <div style={{
-                    height: '100%',
-                    width: `${(messageCount / MAX_FREE) * 100}%`,
-                    background: progressColor,
-                    borderRadius: 100,
-                    transition: 'width .3s',
-                  }} />
-                </div>
-              </>
-            )}
-          </div>
-          <Link href="/tarifs" className="btn by bsm">Passer Pro →</Link>
+              <div style={{
+                width: 44, height: 3, borderRadius: 100,
+                background: 'var(--w1)', overflow: 'hidden', flexShrink: 0,
+              }}>
+                <div style={{
+                  height: '100%',
+                  width: `${Math.min(100, (messageCount / MAX_FREE) * 100)}%`,
+                  background: progressColor, borderRadius: 100, transition: 'width .3s',
+                }} />
+              </div>
+            </div>
+          )}
+          <Link href="/tarifs" className="btn by bsm header-pro-btn">
+            <span className="pro-btn-long">Passer Pro →</span>
+            <span className="pro-btn-short">Pro →</span>
+          </Link>
         </div>
       </div>
 
       {/* CHAT AREA */}
-      <div ref={chatAreaRef} style={{
+      <div ref={chatAreaRef} className="chat-area" style={{
         flex: 1, overflowY: 'auto', padding: '24px',
         display: 'flex', flexDirection: 'column', gap: 20,
         maxWidth: 780, margin: '0 auto', width: '100%',
         WebkitOverflowScrolling: 'touch',
+        boxSizing: 'border-box',
       }}>
         {/* Welcome state */}
         {messages.length === 0 && (
-          <div style={{ padding: '48px 0 32px' }}>
-            <div style={{ marginBottom: 20 }}>
+          <div style={{ padding: '32px 0 24px' }}>
+            <div style={{ marginBottom: 16 }}>
               <div style={{
-                width: 56, height: 56, borderRadius: 14,
+                width: 52, height: 52, borderRadius: 14,
                 background: agent.color + '18',
                 border: `1px solid ${agent.color}33`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26,
               }}>
                 {agent.emoji}
               </div>
             </div>
             <h2 style={{
-              fontFamily: 'var(--fh)', fontSize: 22, fontWeight: 800,
-              letterSpacing: '-.03em', marginBottom: 8, color: 'var(--snow)',
+              fontFamily: 'var(--fh)', fontSize: 20, fontWeight: 800,
+              letterSpacing: '-.03em', marginBottom: 6, color: 'var(--snow)',
             }}>
               Bonjour, je suis {agent.name}
             </h2>
-            <p style={{ color: 'var(--fog)', fontSize: 14, lineHeight: 1.7, marginBottom: 32, maxWidth: 460 }}>
-              {agent.tagline}. Posez-moi vos questions ou choisissez une suggestion ci-dessous.
+            <p style={{ color: 'var(--fog)', fontSize: 14, lineHeight: 1.7, marginBottom: 24, maxWidth: 440 }}>
+              {agent.tagline}. Posez-moi vos questions ou choisissez une suggestion.
             </p>
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+
+            {/* Suggestion cards */}
+            <div className="suggestion-grid" style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
               gap: 8, width: '100%', maxWidth: 480,
             }}>
               {agent.suggestedPrompts.map((p) => (
@@ -328,12 +362,12 @@ export default function AgentChatPage() {
                   onClick={() => sendMessage(p.label)}
                   style={{
                     background: 'transparent', border: '1px solid var(--w1)',
-                    borderRadius: 10, padding: '13px 16px',
+                    borderRadius: 10, padding: '12px 14px',
                     color: 'var(--fog)', fontFamily: 'var(--fh)',
                     fontSize: 13, fontWeight: 500,
                     cursor: 'pointer', textAlign: 'left',
                     transition: 'all .15s', display: 'flex',
-                    alignItems: 'flex-start', gap: 10, lineHeight: 1.45,
+                    alignItems: 'flex-start', gap: 8, lineHeight: 1.4,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = agent.color + '55'
@@ -346,26 +380,30 @@ export default function AgentChatPage() {
                     e.currentTarget.style.background = 'transparent'
                   }}
                 >
-                  <span style={{ fontSize: 16, flexShrink: 0, marginTop: 1 }}>{p.icon}</span>
+                  <span style={{ fontSize: 15, flexShrink: 0, marginTop: 1 }}>{p.icon}</span>
                   <span>{p.label}</span>
                 </button>
               ))}
             </div>
 
             {/* Other agents */}
-            <div style={{ marginTop: 40, paddingTop: 32, borderTop: '1px solid var(--w1)' }}>
-              <p style={{ fontSize: 12, color: 'var(--mist)', marginBottom: 12 }}>Autres agents disponibles</p>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid var(--w1)' }}>
+              <p style={{ fontSize: 11, color: 'var(--mist)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '.05em' }}>
+                Autres agents
+              </p>
+              <div className="other-agents-row" style={{
+                display: 'flex', gap: 8, flexWrap: 'wrap',
+              }}>
                 {agents.filter(a => a.slug !== slug).map(a => (
                   <Link
                     key={a.slug}
                     href={`/agents/${a.slug}`}
                     style={{
                       display: 'flex', alignItems: 'center', gap: 6,
-                      padding: '6px 12px', borderRadius: 8,
+                      padding: '6px 11px', borderRadius: 8,
                       border: '1px solid var(--w1)', background: 'transparent',
                       color: 'var(--fog)', fontSize: 12, textDecoration: 'none',
-                      transition: 'all .15s',
+                      transition: 'all .15s', whiteSpace: 'nowrap', flexShrink: 0,
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.borderColor = a.color + '44'
@@ -392,15 +430,15 @@ export default function AgentChatPage() {
               <div style={{
                 background: agent.color + '08',
                 border: `1px solid ${agent.color}28`,
-                borderRadius: 12, padding: '14px 20px', marginBottom: 20,
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap',
+                borderRadius: 12, padding: '12px 16px', marginBottom: 16,
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap',
               }}>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: 13, color: agent.color, marginBottom: 3 }}>
+                  <div style={{ fontWeight: 700, fontSize: 13, color: agent.color, marginBottom: 2 }}>
                     {remaining} messages gratuits restants
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--fog)' }}>
-                    Passez Pro pour des conversations illimitées avec tous les agents.
+                    Passez Pro pour des conversations illimitées.
                   </div>
                 </div>
                 <Link href="/tarifs" className="btn by bsm" style={{ whiteSpace: 'nowrap' }}>
@@ -416,11 +454,11 @@ export default function AgentChatPage() {
             }}>
               {msg.role === 'user' ? <UserAvatar /> : <AgentAvatar agent={agent} />}
               <div style={{
-                maxWidth: '74%',
+                maxWidth: '78%',
                 background: msg.role === 'user' ? agent.color + '0D' : 'var(--card)',
                 border: `1px solid ${msg.role === 'user' ? agent.color + '28' : 'var(--w1)'}`,
                 borderRadius: msg.role === 'user' ? '14px 3px 14px 14px' : '3px 14px 14px 14px',
-                padding: '12px 16px', fontSize: 14, lineHeight: 1.7,
+                padding: '11px 15px', fontSize: 14, lineHeight: 1.7,
                 color: 'var(--snow)', whiteSpace: 'pre-wrap',
               }}>
                 {msg.content || (
@@ -448,7 +486,7 @@ export default function AgentChatPage() {
             <div style={{
               background: 'var(--card)', border: '1px solid var(--w1)',
               borderRadius: '3px 14px 14px 14px',
-              padding: '12px 16px', display: 'flex', gap: 4, alignItems: 'center',
+              padding: '11px 15px', display: 'flex', gap: 4, alignItems: 'center',
             }}>
               {[0, 1, 2].map((n) => (
                 <span key={n} style={{
@@ -465,14 +503,14 @@ export default function AgentChatPage() {
         {isHardBlocked && (
           <div style={{
             background: 'var(--panel)', border: `1px solid ${agent.color}33`,
-            borderRadius: 16, padding: '40px 32px', textAlign: 'center', margin: '8px 0',
+            borderRadius: 16, padding: '36px 24px', textAlign: 'center', margin: '8px 0',
           }}>
             <div style={{
-              width: 56, height: 56, borderRadius: 14,
+              width: 52, height: 52, borderRadius: 14,
               background: agent.color + '18',
               border: `1px solid ${agent.color}33`,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 28, margin: '0 auto 20px',
+              fontSize: 26, margin: '0 auto 18px',
             }}>
               {agent.emoji}
             </div>
@@ -482,14 +520,14 @@ export default function AgentChatPage() {
             }}>
               Limite gratuite atteinte
             </h3>
-            <p style={{ color: 'var(--fog)', fontSize: 14, lineHeight: 1.7, marginBottom: 28, maxWidth: 380, margin: '0 auto 28px' }}>
+            <p style={{ color: 'var(--fog)', fontSize: 14, lineHeight: 1.7, marginBottom: 24, maxWidth: 340, margin: '0 auto 24px' }}>
               Passez Pro pour continuer avec {agent.name} sans limite et accéder à tous les agents.
             </p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/tarifs" className="btn by">Passer Pro — 29€/mois →</Link>
               <Link href="/agents" className="btn bg">Voir tous les agents</Link>
             </div>
-            <p style={{ marginTop: 16, fontSize: 11, color: 'var(--mist)', fontFamily: 'var(--fm)' }}>
+            <p style={{ marginTop: 14, fontSize: 11, color: 'var(--mist)', fontFamily: 'var(--fm)' }}>
               14 jours gratuits · Sans carte bancaire · Annulation en 1 clic
             </p>
           </div>
@@ -500,14 +538,17 @@ export default function AgentChatPage() {
 
       {/* INPUT */}
       {!isHardBlocked && (
-        <div style={{ borderTop: '1px solid var(--w1)', padding: '14px 24px', background: 'var(--panel)' }}>
-          <div style={{ maxWidth: 780, margin: '0 auto', display: 'flex', gap: 10, alignItems: 'flex-end' }}>
+        <div className="input-area" style={{
+          borderTop: '1px solid var(--w1)', padding: '12px 20px',
+          background: 'var(--panel)',
+        }}>
+          <div style={{ maxWidth: 780, margin: '0 auto', display: 'flex', gap: 8, alignItems: 'flex-end' }}>
             <textarea
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder={`Posez votre question à ${agent.name}…`}
+              placeholder={`Posez une question à ${agent.name.split(' ')[0]}…`}
               rows={1}
               disabled={isLoading || isHardBlocked}
               style={{
@@ -539,10 +580,10 @@ export default function AgentChatPage() {
               </svg>
             </button>
           </div>
-          <p style={{
-            textAlign: 'center', marginTop: 8, fontSize: 11,
+          <p className="footer-note" style={{
+            textAlign: 'center', marginTop: 6, fontSize: 11,
             color: 'var(--mist)', fontFamily: 'var(--fm)',
-            maxWidth: 780, margin: '8px auto 0',
+            maxWidth: 780, margin: '6px auto 0',
           }}>
             {agent.name} peut faire des erreurs · Hébergé en France · RGPD natif
           </p>
@@ -553,6 +594,32 @@ export default function AgentChatPage() {
         @keyframes chatBounce {
           0%, 80%, 100% { transform: translateY(0); opacity: .35; }
           40% { transform: translateY(-5px); opacity: 1; }
+        }
+
+        .pro-btn-short { display: none; }
+
+        @media (max-width: 640px) {
+          .chat-area { padding: 14px !important; }
+          .input-area { padding: 10px 14px !important; }
+          .back-label { display: none; }
+          .counter-suffix { display: none; }
+          .footer-note { display: none !important; }
+          .pro-btn-long { display: none; }
+          .pro-btn-short { display: inline; }
+          .suggestion-grid {
+            grid-template-columns: 1fr !important;
+            max-width: 100% !important;
+          }
+          .other-agents-row {
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .header-pro-btn { display: none !important; }
         }
       `}</style>
     </div>
