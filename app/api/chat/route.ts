@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getAgentBySlug } from '@/lib/agents-config'
 
 export const dynamic = 'force-dynamic'
 
-const SYSTEM_PROMPT =
+const DEFAULT_SYSTEM_PROMPT =
   "Tu es l'assistant IA de la plateforme Cohesif IA. Tu aides les entreprises françaises à être plus productives. Réponds toujours en français, de façon professionnelle mais accessible. Sois concis (max 200 mots). Si on te demande qui tu es, dis que tu es l'assistant de Cohesif IA, la plateforme IA souveraine française."
 
 const MESSAGE_LIMIT = 20
@@ -15,6 +16,7 @@ interface ChatMessage {
 interface ChatRequest {
   messages: ChatMessage[]
   sessionId?: string
+  agentSlug?: string
 }
 
 function getMessageCount(sessionId: string): number {
@@ -25,7 +27,7 @@ function getMessageCount(sessionId: string): number {
 export async function POST(request: NextRequest): Promise<Response> {
   try {
     const body: ChatRequest = await request.json()
-    const { messages, sessionId } = body
+    const { messages, sessionId, agentSlug } = body
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json({ error: 'INVALID_REQUEST' }, { status: 400 })
@@ -51,6 +53,9 @@ export async function POST(request: NextRequest): Promise<Response> {
       return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
     }
 
+    const agent = agentSlug ? getAgentBySlug(agentSlug) : undefined
+    const systemPrompt = agent?.systemPrompt ?? DEFAULT_SYSTEM_PROMPT
+
     const encoder = new TextEncoder()
     const { readable, writable } = new TransformStream()
     const writer = writable.getWriter()
@@ -70,7 +75,7 @@ export async function POST(request: NextRequest): Promise<Response> {
           body: JSON.stringify({
             model: 'llama-3.1-8b-instant',
             messages: [
-              { role: 'system', content: SYSTEM_PROMPT },
+              { role: 'system', content: systemPrompt },
               ...validMessages,
             ],
             stream: true,
