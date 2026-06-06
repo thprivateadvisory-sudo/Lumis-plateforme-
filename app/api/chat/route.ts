@@ -125,23 +125,19 @@ export async function POST(request: NextRequest): Promise<Response> {
 
     ;(async () => {
       try {
-        const model = getGemini().getGenerativeModel({
-          model: 'gemini-1.5-flash',
-          systemInstruction: SYSTEM_PROMPT,
-        })
-
-        const history = validMessages.slice(0, -1).map((m) => ({
+        const contents = validMessages.map((m) => ({
           role: m.role === 'assistant' ? 'model' : 'user',
           parts: [{ text: m.content }],
         }))
 
-        const lastMessage = validMessages[validMessages.length - 1].content
+        const result = await getGemini().models.generateContentStream({
+          model: 'gemini-2.0-flash',
+          contents,
+          config: { systemInstruction: SYSTEM_PROMPT },
+        })
 
-        const chat = model.startChat({ history })
-        const result = await chat.sendMessageStream(lastMessage)
-
-        for await (const chunk of result.stream) {
-          const text = chunk.text()
+        for await (const chunk of result) {
+          const text = chunk.text
           if (text) {
             await writeSSE('delta', { text })
           }
