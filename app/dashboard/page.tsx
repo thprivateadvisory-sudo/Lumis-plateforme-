@@ -189,9 +189,9 @@ export default function DashboardPage() {
                       background: agent.color + '18',
                       border: `1px solid ${agent.color}33`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 20, flexShrink: 0,
+                      flexShrink: 0, color: agent.color,
                     }}>
-                      {agent.emoji}
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: agent.iconSvg }} />
                     </div>
                     <div>
                       <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--snow)' }}>
