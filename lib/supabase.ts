@@ -5,10 +5,9 @@ let _admin: SupabaseClient | null = null
 
 export function getSupabase(): SupabaseClient {
   if (!_anon) {
-    _anon = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? 'https://placeholder.supabase.co'
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? 'placeholder'
+    _anon = createClient(url, key)
   }
   return _anon
 }
