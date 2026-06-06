@@ -83,6 +83,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         },
       ],
       mode: 'subscription',
+      // 14 jours gratuits sans carte bancaire requise
+      payment_method_collection: 'if_required',
+      subscription_data: {
+        trial_period_days: 14,
+        trial_settings: {
+          end_behavior: {
+            missing_payment_method: 'cancel',
+          },
+        },
+      },
       success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/tarifs`,
       allow_promotion_codes: true,

@@ -17,7 +17,7 @@ export async function getUserSubscription(email: string): Promise<Subscription |
     .from('subscriptions')
     .select('plan, billing, status, stripe_customer_id, created_at')
     .eq('customer_email', email)
-    .eq('status', 'active')
+    .in('status', ['active', 'trialing'])
     .order('created_at', { ascending: false })
     .limit(1)
     .maybeSingle()

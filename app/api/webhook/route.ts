@@ -175,15 +175,19 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         const stripeCustomerId =
           typeof session.customer === 'string' ? session.customer : null
 
+        // Essai gratuit ou abonnement payant → statut 'active' dans les deux cas
+        const status = session.status === 'complete' ? 'active' : 'trialing'
+
         // Persist subscription to Supabase
-        const { error: dbError } = await getSupabaseAdmin().from('subscriptions').insert({
+        const { error: dbError } = await getSupabaseAdmin().from('subscriptions').upsert({
           customer_email: customerEmail,
           plan,
           billing,
           stripe_customer_id: stripeCustomerId,
-          status: 'active',
+          status,
           created_at: new Date().toISOString(),
-        })
+          updated_at: new Date().toISOString(),
+        }, { onConflict: 'customer_email' })
 
         if (dbError) {
           console.error('[webhook/route] Supabase insert error:', dbError)
