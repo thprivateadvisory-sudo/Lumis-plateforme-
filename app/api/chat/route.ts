@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getGemini } from '@/lib/gemini'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,59 +17,9 @@ interface ChatRequest {
   sessionId?: string
 }
 
-const supabaseConfigured =
-  !!process.env.NEXT_PUBLIC_SUPABASE_URL && !!process.env.SUPABASE_SERVICE_ROLE_KEY
-
-async function getOrCreateSession(
-  sessionId: string
-): Promise<{ message_count: number }> {
-  if (!supabaseConfigured) return { message_count: 0 }
-  try {
-    const { getSupabaseAdmin } = await import('@/lib/supabase')
-    const { data, error } = await getSupabaseAdmin()
-      .from('chat_sessions')
-      .select('message_count')
-      .eq('session_id', sessionId)
-      .single()
-
-    if (error || !data) {
-      const { data: newSession, error: insertError } = await getSupabaseAdmin()
-        .from('chat_sessions')
-        .insert({ session_id: sessionId, message_count: 0, created_at: new Date().toISOString() })
-        .select('message_count')
-        .single()
-      if (insertError || !newSession) return { message_count: 0 }
-      return newSession
-    }
-    return data
-  } catch {
-    return { message_count: 0 }
-  }
-}
-
-async function incrementMessageCount(sessionId: string): Promise<void> {
-  if (!supabaseConfigured) return
-  try {
-    const { getSupabaseAdmin } = await import('@/lib/supabase')
-    await getSupabaseAdmin().rpc('increment_message_count', { p_session_id: sessionId }).then(
-      async ({ error }) => {
-        if (error) {
-          const { data } = await getSupabaseAdmin()
-            .from('chat_sessions')
-            .select('message_count')
-            .eq('session_id', sessionId)
-            .single()
-          const currentCount = data?.message_count ?? 0
-          await getSupabaseAdmin()
-            .from('chat_sessions')
-            .update({ message_count: currentCount + 1 })
-            .eq('session_id', sessionId)
-        }
-      }
-    )
-  } catch {
-    // ignore
-  }
+function getMessageCount(sessionId: string): number {
+  void sessionId
+  return 0
 }
 
 export async function POST(request: NextRequest): Promise<Response> {
@@ -79,10 +28,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     const { messages, sessionId } = body
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
-      return NextResponse.json(
-        { error: 'INVALID_REQUEST', message: 'messages array is required' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'INVALID_REQUEST' }, { status: 400 })
     }
 
     const validMessages: ChatMessage[] = messages
@@ -97,20 +43,11 @@ export async function POST(request: NextRequest): Promise<Response> {
       .map((m) => ({ role: m.role, content: m.content.trim() }))
 
     if (validMessages.length === 0) {
-      return NextResponse.json(
-        { error: 'INVALID_REQUEST', message: 'No valid messages provided' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'INVALID_REQUEST' }, { status: 400 })
     }
 
-    const effectiveSessionId =
-      sessionId && sessionId.trim().length > 0
-        ? sessionId.trim()
-        : `anon-${Date.now()}-${Math.random().toString(36).slice(2)}`
-
-    const session = await getOrCreateSession(effectiveSessionId)
-
-    if (session.message_count >= MESSAGE_LIMIT) {
+    const effectiveSessionId = sessionId?.trim() || `anon-${Date.now()}`
+    if (getMessageCount(effectiveSessionId) >= MESSAGE_LIMIT) {
       return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
     }
 
@@ -119,46 +56,66 @@ export async function POST(request: NextRequest): Promise<Response> {
     const writer = writable.getWriter()
 
     const writeSSE = async (event: string, data: unknown): Promise<void> => {
-      const payload = `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
-      await writer.write(encoder.encode(payload))
+      await writer.write(encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`))
     }
 
     ;(async () => {
       try {
-        const contents = validMessages.map((m) => ({
-          role: m.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: m.content }],
-        }))
-
-        const result = await getGemini().models.generateContentStream({
-          model: 'gemini-1.5-flash',
-          contents,
-          config: { systemInstruction: SYSTEM_PROMPT },
+        const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'llama-3.1-8b-instant',
+            messages: [
+              { role: 'system', content: SYSTEM_PROMPT },
+              ...validMessages,
+            ],
+            stream: true,
+            max_tokens: 800,
+          }),
         })
 
-        for await (const chunk of result) {
-          const text = chunk.text
-          if (text) {
-            await writeSSE('delta', { text })
+        if (!groqRes.ok || !groqRes.body) {
+          const errText = await groqRes.text()
+          throw new Error(`Groq ${groqRes.status}: ${errText.slice(0, 200)}`)
+        }
+
+        const reader = groqRes.body.getReader()
+        const decoder = new TextDecoder()
+        let buffer = ''
+
+        while (true) {
+          const { done, value } = await reader.read()
+          if (done) break
+          buffer += decoder.decode(value, { stream: true })
+          const lines = buffer.split('\n')
+          buffer = lines.pop() ?? ''
+          for (const line of lines) {
+            if (!line.startsWith('data: ')) continue
+            const raw = line.slice(6).trim()
+            if (!raw || raw === '[DONE]') continue
+            try {
+              const chunk = JSON.parse(raw)
+              const text = chunk.choices?.[0]?.delta?.content
+              if (text) await writeSSE('delta', { text })
+            } catch {
+              // ignore non-JSON
+            }
           }
         }
 
         await writeSSE('done', {})
-        await incrementMessageCount(effectiveSessionId)
-      } catch (streamError) {
-        const errMsg = streamError instanceof Error ? streamError.message : String(streamError)
-        console.error('[chat/route] Gemini stream error:', errMsg)
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err)
+        console.error('[chat/route] error:', msg)
         try {
           await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
-        } catch {
-          // writer may already be closed
-        }
+        } catch { /* closed */ }
       } finally {
-        try {
-          await writer.close()
-        } catch {
-          // already closed
-        }
+        try { await writer.close() } catch { /* closed */ }
       }
     })()
 
@@ -172,9 +129,6 @@ export async function POST(request: NextRequest): Promise<Response> {
     })
   } catch (error) {
     console.error('[chat/route] Unexpected error:', error)
-    return NextResponse.json(
-      { error: 'INTERNAL_ERROR', message: 'Une erreur est survenue. Veuillez réessayer.' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'INTERNAL_ERROR' }, { status: 500 })
   }
 }
