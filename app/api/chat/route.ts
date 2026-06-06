@@ -144,7 +144,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         const errMsg = streamError instanceof Error ? streamError.message : String(streamError)
         console.error('[chat/route] Gemini stream error:', errMsg)
         try {
-          await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
+          await writeSSE('error', { message: `Erreur: ${errMsg}` })
         } catch {
           // writer may already be closed
         }
