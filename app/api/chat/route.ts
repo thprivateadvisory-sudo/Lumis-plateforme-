@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getGemini } from '@/lib/gemini'
-import { getSupabaseAdmin } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,49 +18,59 @@ interface ChatRequest {
   sessionId?: string
 }
 
+const supabaseConfigured =
+  !!process.env.NEXT_PUBLIC_SUPABASE_URL && !!process.env.SUPABASE_SERVICE_ROLE_KEY
+
 async function getOrCreateSession(
   sessionId: string
 ): Promise<{ message_count: number }> {
-  const { data, error } = await getSupabaseAdmin()
-    .from('chat_sessions')
-    .select('message_count')
-    .eq('session_id', sessionId)
-    .single()
-
-  if (error || !data) {
-    const { data: newSession, error: insertError } = await getSupabaseAdmin()
+  if (!supabaseConfigured) return { message_count: 0 }
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase')
+    const { data, error } = await getSupabaseAdmin()
       .from('chat_sessions')
-      .insert({ session_id: sessionId, message_count: 0, created_at: new Date().toISOString() })
       .select('message_count')
+      .eq('session_id', sessionId)
       .single()
 
-    if (insertError || !newSession) {
-      return { message_count: 0 }
+    if (error || !data) {
+      const { data: newSession, error: insertError } = await getSupabaseAdmin()
+        .from('chat_sessions')
+        .insert({ session_id: sessionId, message_count: 0, created_at: new Date().toISOString() })
+        .select('message_count')
+        .single()
+      if (insertError || !newSession) return { message_count: 0 }
+      return newSession
     }
-    return newSession
+    return data
+  } catch {
+    return { message_count: 0 }
   }
-
-  return data
 }
 
 async function incrementMessageCount(sessionId: string): Promise<void> {
-  await getSupabaseAdmin().rpc('increment_message_count', { p_session_id: sessionId }).then(
-    async ({ error }) => {
-      if (error) {
-        const { data } = await getSupabaseAdmin()
-          .from('chat_sessions')
-          .select('message_count')
-          .eq('session_id', sessionId)
-          .single()
-
-        const currentCount = data?.message_count ?? 0
-        await getSupabaseAdmin()
-          .from('chat_sessions')
-          .update({ message_count: currentCount + 1 })
-          .eq('session_id', sessionId)
+  if (!supabaseConfigured) return
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase')
+    await getSupabaseAdmin().rpc('increment_message_count', { p_session_id: sessionId }).then(
+      async ({ error }) => {
+        if (error) {
+          const { data } = await getSupabaseAdmin()
+            .from('chat_sessions')
+            .select('message_count')
+            .eq('session_id', sessionId)
+            .single()
+          const currentCount = data?.message_count ?? 0
+          await getSupabaseAdmin()
+            .from('chat_sessions')
+            .update({ message_count: currentCount + 1 })
+            .eq('session_id', sessionId)
+        }
       }
-    }
-  )
+    )
+  } catch {
+    // ignore
+  }
 }
 
 export async function POST(request: NextRequest): Promise<Response> {
@@ -144,7 +153,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         const errMsg = streamError instanceof Error ? streamError.message : String(streamError)
         console.error('[chat/route] Gemini stream error:', errMsg)
         try {
-          await writeSSE('error', { message: `Erreur: ${errMsg}` })
+          await writeSSE('error', { message: 'Une erreur est survenue. Veuillez réessayer.' })
         } catch {
           // writer may already be closed
         }
