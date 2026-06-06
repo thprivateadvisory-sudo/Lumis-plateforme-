@@ -88,6 +88,7 @@ export default function AgentChatPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [messageCount, setMessageCount] = useState(0)
   const [isPro, setIsPro] = useState(false)
+  const [modelLabel, setModelLabel] = useState('Cohesif Core')
   const [sessionId] = useState(() => (typeof window !== 'undefined' ? getOrCreateSessionId() : ''))
   const chatAreaRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -183,26 +184,27 @@ export default function AgentChatPage() {
         buffer = lines.pop() ?? ''
 
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const raw = line.slice(6).trim()
-            if (!raw || raw === '{}') continue
-            try {
-              const parsed = JSON.parse(raw)
-              if (parsed.text) {
-                setMessages((prev) =>
-                  prev.map((m) =>
-                    m.id === assistantId ? { ...m, content: m.content + parsed.text } : m
-                  )
+          if (!line.startsWith('data: ')) continue
+          const raw = line.slice(6).trim()
+          if (!raw || raw === '{}') continue
+          try {
+            const parsed = JSON.parse(raw)
+            if (parsed.label) {
+              setModelLabel(parsed.label)
+            } else if (parsed.text) {
+              setMessages((prev) =>
+                prev.map((m) =>
+                  m.id === assistantId ? { ...m, content: m.content + parsed.text } : m
                 )
-              } else if (parsed.message) {
-                setMessages((prev) =>
-                  prev.map((m) =>
-                    m.id === assistantId ? { ...m, content: parsed.message } : m
-                  )
+              )
+            } else if (parsed.message) {
+              setMessages((prev) =>
+                prev.map((m) =>
+                  m.id === assistantId ? { ...m, content: parsed.message } : m
                 )
-              }
-            } catch { /* ignore */ }
-          }
+              )
+            }
+          } catch { /* ignore */ }
         }
       }
     } catch (err: unknown) {
@@ -255,7 +257,7 @@ export default function AgentChatPage() {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--fog)' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0 }} />
-              En ligne · {agent.version}
+              En ligne · <span style={{ color: modelLabel === 'Cohesif Ultra' ? '#0BC8F0' : 'var(--fog)', fontWeight: modelLabel === 'Cohesif Ultra' ? 600 : 400 }}>{modelLabel}</span>
             </div>
           </div>
         </div>

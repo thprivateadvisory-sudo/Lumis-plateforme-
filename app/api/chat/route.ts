@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getAgentBySlug } from '@/lib/agents-config'
 import { getSupabase } from '@/lib/supabase'
 import { getCountStatus, incrementCount } from '@/lib/message-counter'
+import { getUserPlan, type PlanType } from '@/lib/subscription'
 
 export const dynamic = 'force-dynamic'
 
@@ -9,6 +10,14 @@ const DEFAULT_SYSTEM_PROMPT =
   "Tu es l'assistant IA de la plateforme Cohesif IA. Tu aides les entreprises françaises à être plus productives. Réponds toujours en français, de façon professionnelle mais accessible. Sois concis (max 200 mots). Si on te demande qui tu es, dis que tu es l'assistant de Cohesif IA, la plateforme IA souveraine française."
 
 const ANON_LIMIT = 20
+
+// ── Modèles par plan ──────────────────────────────────────────────────────────
+const MODEL_CONFIG: Record<PlanType | 'anon', { model: string; maxTokens: number; label: string }> = {
+  anon:     { model: 'llama-3.1-8b-instant',    maxTokens: 600,  label: 'Cohesif Core' },
+  free:     { model: 'llama-3.1-8b-instant',    maxTokens: 600,  label: 'Cohesif Core' },
+  pro:      { model: 'llama-3.3-70b-versatile', maxTokens: 2000, label: 'Cohesif Ultra' },
+  business: { model: 'llama-3.3-70b-versatile', maxTokens: 4000, label: 'Cohesif Ultra' },
+}
 
 interface ChatMessage {
   role: 'user' | 'assistant'
@@ -54,25 +63,30 @@ export async function POST(request: NextRequest): Promise<Response> {
       return NextResponse.json({ error: 'INVALID_REQUEST' }, { status: 400 })
     }
 
-    // ── Auth check ────────────────────────────────────────────────────────────
+    // ── Auth + plan + limit check ─────────────────────────────────────────────
     const authHeader = request.headers.get('Authorization')
     const user = await resolveUser(authHeader)
 
+    let planKey: PlanType | 'anon' = 'anon'
+
     if (user) {
-      // Authenticated user: server-side count check
-      const status = await getCountStatus(user.id, user.email!, agentSlug || 'demo')
-      if (status.blocked) {
+      const [plan, countStatus] = await Promise.all([
+        getUserPlan(user.email!),
+        getCountStatus(user.id, user.email!, agentSlug || 'demo'),
+      ])
+      planKey = plan
+
+      if (countStatus.blocked) {
         return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
       }
-      // Increment count (fire-and-forget, don't block response)
       incrementCount(user.id, user.email!, agentSlug || 'demo').catch(console.error)
     } else {
-      // Anonymous user: trust client-provided count as best-effort
       if (anonCount >= ANON_LIMIT) {
         return NextResponse.json({ error: 'LIMIT_REACHED' }, { status: 429 })
       }
     }
 
+    const { model, maxTokens, label } = MODEL_CONFIG[planKey]
     const agent = agentSlug ? getAgentBySlug(agentSlug) : undefined
     const systemPrompt = agent?.systemPrompt ?? DEFAULT_SYSTEM_PROMPT
 
@@ -87,6 +101,9 @@ export async function POST(request: NextRequest): Promise<Response> {
 
     ;(async () => {
       try {
+        // Envoie le nom du modèle en premier pour l'afficher dans le UI
+        await writeSSE('model', { label })
+
         const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
           method: 'POST',
           headers: {
@@ -94,13 +111,13 @@ export async function POST(request: NextRequest): Promise<Response> {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            model: 'llama-3.1-8b-instant',
+            model,
             messages: [
               { role: 'system', content: systemPrompt },
               ...validMessages,
             ],
             stream: true,
-            max_tokens: 800,
+            max_tokens: maxTokens,
           }),
         })
 

@@ -77,6 +77,7 @@ export default function DemoPage() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [messageCount, setMessageCount] = useState(0)
+  const [modelLabel, setModelLabel] = useState('Cohesif Core')
   const [sessionId] = useState(() => (typeof window !== 'undefined' ? getOrCreateSessionId() : ''))
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -173,7 +174,9 @@ export default function DemoPage() {
             if (!raw || raw === '{}') continue
             try {
               const parsed = JSON.parse(raw)
-              if (parsed.text) {
+              if (parsed.label) {
+                setModelLabel(parsed.label)
+              } else if (parsed.text) {
                 setMessages((prev) =>
                   prev.map((m) =>
                     m.id === assistantId ? { ...m, content: m.content + parsed.text } : m
@@ -243,7 +246,7 @@ export default function DemoPage() {
           <LumisAvatar />
           <div>
             <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--snow)', letterSpacing: '-.01em' }}>
-              Cohesif Core
+              {modelLabel}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--fog)' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0 }} />
