@@ -89,6 +89,12 @@ export default function DemoPage() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, isLoading])
 
+  const handleInputFocus = () => {
+    setTimeout(() => {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, 300)
+  }
+
   const isHardBlocked = messageCount >= MAX_FREE
 
   const sendMessage = useCallback(async (text: string) => {
@@ -206,8 +212,10 @@ export default function DemoPage() {
 
   return (
     <div style={{
-      display: 'flex', flexDirection: 'column', minHeight: '100vh',
+      display: 'flex', flexDirection: 'column',
+      height: '100dvh',
       paddingTop: 'var(--nav)', background: 'var(--void)',
+      overflow: 'hidden',
     }}>
 
       {/* ── HEADER ── */}
@@ -256,6 +264,7 @@ export default function DemoPage() {
         flex: 1, overflowY: 'auto', padding: '24px',
         display: 'flex', flexDirection: 'column', gap: 20,
         maxWidth: 780, margin: '0 auto', width: '100%',
+        WebkitOverflowScrolling: 'touch',
       }}>
 
         {/* Welcome state */}
@@ -464,7 +473,7 @@ export default function DemoPage() {
                 minHeight: 44, maxHeight: 160, overflowY: 'auto', outline: 'none',
                 transition: 'border-color .15s',
               }}
-              onFocus={(e) => { e.target.style.borderColor = 'rgba(11, 200, 240, .3)' }}
+              onFocus={(e) => { e.target.style.borderColor = 'rgba(11, 200, 240, .3)'; handleInputFocus() }}
               onBlur={(e) => { e.target.style.borderColor = 'var(--w1)' }}
             />
             <button
