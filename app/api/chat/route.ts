@@ -123,7 +123,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     ;(async () => {
       try {
         const stream = getAnthropic().messages.stream({
-          model: 'claude-opus-4-5-20251101',
+          model: 'claude-sonnet-4-6',
           max_tokens: 800,
           system: SYSTEM_PROMPT,
           messages: validMessages,

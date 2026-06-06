@@ -123,7 +123,18 @@ export default function DemoPage() {
       })
 
       if (!res.ok || !res.body) {
-        throw new Error('Network error')
+        if (res.status === 429) {
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === assistantId
+                ? { ...m, content: 'Vous avez atteint la limite de messages gratuits. Passez Pro pour continuer.' }
+                : m
+            )
+          )
+          setIsLoading(false)
+          return
+        }
+        throw new Error(`HTTP ${res.status}`)
       }
 
       const reader = res.body.getReader()
