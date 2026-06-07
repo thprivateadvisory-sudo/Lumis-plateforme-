@@ -72,7 +72,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       )
     }
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lumis.ai'
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cohesif-ia.fr'
 
     const session = await getStripe().checkout.sessions.create({
       payment_method_types: ['card'],

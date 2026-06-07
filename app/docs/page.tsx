@@ -232,10 +232,10 @@ export default function DocsPage() {
               Installez le SDK officiel Cohesif pour votre langage préféré :
             </p>
 
-            <CB lang="bash — Python" code={`pip install lumis-ai`} />
-            <CB lang="bash — Node.js" code={`npm install @lumis/sdk
+            <CB lang="bash — Python" code={`pip install cohesif-ai`} />
+            <CB lang="bash — Node.js" code={`npm install @cohesif/sdk
 # ou
-yarn add @lumis/sdk`} />
+yarn add @cohesif/sdk`} />
 
             {/* Auth */}
             <h3 id="auth" style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', marginTop: '40px', color: 'var(--snow)' }}>
@@ -258,18 +258,18 @@ yarn add @lumis/sdk`} />
               <strong style={{ color: '#ff5577' }}>Sécurité :</strong> Ne commitez jamais votre clé API dans votre code source. Utilisez des variables d'environnement.
             </div>
 
-            <CB lang="bash" code={`export Cohesif_API_KEY="lms-sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"`} />
+            <CB lang="bash" code={`export COHESIF_API_KEY="csf-sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"`} />
 
-            <CB lang="python" code={`import lumis
+            <CB lang="python" code={`import cohesif
 
-client = lumis.Client(api_key="lms-sk-...")
+client = cohesif.Client(api_key="csf-sk-...")
 # ou automatiquement depuis l'env
-client = lumis.Client()  # lit Cohesif_API_KEY`} />
+client = cohesif.Client()  # lit COHESIF_API_KEY`} />
 
-            <CB lang="typescript" code={`import Lumis from '@lumis/sdk'
+            <CB lang="typescript" code={`import Cohesif from '@cohesif/sdk'
 
-const client = new Lumis({
-  apiKey: process.env.Cohesif_API_KEY,
+const client = new Cohesif({
+  apiKey: process.env.COHESIF_API_KEY,
 })`} />
 
             {/* First request */}
@@ -277,12 +277,12 @@ const client = new Lumis({
               Première requête
             </h3>
 
-            <CB lang="python" code={`import lumis
+            <CB lang="python" code={`import cohesif
 
-client = lumis.Client()
+client = cohesif.Client()
 
 response = client.chat.completions.create(
-    model="lumis-ultra",
+    model="cohesif-ultra",
     messages=[
         {
             "role": "system",
@@ -299,12 +299,12 @@ response = client.chat.completions.create(
 
 print(response.choices[0].message.content)`} />
 
-            <CB lang="typescript" code={`import Lumis from '@lumis/sdk'
+            <CB lang="typescript" code={`import Cohesif from '@cohesif/sdk'
 
-const client = new Lumis()
+const client = new Cohesif()
 
 const response = await client.chat.completions.create({
-  model: 'lumis-ultra',
+  model: 'cohesif-ultra',
   messages: [
     {
       role: 'system',
@@ -330,14 +330,14 @@ console.log(response.choices[0].message.content)`} />
             </p>
 
             <CB lang="python" code={`with client.chat.completions.stream(
-    model="lumis-ultra",
+    model="cohesif-ultra",
     messages=[{"role": "user", "content": "Écris un plan business en 5 points"}],
 ) as stream:
     for text in stream.text_stream:
         print(text, end="", flush=True)`} />
 
             <CB lang="typescript" code={`const stream = await client.chat.completions.create({
-  model: 'lumis-ultra',
+  model: 'cohesif-ultra',
   messages: [{ role: 'user', content: 'Écris un plan business en 5 points' }],
   stream: true,
 })
@@ -422,7 +422,7 @@ for await (const chunk of stream) {
             <div style={{ display: 'grid', gap: '12px', marginBottom: '32px' }}>
               {[
                 {
-                  id: 'lumis-ultra',
+                  id: 'cohesif-ultra',
                   name: 'Cohesif Ultra',
                   ctx: '512K tokens',
                   speed: '38ms P95',
@@ -430,7 +430,7 @@ for await (const chunk of stream) {
                   badge: 'Recommandé',
                 },
                 {
-                  id: 'lumis-pro',
+                  id: 'cohesif-pro',
                   name: 'Cohesif Pro',
                   ctx: '128K tokens',
                   speed: '18ms P95',
@@ -438,7 +438,7 @@ for await (const chunk of stream) {
                   badge: 'Populaire',
                 },
                 {
-                  id: 'lumis-flash',
+                  id: 'cohesif-flash',
                   name: 'Cohesif Flash',
                   ctx: '32K tokens',
                   speed: '8ms P95',
@@ -446,7 +446,7 @@ for await (const chunk of stream) {
                   badge: 'Rapide',
                 },
                 {
-                  id: 'lumis-embed',
+                  id: 'cohesif-embed',
                   name: 'Cohesif Embed',
                   ctx: '8K tokens',
                   speed: '5ms P95',
@@ -560,7 +560,7 @@ for await (const chunk of stream) {
             <CB lang="python" code={`agent = client.agents.create(
     name="Prospecteur Commercial",
     description="Qualifie les leads LinkedIn et rédige des emails personnalisés",
-    model="lumis-ultra",
+    model="cohesif-ultra",
     instructions="""Tu es un expert en développement commercial B2B.
 Pour chaque lead :
 1. Analyse le profil LinkedIn et le site web de l'entreprise
@@ -689,12 +689,12 @@ def verify_webhook(payload: bytes, signature: str, secret: str) -> bool:
     return hmac.compare_digest(f"sha256={expected}", signature)
 
 # Dans votre handler Flask/FastAPI :
-@app.post("/webhook/lumis")
+@app.post("/webhook/cohesif")
 async def handle_webhook(request: Request):
     payload = await request.body()
-    signature = request.headers.get("X-Lumis-Signature")
+    signature = request.headers.get("X-Cohesif-Signature")
 
-    if not verify_webhook(payload, signature, os.getenv("Cohesif_WEBHOOK_SECRET")):
+    if not verify_webhook(payload, signature, os.getenv("COHESIF_WEBHOOK_SECRET")):
         raise HTTPException(status_code=401, detail="Signature invalide")
 
     event = json.loads(payload)
@@ -709,10 +709,10 @@ async def handle_webhook(request: Request):
 
             <div className="g2" style={{ gap: '16px', marginBottom: '32px' }}>
               {[
-                { lang: 'Python', id: 'sdk-python', pkg: 'lumis-ai', install: 'pip install lumis-ai', v: '1.4.2', status: 'Stable' },
-                { lang: 'JavaScript / TypeScript', id: 'sdk-js', pkg: '@lumis/sdk', install: 'npm i @lumis/sdk', v: '1.4.1', status: 'Stable' },
-                { lang: 'Go', id: 'sdk-go', pkg: 'github.com/lumis-ai/go-sdk', install: 'go get github.com/lumis-ai/go-sdk', v: '0.9.0', status: 'Beta' },
-                { lang: 'Java', id: 'sdk-java', pkg: 'ai.lumis:lumis-sdk', install: 'Maven / Gradle', v: '0.7.0', status: 'Beta' },
+                { lang: 'Python', id: 'sdk-python', pkg: 'cohesif-ai', install: 'pip install cohesif-ai', v: '1.4.2', status: 'Stable' },
+                { lang: 'JavaScript / TypeScript', id: 'sdk-js', pkg: '@cohesif/sdk', install: 'npm i @cohesif/sdk', v: '1.4.1', status: 'Stable' },
+                { lang: 'Go', id: 'sdk-go', pkg: 'github.com/cohesif-ai/go-sdk', install: 'go get github.com/cohesif-ai/go-sdk', v: '0.9.0', status: 'Beta' },
+                { lang: 'Java', id: 'sdk-java', pkg: 'ai.cohesif:cohesif-sdk', install: 'Maven / Gradle', v: '0.7.0', status: 'Beta' },
               ].map((sdk) => (
                 <div key={sdk.id} id={sdk.id} style={{
                   background: 'var(--card)',

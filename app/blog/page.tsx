@@ -30,7 +30,7 @@ const ARTICLES = [
     featured: true,
   },
   {
-    slug: 'lumis-vs-gpt4o-benchmark-francais',
+    slug: 'cohesif-vs-gpt4o-benchmark-francais',
     category: 'Technique',
     categoryColor: '#0BC8F0',
     categoryBg: 'rgba(11,200,240,.12)',
