@@ -173,56 +173,57 @@ export default function EntreprisesPage() {
             {[
               {
                 id: 'pme',
-                emoji: '🏢',
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>,
                 title: 'PME & Scale-ups',
-                desc: 'Automatisez vos processus, boostez votre prospection et réduisez vos coûts opérationnels dès 29€/mois. Déploiement en 48h, sans équipe IT dédiée.',
-                points: ['Onboarding guidé en 48h', 'Agents prêts à l\'emploi', 'Tarifs adaptés à votre taille'],
+                desc: "Automatisez vos processus, boostez votre prospection et réduisez vos coûts opérationnels dès 29€/mois. Déploiement en 48h, sans équipe IT dédiée.",
+                points: ["Onboarding guidé en 48h", "Agents prêts à l'emploi", "Tarifs adaptés à votre taille"],
               },
               {
                 id: 'grands-comptes',
-                emoji: '🏦',
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><rect x="4" y="2" width="16" height="20" rx="1"/><rect x="8" y="6" width="3" height="3" rx=".5"/><rect x="13" y="6" width="3" height="3" rx=".5"/><rect x="8" y="12" width="3" height="3" rx=".5"/><rect x="13" y="12" width="3" height="3" rx=".5"/><path d="M9 22v-4h6v4"/></svg>,
                 title: 'Grands comptes',
-                desc: 'Infrastructure dédiée, SLA 99.99%, intégration SAP / Salesforce / SharePoint. Un Customer Success Manager dédié et un audit de sécurité inclus.',
-                points: ['Cloud dédié ou on-premise', 'Fine-tuning sur vos données', 'Support 24/7 contractuel'],
+                desc: "Infrastructure dédiée, SLA 99.99%, intégration SAP / Salesforce / SharePoint. Un Customer Success Manager dédié et un audit de sécurité inclus.",
+                points: ["Cloud dédié ou on-premise", "Fine-tuning sur vos données", "Support 24/7 contractuel"],
               },
               {
                 id: 'sante',
-                emoji: '🏥',
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,
                 title: 'Secteur Santé',
-                desc: 'Hébergement HDS certifié, conformité RGPD et ANSSI. Synthèse de comptes-rendus, aide au diagnostic, gestion administrative automatisée.',
-                points: ['Certifié HDS', 'Zéro donnée exportée hors France', 'Compatible DPI & logiciels métier'],
+                desc: "Hébergement HDS certifié, conformité RGPD et ANSSI. Synthèse de comptes-rendus, aide au diagnostic, gestion administrative automatisée.",
+                points: ["Certifié HDS", "Zéro donnée exportée hors France", "Compatible DPI & logiciels métier"],
               },
               {
                 id: 'finance',
-                emoji: '📊',
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>,
                 title: 'Finance & Banque',
-                desc: 'Analyse de risques, conformité réglementaire (MiFID, DORA), détection de fraude et reporting automatisé. Audit trail complet.',
-                points: ['Conformité MiFID II / DORA', 'Audit logs RGPD complets', 'Analyse de contrats en masse'],
+                desc: "Analyse de risques, conformité réglementaire (MiFID, DORA), détection de fraude et reporting automatisé. Audit trail complet.",
+                points: ["Conformité MiFID II / DORA", "Audit logs RGPD complets", "Analyse de contrats en masse"],
               },
               {
                 id: 'industrie',
-                emoji: '⚙️',
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M12 2v2M12 20v2"/></svg>,
                 title: 'Industrie',
-                desc: 'Maintenance prédictive, contrôle qualité IA, optimisation de chaîne logistique. Intégration avec vos outils ERP et SCADA.',
-                points: ['Connecteurs ERP natifs', 'Maintenance prédictive', 'Rapport de production automatisé'],
+                desc: "Maintenance prédictive, contrôle qualité IA, optimisation de chaîne logistique. Intégration avec vos outils ERP et SCADA.",
+                points: ["Connecteurs ERP natifs", "Maintenance prédictive", "Rapport de production automatisé"],
               },
               {
                 id: 'secteur-public',
-                emoji: '🏛️',
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="3" y1="10" x2="21" y2="10"/><polygon points="12 2 3 10 21 10 12 2"/><line x1="7" y1="10" x2="7" y2="22"/><line x1="17" y1="10" x2="17" y2="22"/><line x1="12" y1="10" x2="12" y2="22"/></svg>,
                 title: 'Secteur Public',
-                desc: 'Infrastructure souveraine conforme SecNumCloud, traitement des données sensibles en France. Marchés publics et accompagnement dédié.',
-                points: ['Éligible marchés publics', 'Hébergement souverain France', 'Conformité SecNumCloud'],
+                desc: "Infrastructure souveraine conforme SecNumCloud, traitement des données sensibles en France. Marchés publics et accompagnement dédié.",
+                points: ["Éligible marchés publics", "Hébergement souverain France", "Conformité SecNumCloud"],
               },
             ].map(s => (
               <div key={s.id} id={s.id} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 20, padding: '28px 32px', scrollMarginTop: 80, display: 'flex', gap: 28, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                <div style={{ fontSize: 36, flexShrink: 0, lineHeight: 1 }}>{s.emoji}</div>
+                <div style={{ width: 48, height: 48, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--y)', flexShrink: 0 }}>{s.icon}</div>
                 <div style={{ flex: 1, minWidth: 220 }}>
                   <div style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', marginBottom: 8, color: 'var(--snow)' }}>{s.title}</div>
                   <div style={{ fontSize: 14, color: 'var(--fog)', lineHeight: 1.65, marginBottom: 14 }}>{s.desc}</div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                     {s.points.map(p => (
-                      <span key={p} style={{ fontSize: 12, fontWeight: 600, color: 'var(--y)', background: 'var(--yd)', border: '1px solid rgba(11,200,240,.15)', borderRadius: 50, padding: '4px 12px' }}>
-                        ✓ {p}
+                      <span key={p} style={{ fontSize: 12, fontWeight: 600, color: 'var(--y)', background: 'var(--yd)', border: '1px solid rgba(11,200,240,.15)', borderRadius: 50, padding: '4px 12px', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {p}
                       </span>
                     ))}
                   </div>

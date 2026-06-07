@@ -340,7 +340,7 @@ export default function ProduitsPage() {
                           gap: '8px',
                         }}
                       >
-                        <span style={{ color: 'var(--y)', fontWeight: 700, flexShrink: 0 }}>✓</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--y)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><polyline points="20 6 9 17 4 12"/></svg>
                         {f}
                       </li>
                     ))}
@@ -422,9 +422,21 @@ export default function ProduitsPage() {
             </div>
             <div className="wgrid" style={{ gap: '24px' }}>
               {[
-                { icon: '🇫🇷', title: 'Souveraineté totale', desc: 'Données hébergées en Île-de-France. Certifié HDS et ISO 27001. Zéro transfert hors UE.' },
-                { icon: '⚡', title: 'Performance mondiale', desc: 'Latence 38ms P95. 4B+ tokens/jour. Modèles qui surpassent GPT-4o sur les benchmarks français.' },
-                { icon: '🔒', title: 'RGPD natif', desc: 'Architecture privacy-by-design. DPA fourni. Registre de traitement automatisé. Conformité intégrée.' },
+                {
+                  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+                  title: 'Souveraineté totale',
+                  desc: 'Données hébergées en Île-de-France. Certifié HDS et ISO 27001. Zéro transfert hors UE.',
+                },
+                {
+                  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+                  title: 'Performance mondiale',
+                  desc: 'Latence 38ms P95. 4B+ tokens/jour. Modèles qui surpassent GPT-4o sur les benchmarks français.',
+                },
+                {
+                  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>,
+                  title: 'RGPD natif',
+                  desc: 'Architecture privacy-by-design. DPA fourni. Registre de traitement automatisé. Conformité intégrée.',
+                },
               ].map((item) => (
                 <div key={item.title} style={{ textAlign: 'center', padding: '24px 16px' }}>
                   <div
@@ -433,10 +445,11 @@ export default function ProduitsPage() {
                       height: 52,
                       borderRadius: '12px',
                       background: 'rgba(11, 200, 240, 0.08)',
+                      border: '1px solid rgba(11, 200, 240, 0.15)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '1.5rem',
+                      color: 'var(--y)',
                       margin: '0 auto 16px',
                     }}
                   >

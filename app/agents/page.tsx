@@ -79,10 +79,11 @@ export default function AgentsPage() {
 
                   <div className="ags">
                     <span className="agst">
-                      ⭐ <b>{agent.rating}</b>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" stroke="none" style={{ color: 'var(--y)', flexShrink: 0 }}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      {' '}<b>{agent.rating}</b>
                     </span>
                     <span className="agst">
-                      🚀 <b>{agent.deployments}</b> déploiements
+                      <b>{agent.deployments}</b> déploiements
                     </span>
                     <span className="agst" style={{ marginLeft: 'auto' }}>
                       <b style={{ color: 'var(--y)' }}>{agent.kpi}</b>

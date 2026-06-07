@@ -12,11 +12,34 @@ interface Message {
   id: string
 }
 
-const SUGGESTED_PROMPTS = [
-  { icon: '✍️', label: 'Rédige un email commercial percutant' },
-  { icon: '📊', label: 'Analyse financière de mes données' },
-  { icon: '🚀', label: 'Stratégie marketing B2B pour ma startup' },
-  { icon: '⚖️', label: 'Résume et vérifie ce contrat' },
+const IcEdit = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+  </svg>
+)
+const IcBarChart = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+  </svg>
+)
+const IcTarget = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </svg>
+)
+const IcFileText = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+  </svg>
+)
+
+const SUGGESTED_PROMPTS: { icon: React.ReactNode; label: string }[] = [
+  { icon: <IcEdit />, label: 'Rédige un email commercial percutant' },
+  { icon: <IcBarChart />, label: 'Analyse financière de mes données' },
+  { icon: <IcTarget />, label: 'Stratégie marketing B2B pour ma startup' },
+  { icon: <IcFileText />, label: 'Résume et vérifie ce contrat' },
 ]
 
 const MAX_FREE = 20
@@ -28,26 +51,26 @@ function generateId() {
 
 function getOrCreateSessionId(): string {
   if (typeof window === 'undefined') return ''
-  let id = localStorage.getItem('lumis_session_id')
+  let id = localStorage.getItem('cohesif_session_id')
   if (!id) {
     id = generateId() + generateId()
-    localStorage.setItem('lumis_session_id', id)
+    localStorage.setItem('cohesif_session_id', id)
   }
   return id
 }
 
 function getMessageCount(): number {
   if (typeof window === 'undefined') return 0
-  return parseInt(localStorage.getItem('lumis_chat_count') || '0', 10)
+  return parseInt(localStorage.getItem('cohesif_chat_count') || '0', 10)
 }
 
 function incrementMessageCount(): number {
   const next = getMessageCount() + 1
-  localStorage.setItem('lumis_chat_count', String(next))
+  localStorage.setItem('cohesif_chat_count', String(next))
   return next
 }
 
-const LumisAvatar = () => (
+const CohesifAvatar = () => (
   <div style={{
     width: 32, height: 32, borderRadius: 9, background: 'var(--y)',
     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
@@ -243,7 +266,7 @@ export default function DemoPage() {
         gap: 16,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
-          <LumisAvatar />
+          <CohesifAvatar />
           <div>
             <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--snow)', letterSpacing: '-.01em' }}>
               {modelLabel}
@@ -285,7 +308,7 @@ export default function DemoPage() {
         {messages.length === 0 && (
           <div style={{ padding: '48px 0 32px' }}>
             <div style={{ marginBottom: 20 }}>
-              <LumisAvatar />
+              <CohesifAvatar />
             </div>
             <h2 style={{
               fontFamily: 'var(--fh)', fontSize: 22, fontWeight: 800,
@@ -333,7 +356,7 @@ export default function DemoPage() {
                     e.currentTarget.style.background = 'transparent'
                   }}
                 >
-                  <span style={{ fontSize: 16, flexShrink: 0, marginTop: 1 }}>{p.icon}</span>
+                  <span style={{ flexShrink: 0, marginTop: 1, color: 'var(--fog)' }}>{p.icon}</span>
                   <span>{p.label}</span>
                 </button>
               ))}
@@ -378,7 +401,7 @@ export default function DemoPage() {
               alignItems: 'flex-start',
               gap: 10,
             }}>
-              {msg.role === 'user' ? <UserAvatar /> : <LumisAvatar />}
+              {msg.role === 'user' ? <UserAvatar /> : <CohesifAvatar />}
 
               <div style={{
                 maxWidth: '74%',
@@ -413,7 +436,7 @@ export default function DemoPage() {
         {/* Loading indicator */}
         {isLoading && messages[messages.length - 1]?.role !== 'assistant' && (
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-            <LumisAvatar />
+            <CohesifAvatar />
             <div style={{
               background: 'var(--card)', border: '1px solid var(--w1)',
               borderRadius: '3px 14px 14px 14px',
@@ -441,7 +464,7 @@ export default function DemoPage() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               margin: '0 auto 20px',
             }}>
-              <LumisAvatar />
+              <CohesifAvatar />
             </div>
             <h3 style={{
               fontFamily: 'var(--fh)', fontSize: 20, fontWeight: 800,
