@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Académie Cohesif — Certifications IA pour professionnels',
+  title: 'Académie LUMIS — Certifications IA pour professionnels',
   description:
-    "Maîtrisez l'IA en 3 mois avec les parcours certifiants Cohesif. Fondamentaux, Agents Autonomes, IA Enterprise, Prompt Engineering, No-Code et IA & Droit. Certificats reconnus par 480+ entreprises.",
+    "Maîtrisez l'IA en 3 mois avec les parcours certifiants LUMIS. Fondamentaux, Agents Autonomes, IA Enterprise, Prompt Engineering, No-Code et IA & Droit. Certificats reconnus par 480+ entreprises.",
   openGraph: {
-    title: 'Académie Cohesif — Certifications IA pour professionnels',
+    title: 'Académie LUMIS — Certifications IA pour professionnels',
     description: "6 parcours certifiants. 34 080+ diplômés. Maîtrisez l'IA en 3 mois.",
-    url: 'https://cohesif-ia.fr/academie',
+    url: 'https://lumis.ai/academie',
   },
 }
 
@@ -130,7 +130,7 @@ const COURSES: Array<{
     num: '02',
     Icon: IcCycle,
     level: 'Intermédiaire',
-    levelColor: '#0BC8F0',
+    levelColor: '#d4ff00',
     title: 'Agents Autonomes',
     description:
       "Concevez, déployez et optimisez des agents IA métier. Orchestrez plusieurs agents, gérez les mémoires et construisez des pipelines automatisés.",
@@ -175,10 +175,10 @@ const COURSES: Array<{
     num: '05',
     Icon: IcShare,
     level: 'Intermédiaire',
-    levelColor: '#0BC8F0',
+    levelColor: '#d4ff00',
     title: 'Automatisation No-Code',
     description:
-      "Automatisez vos processus métier sans coder. Connectez Cohesif à vos outils (Make, Zapier, n8n, Notion, Slack) et construisez des workflows IA puissants.",
+      "Automatisez vos processus métier sans coder. Connectez LUMIS à vos outils (Make, Zapier, n8n, Notion, Slack) et construisez des workflows IA puissants.",
     price: '199€',
     rating: '4.8',
     students: '5 900',
@@ -226,7 +226,7 @@ const LEARNING_PATH = [
     title: 'Maîtrise',
     desc: "Devenez le référent IA de votre organisation. Architecture enterprise, conformité légale et gouvernance des systèmes IA.",
     courses: ['IA Enterprise', 'IA & Droit'],
-    outcome: "Vous êtes certifié Cohesif Expert et capable de piloter la transformation IA de toute organisation.",
+    outcome: "Vous êtes certifié LUMIS Expert et capable de piloter la transformation IA de toute organisation.",
   },
 ]
 
@@ -249,7 +249,7 @@ const METHOD = [
   {
     num: '04',
     title: 'Réseau professionnel',
-    desc: "Accès à la communauté de 34 000+ alumni actifs et aux entreprises partenaires qui recrutent des profils certifiés Cohesif.",
+    desc: "Accès à la communauté de 34 000+ alumni actifs et aux entreprises partenaires qui recrutent des profils certifiés LUMIS.",
   },
 ]
 
@@ -284,7 +284,7 @@ export default function AcademiePage() {
         />
 
         <div className="wm" style={{ textAlign: 'center', position: 'relative' }}>
-          <div className="tag">Académie Cohesif</div>
+          <div className="tag">Académie LUMIS</div>
           <h1 className="h2">
             Devenez expert IA
             <br />
@@ -634,7 +634,7 @@ export default function AcademiePage() {
                   maxWidth: '380px',
                 }}
               >
-                Pas de MOOC généraliste. Chaque formation Cohesif est construite autour d&apos;un
+                Pas de MOOC généraliste. Chaque formation LUMIS est construite autour d&apos;un
                 objectif métier précis, avec un accompagnement humain tout au long du parcours.
               </p>
             </div>
@@ -884,7 +884,7 @@ export default function AcademiePage() {
                   color: 'var(--snow)',
                 }}
               >
-                Parcours Complet Cohesif Expert
+                Parcours Complet LUMIS Expert
               </h3>
               <p
                 style={{
@@ -1153,7 +1153,7 @@ export default function AcademiePage() {
               margin: '0 auto 32px',
             }}
           >
-            Rejoignez les 34 080 professionnels qui ont déjà choisi Cohesif pour monter en
+            Rejoignez les 34 080 professionnels qui ont déjà choisi LUMIS pour monter en
             compétence sur l&apos;IA.
           </p>
           <div
