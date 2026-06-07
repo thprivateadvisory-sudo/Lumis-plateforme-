@@ -326,6 +326,15 @@ export default function AcademiePage() {
       </section>
 
       {/* ── STATS BAND ──────────────────────────────────────────────────── */}
+      <style>{`
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 640px) {
+          .stats-grid { grid-template-columns: 1fr 1fr; }
+          .stats-grid > div:nth-child(2) { border-right: none !important; }
+          .stats-grid > div:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.06); }
+          .stats-grid > div:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.06); border-right: none !important; }
+        }
+      `}</style>
       <div
         style={{
           borderTop: '1px solid rgba(255,255,255,0.06)',
@@ -334,12 +343,7 @@ export default function AcademiePage() {
         }}
       >
         <div className="w">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-            }}
-          >
+          <div className="stats-grid">
             {[
               { value: '34 080', label: 'professionnels formés' },
               { value: '480+', label: 'entreprises partenaires' },
