@@ -207,6 +207,8 @@ video {
   transform: translateY(-1px);
   box-shadow: 0 8px 32px rgba(11, 200, 240, 0.25);
 }
+.by:active { transform: translateY(0); box-shadow: none; }
+.by:focus-visible { outline: 2px solid var(--y); outline-offset: 3px; }
 
 /* Ghost button */
 .bg {
@@ -217,7 +219,10 @@ video {
 .bg:hover {
   border-color: var(--w3);
   background: var(--w1);
+  transform: translateY(-1px);
 }
+.bg:active { transform: translateY(0); }
+.bg:focus-visible { outline: 2px solid var(--w3); outline-offset: 3px; }
 
 /* Large ghost button */
 .blg {
@@ -962,14 +967,20 @@ video {
   border-radius: 16px;
   padding: 36px 32px;
   position: relative;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .pbox:hover {
   border-color: var(--w2);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
 }
 .pbox.pfeatured {
   border-color: rgba(11, 200, 240, 0.3);
   background: linear-gradient(135deg, rgba(11, 200, 240, 0.04) 0%, var(--panel) 60%);
+}
+.pbox.pfeatured:hover {
+  border-color: rgba(11, 200, 240, 0.6);
+  box-shadow: 0 16px 48px rgba(11,200,240,0.12);
 }
 .pbox-badge {
   position: absolute;
@@ -1686,9 +1697,13 @@ video {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.agc:hover { border-color: var(--w2); }
+.agc:hover {
+  border-color: var(--w2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
 .agh {
   display: flex;
   align-items: center;

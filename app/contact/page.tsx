@@ -117,13 +117,13 @@ export default function ContactPage() {
             {/* Info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
               {[
-                { icon: '📍', title: 'Siège social', content: '200 rue de la Croix Nivert\nParis, France' },
-                { icon: '⚡', title: 'Réponse rapide', content: 'Réponse garantie sous 4 heures ouvrées (lun–ven).' },
-                { icon: '🤝', title: 'Accompagnement', content: 'Audit, déploiement et suivi par notre équipe. Disponible du lundi au vendredi.' },
+                { iconSvg: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>', title: 'Siège social', content: '200 rue de la Croix Nivert\nParis, France' },
+                { iconSvg: '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>', title: 'Réponse rapide', content: 'Réponse garantie sous 4 heures ouvrées (lun–ven).' },
+                { iconSvg: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>', title: 'Accompagnement', content: 'Audit, déploiement et suivi par notre équipe. Disponible du lundi au vendredi.' },
               ].map(card => (
-                <div key={card.title} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 16, padding: 22, display: 'flex', gap: 15 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 12, background: 'var(--yd)', border: '1px solid rgba(11,200,240,.15)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 19 }}>
-                    {card.icon}
+                <div key={card.title} style={{ background: 'var(--card)', border: '1px solid var(--w1)', borderRadius: 16, padding: 22, display: 'flex', gap: 15, transition: 'border-color 0.2s, transform 0.2s' }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 12, background: 'rgba(11,200,240,0.08)', border: '1px solid rgba(11,200,240,.2)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0BC8F0' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: card.iconSvg }} />
                   </div>
                   <div>
                     <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 4 }}>{card.title}</div>
