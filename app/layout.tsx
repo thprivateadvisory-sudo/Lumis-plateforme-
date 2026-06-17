@@ -94,6 +94,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: '/cohesif-icon.png',
+    apple: '/cohesif-icon.png',
+  },
   metadataBase: new URL('https://cohesif-ia.fr'),
   // Google Search Console verification: add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
