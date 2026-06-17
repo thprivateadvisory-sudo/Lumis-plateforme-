@@ -1397,6 +1397,16 @@ video {
   }
 }
 
+@media (hover: none), (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+  #cur,
+  #curo {
+    display: none !important;
+  }
+}
+
 /* ─── HOMEPAGE LAYOUTS ────────────────────────────────────────────────── */
 
 /* Hero split: copy left, terminal right — sits inside .w, no extra padding */
