@@ -505,9 +505,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="cta-num" style={{ fontFamily: 'var(--fm)', fontSize: 'clamp(5rem,10vw,9rem)', fontWeight: 700, lineHeight: 0.9, letterSpacing: '-.04em', WebkitTextStroke: '1px rgba(255,255,255,.1)', color: 'transparent', userSelect: 'none', textAlign: 'right' }}>
-              312<br />000
-            </div>
           </div>
         </div>
       </section>
