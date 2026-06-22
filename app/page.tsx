@@ -25,27 +25,6 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Cohesif IA',
-  url: 'https://cohesif-ia.fr',
-  logo: 'https://cohesif-ia.fr/logo.png',
-  description:
-    'Plateforme IA souveraine française. Agents autonomes, LLM propriétaires, certifiée ISO 27001, HDS, SOC 2.',
-  foundingDate: '2022',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '200 rue de la Croix Nivert',
-    addressLocality: 'Paris',
-    addressCountry: 'FR',
-  },
-  sameAs: [
-    'https://twitter.com/cohesifai',
-    'https://linkedin.com/company/cohesifai',
-  ],
-}
-
 const LOGOS = [
   { name: 'BNP Paribas' },
   { name: 'Air France' },
@@ -265,8 +244,6 @@ function TerminalPreview() {
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
       {/* ── HERO ── */}
       <section id="hero">
         <div className="hbg">
