@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/checkout/'],
+        disallow: ['/api/', '/checkout/', '/dashboard/', '/connexion/'],
       },
     ],
     sitemap: 'https://cohesif-ia.fr/sitemap.xml',
