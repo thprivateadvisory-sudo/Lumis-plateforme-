@@ -59,6 +59,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Groupe Cohesif', url: 'https://cohesif-ia.fr' }],
   creator: 'Groupe Cohesif',
   publisher: 'Groupe Cohesif',
+  category: 'technology',
   openGraph: {
     title: 'Cohesif IA — Plateforme IA Souveraine Française',
     description:
@@ -92,7 +93,11 @@ export const metadata: Metadata = {
       follow: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
     },
+  },
+  alternates: {
+    canonical: 'https://cohesif-ia.fr',
   },
   icons: {
     icon: '/cohesif-icon.png',
@@ -103,6 +108,56 @@ export const metadata: Metadata = {
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
     : {}),
+}
+
+/* ─── STRUCTURED DATA ───────────────────────────────────────────────────── */
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Cohesif IA',
+  url: 'https://cohesif-ia.fr',
+  logo: 'https://cohesif-ia.fr/cohesif-logo.png',
+  description:
+    "Plateforme d'intelligence artificielle souveraine française. Agents IA autonomes, LLM propriétaires, certifiée ISO 27001, HDS, SOC 2.",
+  foundingDate: '2022',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '200 rue de la Croix Nivert',
+    addressLocality: 'Paris',
+    postalCode: '75015',
+    addressCountry: 'FR',
+  },
+  sameAs: [
+    'https://twitter.com/cohesifai',
+    'https://linkedin.com/company/cohesifai',
+  ],
+}
+
+const webApplicationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Cohesif IA',
+  url: 'https://cohesif-ia.fr',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description:
+    "Plateforme IA souveraine française pour les grandes organisations. Agents IA autonomes, certifiée ISO 27001, HDS, SOC 2.",
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: '29',
+    highPrice: '299',
+    offerCount: '3',
+  },
+  featureList: [
+    'Agents IA autonomes',
+    'LLM souverain français',
+    'Certifié ISO 27001, HDS, SOC 2',
+    'Infrastructure 100% hébergée en France',
+    'SLA 99.99%',
+    'Conformité RGPD native',
+  ],
+  inLanguage: 'fr',
 }
 
 /* ─── ROOT LAYOUT ────────────────────────────────────────────────────────── */
@@ -124,6 +179,14 @@ export default function RootLayout({
       style={fontStyle}
     >
       <body style={{ overflowX: 'hidden', cursor: 'none' }}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationJsonLd) }}
+        />
         <AuthProvider>
         {/* Custom cursor */}
         <div id="cur" aria-hidden="true" />

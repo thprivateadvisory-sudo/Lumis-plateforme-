@@ -4,6 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://cohesif-ia.fr'
   const now = new Date()
 
+  // Only include publicly accessible pages — exclude /dashboard, /connexion, /checkout
   const pages = [
     { path: '/', priority: 1.0, changeFrequency: 'weekly' as const },
     { path: '/demo', priority: 0.9, changeFrequency: 'monthly' as const },
@@ -22,7 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/presse', priority: 0.5, changeFrequency: 'monthly' as const },
     { path: '/roi', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/guide', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: '/checkout/success', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/precommande', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/legal/confidentialite', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/legal/cgu', priority: 0.3, changeFrequency: 'yearly' as const },
